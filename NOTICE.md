@@ -46,4 +46,8 @@ Changes made in this fork, starting 2026-11-10:
   swings) and AnchorTiming (automated respawn-anchor PvP), the
   `/nsac knockback` test command, and an alert/kick/ban escalation for
   Improbable in punishments.yml.
+- Added the session recorder (`/nsac record start|stop|status`): one CSV row
+  per client tick, gzip-compressed, players stored as a salted SHA-256
+  pseudonym, written on a single low-priority background thread; plus
+  `tools/ai/recordings.py` to summarize recordings.
 - CI workflow runs on the `main` branch.

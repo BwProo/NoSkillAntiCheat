@@ -195,6 +195,11 @@ bukkit {
             default = Permission.Default.OP
         }
 
+        register("grim.record") {
+            description = "Record player sessions for AI training and regression tests"
+            default = Permission.Default.OP
+        }
+
         register("grim.knockback") {
             description = "Send a player test knockback to check AntiKB"
             default = Permission.Default.OP
