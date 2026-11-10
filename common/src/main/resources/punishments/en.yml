@@ -94,6 +94,7 @@ Punishments:
       - "MultiActions"
       - "Place"
       - "Break"
+      - "!NoSwingBreak"
       - "TransactionOrder"
       - "Elytra"
       - "Chat"
@@ -150,3 +151,14 @@ Punishments:
       - "1:1 [log]"
       - "3:0 kick %player% Suspicious gameplay"
       - "5:0 ban %player% Cheating (multiple checks)"
+  # NoSkillAntiCheat: breaking blocks without swinging, e.g. Baritone #mine or a Nuker.
+  # Baritone produces many flags per second; a legit player never reaches these numbers.
+  AutoMining:
+    remove-violations-after: 300
+    checks:
+      - "NoSwingBreak"
+    commands:
+      - "5:20 [alert]"
+      - "1:1 [log]"
+      - "100:0 kick %player% Automated mining (Baritone/Nuker)"
+      - "300:0 ban %player% Automated mining (Baritone/Nuker)"

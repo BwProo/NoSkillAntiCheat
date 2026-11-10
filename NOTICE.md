@@ -79,4 +79,7 @@ Changes made in this fork, starting 2026-11-10:
   TotemGuard plugin); flight attempts are labelled Flight.
 - Experimental XrayMining check: rare-ore veins found by tunnelling (no cave
   next to them) per natural underground block mined, over a time window.
+- NoSwingBreak is active (not experimental) with an AutoMining punishment
+  group (kick at 100, ban at 300 flags within 5 minutes) against Baritone
+  #mine and Nukers.
 - CI workflow runs on the `main` branch.

@@ -68,7 +68,7 @@ public final class CheckNames {
         put("FarBreak", "Nuker (too far)");
         put("MultiBreak", "Nuker (multiple blocks)");
         put("RotationBreak", "Nuker (not looking)");
-        put("NoSwingBreak", "Nuker (no swing)");
+        put("NoSwingBreak", "Nuker/Baritone (no swing)");
         put("AirLiquidBreak", "Break air/liquid");
         put("WrongBreak", "Break wrong block");
         put("InvalidBreak", "Invalid break");
