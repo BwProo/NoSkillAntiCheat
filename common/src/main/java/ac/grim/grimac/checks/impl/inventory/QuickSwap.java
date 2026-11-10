@@ -7,7 +7,6 @@ import ac.grim.grimac.player.GrimPlayer;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientHeldItemChange;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 
 /**
  * NoSkillAntiCheat: switch to another hotbar slot, attack/use/place, and switch straight back
@@ -29,8 +28,8 @@ public class QuickSwap extends Check implements PacketReceiveListener {
         var type = event.getPacketType();
         if (type == PacketType.Play.Client.HELD_ITEM_CHANGE) {
             pattern.slotChanged(new WrapperPlayClientHeldItemChange(event).getSlot());
-        } else if (type == PacketType.Play.Client.INTERACT_ENTITY) {
-            if (new WrapperPlayClientInteractEntity(event).getAction() == WrapperPlayClientInteractEntity.InteractAction.ATTACK) pattern.action();
+        } else if (type == PacketType.Play.Client.INTERACT_ENTITY || type == PacketType.Play.Client.ATTACK) {
+            if (ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event) != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) pattern.action();
         } else if (type == PacketType.Play.Client.USE_ITEM || type == PacketType.Play.Client.PLAYER_BLOCK_PLACEMENT) {
             pattern.action();
         } else if (isTickPacket(type)) {

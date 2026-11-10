@@ -8,9 +8,7 @@ import ac.grim.grimac.player.GrimPlayer;
 import ac.grim.grimac.utils.data.packetentity.PacketEntity;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.util.Vector3d;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
@@ -46,10 +44,9 @@ public class KillAuraAim extends Check implements PacketReceiveListener {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        if (event.getPacketType() != PacketType.Play.Client.INTERACT_ENTITY) return;
-        WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-        if (packet.getAction() != WrapperPlayClientInteractEntity.InteractAction.ATTACK) return;
-        PacketEntity entity = player.compensatedEntities.getEntity(packet.getEntityId());
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        if (attacked == ac.grim.grimac.utils.anticheat.AttackPackets.NONE) return;
+        PacketEntity entity = player.compensatedEntities.getEntity(attacked);
         if (entity == null || entity.getType() == EntityTypes.END_CRYSTAL || !entity.isLivingEntity) return;
         if (player.compensatedEntities.self.getRiding() != null) return;
 

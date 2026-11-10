@@ -30,18 +30,21 @@ public final class AlertManagerImpl implements AlertManager, ConfigReloadable, S
     private static @MonotonicNonNull PlatformServer platformServer;
 
     private enum AlertType {
-        NORMAL("%prefix% &fAlerts enabled", "%prefix% &fAlerts disabled"),
-        VERBOSE("%prefix% &fVerbose enabled", "%prefix% &fVerbose disabled"),
-        BRAND("%prefix% &fBrands enabled", "%prefix% &fBrands disabled");
+        NORMAL("%prefix% &fAlerts enabled", "%prefix% &fAlerts disabled", "nsac.alerts"),
+        VERBOSE("%prefix% &fVerbose enabled", "%prefix% &fVerbose disabled", "nsac.verbose"),
+        BRAND("%prefix% &fBrands enabled", "%prefix% &fBrands disabled", "nsac.brand");
 
         public @NotNull String enableMessage;
         public @NotNull String disableMessage;
         public final @NotNull Set<@NotNull PlatformPlayer> players = new CopyOnWriteArraySet<>();
         public boolean console;
+        /** NoSkillAntiCheat: checked on every message, so a player who lost the permission stops receiving at once. */
+        public final @NotNull String permission;
 
-        AlertType(@NotNull String enableMessage, @NotNull String disableMessage) {
+        AlertType(@NotNull String enableMessage, @NotNull String disableMessage, @NotNull String permission) {
             this.enableMessage = enableMessage;
             this.disableMessage = disableMessage;
+            this.permission = permission;
         }
 
         @Contract(pure = true)
@@ -66,6 +69,10 @@ public final class AlertManagerImpl implements AlertManager, ConfigReloadable, S
             }
 
             for (PlatformPlayer platformPlayer : listeners) {
+                if (!platformPlayer.hasPermission(permission)) { // de-opped or permission removed
+                    players.remove(platformPlayer);
+                    continue;
+                }
                 platformPlayer.sendMessage(component);
             }
 

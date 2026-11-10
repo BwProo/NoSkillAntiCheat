@@ -8,9 +8,7 @@ import ac.grim.grimac.player.GrimPlayer;
 import ac.grim.grimac.utils.anticheat.LogUtil;
 import ac.grim.grimac.utils.data.packetentity.PacketEntity;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.util.Vector3d;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -113,13 +111,11 @@ public final class SessionRecorder extends GrimProcessor implements PacketReceiv
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         if (file == null) return; // unsynchronized fast path; start/stop re-check under the lock
-        if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-            WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-            if (packet.getAction() == WrapperPlayClientInteractEntity.InteractAction.ATTACK) {
-                attack = true;
-                target = packet.getEntityId();
-                ticksSinceTarget = 0;
-            }
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        if (attacked != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
+            attack = true;
+            target = attacked;
+            ticksSinceTarget = 0;
         } else if (isAnimation(event.getPacketType())) {
             swings++;
         } else if (isTickPacket(event.getPacketType())) {

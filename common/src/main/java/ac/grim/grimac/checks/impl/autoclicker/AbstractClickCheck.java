@@ -10,7 +10,6 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.packettype.PacketTypeCommon;
 import com.github.retrooper.packetevents.protocol.player.DiggingAction;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -75,9 +74,8 @@ public abstract class AbstractClickCheck extends Check implements PreViaPacketRe
                 || type == PacketType.Play.Client.PLAYER_DIGGING) {
             tickExcluded = true;
             if (type == PacketType.Play.Client.PLAYER_DIGGING) ticksSinceDigging = 0;
-        } else if (type == PacketType.Play.Client.INTERACT_ENTITY) {
-            WrapperPlayClientInteractEntity interact = new WrapperPlayClientInteractEntity(event);
-            if (interact.getAction() != WrapperPlayClientInteractEntity.InteractAction.ATTACK) {
+        } else if (type == PacketType.Play.Client.INTERACT_ENTITY || type == PacketType.Play.Client.ATTACK) {
+            if (ac.grim.grimac.utils.anticheat.AttackPackets.isNonAttackInteract(event)) {
                 tickExcluded = true;
             } else {
                 digging = false; // attacking ends mining (instant breaks never send FINISHED_DIGGING)

@@ -92,3 +92,8 @@ Changes made in this fork, starting 2026-11-10:
 - Ban animation: punishment commands prefixed with `[animation]` first play a
   packet-only effect (particle helix, lightning, sounds, title); `/nsac animation`
   previews it. Default ban commands use it.
+- Combat checks, the recorder and the AI also read the dedicated ATTACK packet of
+  26.1+ clients (before, only INTERACT_ENTITY attacks were seen).
+- Alerts, verbose and brand messages re-check the permission on every message.
+- `tools/ai/botfights.py` + `tools/ai/bots/arena.js`: labelled mineflayer bot fights on a
+  local offline test server to bootstrap AI training data.

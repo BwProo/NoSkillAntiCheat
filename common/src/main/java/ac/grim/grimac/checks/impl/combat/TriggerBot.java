@@ -11,9 +11,7 @@ import ac.grim.grimac.utils.math.Vector3dm;
 import ac.grim.grimac.utils.nmsutil.ReachUtils;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.util.Vector3d;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
@@ -53,12 +51,11 @@ public class TriggerBot extends Check implements PacketReceiveListener {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-            WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-            if (packet.getAction() != WrapperPlayClientInteractEntity.InteractAction.ATTACK) return;
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        if (attacked != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
             attackedThisTick = true;
-            if (packet.getEntityId() != target) {
-                target = packet.getEntityId();
+            if (attacked != target) {
+                target = attacked;
                 onTarget = false;
                 ticksOnTarget = -1;
             } else if (ticksOnTarget >= 0) {

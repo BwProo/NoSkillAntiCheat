@@ -6,8 +6,6 @@ import ac.grim.grimac.checks.CheckData;
 import ac.grim.grimac.checks.type.PacketReceiveListener;
 import ac.grim.grimac.player.GrimPlayer;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
@@ -37,10 +35,9 @@ public class KillAuraSwitch extends Check implements PacketReceiveListener {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-            WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-            if (packet.getAction() != WrapperPlayClientInteractEntity.InteractAction.ATTACK) return;
-            int target = packet.getEntityId();
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        if (attacked != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
+            int target = attacked;
             if (lastTarget != Integer.MIN_VALUE && target != lastTarget && ticksSinceAttack <= maxSwitchTicks) {
                 fastSwitches++;
             }

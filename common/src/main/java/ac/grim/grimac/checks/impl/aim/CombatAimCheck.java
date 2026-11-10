@@ -6,8 +6,6 @@ import ac.grim.grimac.checks.type.RotationListener;
 import ac.grim.grimac.player.GrimPlayer;
 import ac.grim.grimac.utils.anticheat.update.RotationUpdate;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -24,9 +22,8 @@ public abstract class CombatAimCheck extends Check implements RotationListener, 
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-            WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-            if (packet.getAction() == WrapperPlayClientInteractEntity.InteractAction.ATTACK) ticksSinceAttack = 0;
+        if (ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event) != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
+            ticksSinceAttack = 0;
         } else if (isTickPacket(event.getPacketType()) && ticksSinceAttack != Integer.MAX_VALUE) {
             ticksSinceAttack++;
         }

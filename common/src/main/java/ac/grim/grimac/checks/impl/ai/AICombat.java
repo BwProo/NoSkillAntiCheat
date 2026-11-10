@@ -8,9 +8,7 @@ import ac.grim.grimac.checks.type.PacketReceiveListener;
 import ac.grim.grimac.player.GrimPlayer;
 import ac.grim.grimac.utils.data.packetentity.PacketEntity;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
-import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.util.Vector3d;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -49,13 +47,11 @@ public class AICombat extends Check implements PacketReceiveListener {
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         if (CombatModel.current() == null) return; // no model: zero cost beyond this check
-        if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-            WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-            if (packet.getAction() == WrapperPlayClientInteractEntity.InteractAction.ATTACK) {
-                attackThisTick = true;
-                target = packet.getEntityId();
-                ticksSinceTarget = 0;
-            }
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        if (attacked != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
+            attackThisTick = true;
+            target = attacked;
+            ticksSinceTarget = 0;
         } else if (isAnimation(event.getPacketType())) {
             swingsThisTick++;
         } else if (isTickPacket(event.getPacketType())) {

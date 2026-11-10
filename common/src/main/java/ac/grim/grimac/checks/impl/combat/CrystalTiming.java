@@ -11,7 +11,6 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
 import com.github.retrooper.packetevents.protocol.item.type.ItemTypes;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
-import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerBlockPlacement;
 import org.jetbrains.annotations.NotNull;
 
@@ -55,10 +54,8 @@ public class CrystalTiming extends Check implements PacketReceiveListener {
             if (player.inventory.getItemInHand(packet.getHand()).is(ItemTypes.END_CRYSTAL)) {
                 ticksSincePlace = 0;
             }
-        } else if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
-            WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-            if (packet.getAction() != WrapperPlayClientInteractEntity.InteractAction.ATTACK) return;
-            PacketEntity entity = player.compensatedEntities.getEntity(packet.getEntityId());
+        } else if (ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event) != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
+            PacketEntity entity = player.compensatedEntities.getEntity(ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event));
             if (entity == null || entity.getType() != EntityTypes.END_CRYSTAL) return;
             if (ticksSincePlace > MAX_GAP_TICKS) return; // not a place-then-break sequence
             add(ticksSincePlace);
