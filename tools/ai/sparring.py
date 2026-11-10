@@ -33,9 +33,19 @@ def main() -> None:
     ap.add_argument("--dummies", type=int, default=3)
     ap.add_argument("--server", default=str(ROOT / "run/sparring"))
     ap.add_argument("--node-modules", default=str(ROOT / "run/bots-node/node_modules"))
+    ap.add_argument("--port", type=int, default=25570)
+    ap.add_argument("--record", metavar="LABEL", help="record your fights for the AI, e.g. cheat_meteor_killaura or legit_me")
     ap.add_argument("--java", default="/usr/lib/jvm/java-25-openjdk/bin/java")
     args = ap.parse_args()
     server = Path(args.server)
+    props = server / "server.properties"
+    props.write_text(re.sub(r"(?m)^server-port=.*$", f"server-port={args.port}", props.read_text()))
+
+    model = ROOT / "tools/ai/models/bootstrap-bots.json"
+    ai_dir = server / "plugins/NoSkillAntiCheat/ai"
+    if model.exists() and not (ai_dir / "model.json").exists():
+        ai_dir.mkdir(parents=True, exist_ok=True)
+        (ai_dir / "model.json").write_bytes(model.read_bytes())
 
     proc = subprocess.Popen([args.java, "-Xms1G", "-Xmx3G", "-jar", "paper.jar", "--nogui"], cwd=server,
                             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
@@ -61,12 +71,18 @@ def main() -> None:
               "lp group default permission unset nsac.nosetback"):
         cmd(c)
 
-    bots = subprocess.Popen(["node", str(ROOT / "tools/ai/bots/sparring.js"), "25570", str(args.fighters), str(args.dummies)],
+    bots = subprocess.Popen(["node", str(ROOT / "tools/ai/bots/sparring.js"), str(args.port), str(args.fighters), str(args.dummies)],
                             env=dict(os.environ, NODE_PATH=args.node_modules),
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     threading.Thread(target=lambda: [sys.stdout.write(l) for l in bots.stdout], daemon=True).start()
 
     exempted = set()
+
+    def equip_safe():
+        try:
+            equip()
+        except Exception as e:  # keep the arena usable and say why
+            print(f"[sparring] bot setup failed: {e!r}", flush=True)
 
     def equip():
         # Bots are fully exempt from NSAC (mineflayer physics is not exact and would spam alerts).
@@ -75,6 +91,9 @@ def main() -> None:
             for name in list(joined):
                 joined.discard(name)
                 if not name.startswith(("Fighter", "Dummy")):
+                    if args.record and name.lower() == args.player.lower():
+                        time.sleep(2)
+                        cmd(f"nsac record start {name} {args.record}")
                     continue
                 if name not in exempted and not (server / "plugins/LuckPerms" / f".nsac-{name}").exists():
                     cmd(f"lp user {name} permission set nsac.exempt true")
@@ -91,11 +110,14 @@ def main() -> None:
                 cmd(f"effect give {name} regeneration infinite 0 true")
                 cmd(f"execute as {args.player} at @s run tp {name} ~4 ~ ~4")
             time.sleep(3)
-    threading.Thread(target=equip, daemon=True).start()
+    threading.Thread(target=equip_safe, daemon=True).start()
 
-    print(f"\n>>> Sparring server ready: join localhost:25570 as {args.player}. Type 'stop' to end.\n", flush=True)
+    print(f"\n>>> Sparring server ready: join localhost:{args.port} as {args.player}. Type 'stop' to end.\n", flush=True)
     try:
         for line in sys.stdin:
+            if line.strip() == "stop" and args.record:
+                cmd(f"nsac record stop {args.player}")
+                time.sleep(2)
             cmd(line.strip())
             if line.strip() == "stop":
                 break

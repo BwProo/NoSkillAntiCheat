@@ -42,8 +42,8 @@ public final class CheckNames {
         put("MultiInteractB", "KillAura (multiple hit points)");
         put("AimModulo360", "Aimbot (rotation snap)");
         put("AimDuplicateLook", "Aimbot (duplicate rotation)");
-        put("AimGCD", "AimAssist (sensitivity)");
-        put("AimSmooth", "Aimbot (smooth rotation)");
+        put("AimGCD", "KillAura/Aimbot (rotation)");
+        put("AimSmooth", "KillAura/Aimbot (smooth rotation)");
         put("KillAuraSwitch", "KillAura (target switch)");
         put("KillAuraAim", "KillAura (aim lock)");
         put("TriggerBot", "TriggerBot");
@@ -56,7 +56,7 @@ public final class CheckNames {
         put("BowSpam", "BowSpam/Quiver");
         put("FastUse", "FastUse/ExpThrower");
         put("AutoSign", "AutoSign");
-        put("AICombat", "AI: combat cheat");
+        put("AICombat", "KillAura/Aimbot (AI)");
         put("Improbable", "Multiple cheats (Improbable)");
         put("BlacklistedClient", "Hacked client");
         put("InventoryMove", "InvMove");
