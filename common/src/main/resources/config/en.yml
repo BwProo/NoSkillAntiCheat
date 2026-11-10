@@ -285,3 +285,13 @@ command-protection:
 server-brand:
     enabled: true
     name: "vanilla"
+
+# NoSkillAntiCheat: sign translation probe. Detects hacked clients such as Meteor even when they hide their brand.
+# Shortly after joining, the client gets an invisible sign with mod translation keys; a client with the mod
+# sends the translation back. Hits count as BlacklistedClient (punishment: see punishments.yml).
+# Key format: "Name=translation.key" (at most 4).
+mod-probe:
+    enabled: true
+    delay-seconds: 3
+    keys:
+        - "Meteor Client=key.category.meteor-client.meteor-client"

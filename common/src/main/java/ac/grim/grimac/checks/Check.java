@@ -43,6 +43,8 @@ public class Check extends GrimProcessor implements AbstractCheck {
 
     // configurable
     private @NotNull String displayName;
+    // NoSkillAntiCheat: a more specific name for the next alert only (e.g. "Flight" for Simulation)
+    private @org.jetbrains.annotations.Nullable String displayOverride;
     private @NotNull String description;
     private double decay;
     private double setbackVL;
@@ -74,6 +76,21 @@ public class Check extends GrimProcessor implements AbstractCheck {
         this.displayName = this.checkName;
 
         reload();
+    }
+
+    /** Display name for alerts; a one-flag override (see {@link #flagAs}) wins over the configured name. */
+    public @NotNull String getDisplayName() {
+        String override = displayOverride;
+        return override != null ? override : displayName;
+    }
+
+    /** NoSkillAntiCheat: shows {@code label} instead of the check name in the alert of this one flag. */
+    protected final void flagAs(@NotNull String label) {
+        displayOverride = label.equals(checkName) ? null : label;
+    }
+
+    protected final void clearFlagAs() {
+        displayOverride = null;
     }
 
     public boolean shouldModifyPackets() {

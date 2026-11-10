@@ -85,6 +85,14 @@ public class BlacklistedClient extends Check implements PacketReceiveListener {
         }
     }
 
+    /** Flags a client detected by another probe (e.g. the sign translation probe), once. */
+    public void flagDetected(@NotNull String reason) {
+        if (flagged) return;
+        flagged = true;
+        LogUtil.info("[ClientInfo] " + player.getName() + " detected: " + reason);
+        flag(reason);
+    }
+
     private boolean check(String kind, String value) {
         if (flagged) return true;
         String pattern = signatures.match(value);

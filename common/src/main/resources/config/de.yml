@@ -288,3 +288,13 @@ command-protection:
 server-brand:
     enabled: true
     name: "vanilla"
+
+# NoSkillAntiCheat: Schild-Uebersetzungs-Probe. Erkennt Cheat-Clients wie Meteor auch dann, wenn sie ihren Brand verstecken.
+# Kurz nach dem Beitritt bekommt der Client ein unsichtbares Schild mit Mod-Schluesseln; ein Client mit dem Mod
+# schickt die Uebersetzung zurueck. Treffer zaehlen als BlacklistedClient (Strafe siehe punishments.yml).
+# Format der Schluessel: "Name=uebersetzungs.schluessel" (hoechstens 4).
+mod-probe:
+    enabled: true
+    delay-seconds: 3
+    keys:
+        - "Meteor Client=key.category.meteor-client.meteor-client"

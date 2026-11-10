@@ -65,4 +65,7 @@ Changes made in this fork, starting 2026-11-10:
   cooldown; experimental NSAC checks alert staff (marked, no punishment);
   new experimental KillAuraAim check; server brand / server-list version
   name spoofing (default "vanilla").
+- Sign translation probe (detects clients that know mod translation keys,
+  default: Meteor) feeding BlacklistedClient; alerts name Simulation flags
+  Flight or Speed and GroundSpoof-in-air NoFall.
 - CI workflow runs on the `main` branch.

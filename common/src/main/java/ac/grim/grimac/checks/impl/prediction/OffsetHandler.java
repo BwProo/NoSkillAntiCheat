@@ -47,7 +47,18 @@ public class OffsetHandler extends Check implements PostPredictionListener {
             synchronized (flags) {
                 int flagId = (flags.get() & 255) + 1; // 1-256 as possible values
 
-                if (flag(V.write(verbose()).f64(offset), () -> humanFormattedOffset(offset) + " /gl " + flagId)) {
+                // NoSkillAntiCheat: name the cheat type in the alert (Flight / Speed / Simulation)
+                flagAs(MovementLabel.classify(
+                        player.predictedVelocity.vector.getX(), player.predictedVelocity.vector.getY(), player.predictedVelocity.vector.getZ(),
+                        player.actualMovement.getX(), player.actualMovement.getY(), player.actualMovement.getZ(),
+                        player.onGround, player.isFlying || player.canFly));
+                boolean flagged;
+                try {
+                    flagged = flag(V.write(verbose()).f64(offset), () -> humanFormattedOffset(offset) + " /gl " + flagId);
+                } finally {
+                    clearFlagAs();
+                }
+                if (flagged) {
                     flags.incrementAndGet();
                     predictionComplete.setIdentifier(flagId);
 
