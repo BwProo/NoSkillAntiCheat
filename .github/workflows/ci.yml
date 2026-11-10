@@ -6,12 +6,12 @@ on:
     # entering the publishing workflow.
     push:
         branches:
-            - '2.0'
+            - 'main'
         paths:
             - '.github/**'
     pull_request:
         branches:
-            - '2.0'
+            - 'main'
 
 permissions:
     contents: read

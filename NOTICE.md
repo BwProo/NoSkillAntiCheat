@@ -30,3 +30,7 @@ Changes made in this fork, starting 2026-11-10:
 - Removed GrimAC's release/publishing workflows.
 - Added false-positive measurement: per-check flag, setback and shadow-flag
   counters (`FlagStats`), `/nsac stats` and `/nsac session start|stop`.
+- Added experimental AutoClickerA/B/C checks (click-delay statistics in
+  client ticks), written from scratch; ideas taken from public descriptions
+  of Vulcan's checks, no Vulcan code.
+- CI workflow runs on the `main` branch.
