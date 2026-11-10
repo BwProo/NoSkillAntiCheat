@@ -137,6 +137,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
             FlagStats.shadow(this); // NoSkillAntiCheat: count what an inactive experimental check would flag
             Improbable.signal(player, this);
             FlagStats.printShadow(player, this, verbose);
+            player.punishmentManager.sendShadowAlert(this, verbose);
             return false;
         }
 
@@ -161,6 +162,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
             FlagStats.shadow(this); // NoSkillAntiCheat: count what an inactive experimental check would flag
             Improbable.signal(player, this);
             FlagStats.printShadow(player, this, rendered);
+            player.punishmentManager.sendShadowAlert(this, rendered);
             return false;
         }
 

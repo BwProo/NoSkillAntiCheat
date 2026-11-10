@@ -27,6 +27,11 @@ public class PunishmentManager implements ConfigReloadable {
     private String alertString;
     private boolean testMode;
     private String proxyAlertString = "";
+    // NoSkillAntiCheat: at most one chat alert per check and player within the cooldown
+    private long alertCooldownMillis = 3000;
+    private boolean experimentalAlerts = true;
+    private final Map<String, Long> lastAlert = new java.util.concurrent.ConcurrentHashMap<>();
+    private final Map<String, Integer> shadowCounts = new java.util.concurrent.ConcurrentHashMap<>();
 
     public PunishmentManager(GrimPlayer player) {
         this.player = player;
@@ -43,6 +48,8 @@ public class PunishmentManager implements ConfigReloadable {
         );
 
         testMode = config.getBooleanElse("test-mode", false);
+        alertCooldownMillis = (long) (config.getDoubleElse("alerts.cooldown-seconds", 3.0) * 1000);
+        experimentalAlerts = config.getBooleanElse("alerts.experimental", true);
 
         proxyAlertString = config.getStringElse(
                 "alerts-format-proxy",
@@ -172,6 +179,7 @@ public class PunishmentManager implements ConfigReloadable {
                                 case "[proxy]" -> ProxyAlertMessenger.sendPluginMessage(cmd);
                                 case "[alert]" -> {
                                     sentDebug = true;
+                                    if (!allowAlert(check.getCheckName())) continue;
                                     Component message = MessageUtil.miniMessage(cmd);
                                     if (testMode) { // secret test mode
                                         if (verboseListeners == null || verboseListeners.contains(player.platformPlayer)) {
@@ -201,6 +209,28 @@ public class PunishmentManager implements ConfigReloadable {
         }
 
         return sentDebug;
+    }
+
+    /** NoSkillAntiCheat: chat-alert throttle per check for this player. */
+    private boolean allowAlert(String key) {
+        long now = System.currentTimeMillis();
+        Long last = lastAlert.get(key);
+        if (last != null && now - last < alertCooldownMillis) return false;
+        lastAlert.put(key, now);
+        return true;
+    }
+
+    /**
+     * NoSkillAntiCheat: chat alert for a flag of an experimental NoSkillAntiCheat check that is not
+     * active (shadow flag). Shown to staff like a normal alert (marked with the experimental symbol),
+     * but it never runs punishment commands. Off with alerts.experimental: false.
+     */
+    public void sendShadowAlert(Check check, Supplier<String> verbose) {
+        if (!experimentalAlerts || alertString == null || !check.getStableKey().startsWith("nsac.")) return;
+        int count = shadowCounts.merge(check.getCheckName(), 1, Integer::sum);
+        if (!allowAlert("shadow:" + check.getCheckName())) return;
+        String cmd = replaceAlertPlaceholders(alertString, count, check, safeGet(verbose));
+        GrimAPI.INSTANCE.getAlertManager().sendAlert(MessageUtil.miniMessage(cmd), null);
     }
 
     private static String safeGet(Supplier<String> supplier) {

@@ -243,6 +243,7 @@ public class CheckManager implements BasicReloadable {
                 .put(ac.grim.grimac.checks.impl.combat.KillAuraSwitch.class, new ac.grim.grimac.checks.impl.combat.KillAuraSwitch(player))
                 .put(ac.grim.grimac.checks.impl.combat.CrystalTiming.class, new ac.grim.grimac.checks.impl.combat.CrystalTiming(player))
                 .put(ac.grim.grimac.checks.impl.combat.TriggerBot.class, new ac.grim.grimac.checks.impl.combat.TriggerBot(player))
+                .put(ac.grim.grimac.checks.impl.combat.KillAuraAim.class, new ac.grim.grimac.checks.impl.combat.KillAuraAim(player))
                 .put(ac.grim.grimac.checks.impl.combat.AnchorTiming.class, new ac.grim.grimac.checks.impl.combat.AnchorTiming(player))
                 .put(ac.grim.grimac.manager.recorder.SessionRecorder.class, new ac.grim.grimac.manager.recorder.SessionRecorder(player))
                 .put(ac.grim.grimac.checks.impl.ai.AICombat.class, new ac.grim.grimac.checks.impl.ai.AICombat(player))

@@ -41,7 +41,7 @@ webhook-test-failed: "Discord webhook test failed!"
 # %experimental%
 # %vl% - Verstöße
 # %verbose% - zusätzliche Informationen von der Prüfung, nicht alle Prüfungen liefern zusätzliche Informationen
-alerts-format: "%prefix% &f%player% &bbestand <hover:show_text:\"&b%check_name%%experimental%\n&8Beschreibung: &f%description%\">&f%check_name%%experimental%</hover> &bnicht &f(x&c%vl%&f) &7%verbose%"
+alerts-format: "%prefix% &f%player% &7» <click:run_command:'/nsac spectate %player%'><hover:show_text:\"&c%check_name%%experimental% &8| &7%description%\n&7Details: &f%verbose%\n&7Verstöße: &f%vl%\n&8Klicken zum Zuschauen\">&c%check_name%%experimental%</hover></click> &8(&7x%vl%&8)"
 alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &bbestand <hover:show_text:\"&b%check_name%%experimental%\n&8Beschreibung: &f%description%\">&f%check_name%%experimental%</hover> &bnicht &f(x&c%vl%&f) &7%verbose%"
 experimental-symbol: "*"
 

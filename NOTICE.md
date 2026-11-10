@@ -61,4 +61,8 @@ Changes made in this fork, starting 2026-11-10:
   commands, and those are removed from tab completion.
 - Added `shadow-flags.print-to-console` to print what experimental checks
   would flag (test servers).
+- Compact alerts with hover details, click-to-spectate and a per-check
+  cooldown; experimental NSAC checks alert staff (marked, no punishment);
+  new experimental KillAuraAim check; server brand / server-list version
+  name spoofing (default "vanilla").
 - CI workflow runs on the `main` branch.

@@ -7,6 +7,11 @@
 alerts:
     # In addition to broadcasting alerts to players, should they also be sent to the console?
     print-to-console: true
+    # NoSkillAntiCheat: at most one chat alert per player and check within this many seconds
+    cooldown-seconds: 3
+    # NoSkillAntiCheat: show flags of experimental NSAC checks (KillAura, Aim, AutoClicker ...) in chat,
+    # marked with *. They still do not punish while experimental-checks: false.
+    experimental: true
     # This controls whether/how alerts are shared between servers connected to your proxy.
     # You must have 'bungee-plugin-message-channel' enabled in your Velocity's configuration if Velocity is in use.
     proxy:
@@ -274,3 +279,9 @@ command-protection:
     # Block running "plugin:command" for players (they can still use the plain command name)
     block-namespaced-commands: true
     message: "&cUnknown command."
+
+# NoSkillAntiCheat: hide the server software. F3 shows this name instead of Purpur/Paper/Spigot,
+# and the software name is removed from the version text in the server list.
+server-brand:
+    enabled: true
+    name: "vanilla"

@@ -14,6 +14,7 @@ public class PacketManager implements StartableInitable {
         LogUtil.info("Registering packets...");
 
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPlayerJoinQuit());
+        PacketEvents.getAPI().getEventManager().registerListener(new ac.grim.grimac.manager.protection.BrandSpoofer());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPingListener());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPlayerDigging());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPlayerAttack());
