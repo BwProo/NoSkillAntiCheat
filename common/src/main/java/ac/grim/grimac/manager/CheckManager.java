@@ -245,6 +245,7 @@ public class CheckManager implements BasicReloadable {
                 .put(ac.grim.grimac.checks.impl.combat.TriggerBot.class, new ac.grim.grimac.checks.impl.combat.TriggerBot(player))
                 .put(ac.grim.grimac.checks.impl.combat.AnchorTiming.class, new ac.grim.grimac.checks.impl.combat.AnchorTiming(player))
                 .put(ac.grim.grimac.manager.recorder.SessionRecorder.class, new ac.grim.grimac.manager.recorder.SessionRecorder(player))
+                .put(ac.grim.grimac.checks.impl.ai.AICombat.class, new ac.grim.grimac.checks.impl.ai.AICombat(player))
                 .put(ac.grim.grimac.checks.impl.misc.Improbable.class, new ac.grim.grimac.checks.impl.misc.Improbable(player))
                 .put(ac.grim.grimac.checks.impl.misc.BlacklistedClient.class, new ac.grim.grimac.checks.impl.misc.BlacklistedClient(player))
                 .put(FarBreak.class, new FarBreak(player))
