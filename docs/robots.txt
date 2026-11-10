@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bwproo.github.io/NoSkillAntiCheat/sitemap.xml

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoSkillAntiCheat</title>
+<meta name="description" content="Free, lightweight Minecraft anticheat for Paper, Folia, Spigot and Purpur 26.x – with movement simulation, combat checks, local AI and Meteor detection.">
+<link rel="canonical" href="https://bwproo.github.io/NoSkillAntiCheat/en/">
+<link rel="alternate" hreflang="de" href="https://bwproo.github.io/NoSkillAntiCheat/">
+<link rel="alternate" hreflang="en" href="https://bwproo.github.io/NoSkillAntiCheat/en/">
+<link rel="alternate" hreflang="x-default" href="https://bwproo.github.io/NoSkillAntiCheat/en/">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="Minecraft anticheat, free, Paper, Folia, Purpur, Spigot, Meteor Client, KillAura, Flight, anti-xray, GrimAC">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NoSkillAntiCheat – free Minecraft anticheat">
+<meta property="og:description" content="Free, lightweight anticheat for Paper, Folia, Spigot and Purpur 26.x – with movement simulation, combat checks, local AI and Meteor detection.">
+<meta property="og:url" content="https://bwproo.github.io/NoSkillAntiCheat/en/">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#a855f7">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"NoSkillAntiCheat","applicationCategory":"GameApplication","operatingSystem":"Paper, Folia, Purpur, Spigot (Minecraft 26.x)","description":"Free, lightweight Minecraft anticheat with movement simulation, combat checks, local AI and Meteor detection.","url":"https://bwproo.github.io/NoSkillAntiCheat/en/","downloadUrl":"https://github.com/BwProo/NoSkillAntiCheat/releases/latest","codeRepository":"https://github.com/BwProo/NoSkillAntiCheat","license":"https://www.gnu.org/licenses/gpl-3.0.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 8 14v16c0 15 10 26 24 30 14-4 24-15 24-30V14z' fill='%23a855f7'/%3E%3Cpath d='M22 33l7 7 14-15' stroke='white' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d0a14;--bg2:#140f1f;--card:#1a1428;--line:#2e2347;
+  --text:#ece6f7;--muted:#a99cc4;--accent:#a855f7;--accent2:#d946ef;--ok:#4ade80;--warn:#fbbf24;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:#241b38;border:1px solid var(--line);padding:.1em .4em;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:5;background:rgba(13,10,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.lang{border:1px solid var(--line);border-radius:8px;padding:1px 8px;color:var(--text)!important}
+.claude{margin-top:10px;width:100%;color:var(--muted)}
+.claude strong{color:var(--accent2)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--text);letter-spacing:.3px}
+.brand svg{width:28px;height:28px}
+nav .links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
+nav .links a{color:var(--muted);font-size:.95rem}
+nav .links a:hover{color:var(--text);text-decoration:none}
+header{position:relative;overflow:hidden;padding:96px 0 80px;text-align:center}
+header::before{content:"";position:absolute;inset:-40% -10% auto;height:520px;background:radial-gradient(closest-side,rgba(168,85,247,.35),transparent),radial-gradient(closest-side,rgba(217,70,239,.22),transparent 70%) 60% 20%/60% 60% no-repeat;filter:blur(20px);z-index:-1}
+.badge{display:inline-block;border:1px solid var(--line);background:var(--bg2);color:var(--muted);padding:6px 14px;border-radius:999px;font-size:.85rem;margin-bottom:22px}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.05;margin:0 0 18px;font-weight:900;letter-spacing:-1px}
+h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:680px;margin:0 auto 32px;color:var(--muted);font-size:1.15rem}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;border:1px solid var(--line);color:var(--text);background:var(--card)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));border:0;color:#fff;box-shadow:0 8px 30px rgba(168,85,247,.35)}
+.platforms{margin-top:26px;color:var(--muted);font-size:.92rem}
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font-size:2rem;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 34px;max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{margin:0 0 8px;font-size:1.08rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(168,85,247,.15);color:var(--accent);margin-bottom:12px;font-size:1.2rem}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.95rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#211936;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+.tag{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.on{color:var(--ok);border-color:rgba(74,222,128,.4)}
+.tag.exp{color:var(--warn);border-color:rgba(251,191,36,.4)}
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:800}
+.step p{margin:0;color:var(--muted)}
+.step strong{color:var(--text)}
+.note{border-left:3px solid var(--accent);background:var(--bg2);padding:14px 18px;border-radius:0 12px 12px 0;color:var(--muted);margin-top:22px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}
+details p{color:var(--muted);margin:10px 0 0}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+@media (max-width:640px){nav .links{display:none}header{padding:70px 0 56px}section{padding:56px 0}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 8 14v16c0 15 10 26 24 30 14-4 24-15 24-30V14z" fill="#a855f7"/><path d="M22 33l7 7 14-15" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      NoSkillAntiCheat
+    </a>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#checks">Detection</a>
+      <a href="#install">Installation</a>
+      <a href="#commands">Commands</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/BwProo/NoSkillAntiCheat">GitHub</a>
+      <a class="lang" href="../" hreflang="de">DE</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="badge">Free · Open source (GPL-3.0) · Minecraft 26.x</div>
+    <h1>Cheaters out.<br><span>Honest players stay.</span></h1>
+    <p class="lead">NoSkillAntiCheat is a free, lightweight anticheat for Minecraft servers. It simulates every movement, checks combat behaviour, detects hacked clients such as Meteor and learns with a local AI – no cloud, no subscription.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/BwProo/NoSkillAntiCheat/releases/latest">⬇ Download latest version</a>
+      <a class="btn" href="https://github.com/BwProo/NoSkillAntiCheat">★ Source code on GitHub</a>
+    </div>
+    <div class="platforms">Paper · Folia · Purpur · Spigot &nbsp;|&nbsp; 26.3 · 26.2 · 26.1.2 &nbsp;|&nbsp; Java 25</div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What is inside</h2>
+    <p class="sub">Built on GrimAC's proven movement simulation, extended with combat heuristics, client detection, plugin hiding and an AI pipeline.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🧭</div><h3>Movement simulation</h3><p>Every movement is recalculated 1:1. Flight, Speed, NoFall, Phase, Step and Timer stand out – with latency compensation and setbacks.</p></div>
+      <div class="card"><div class="ico">⚔️</div><h3>Combat checks</h3><p>KillAura, AimAssist, TriggerBot, AutoClicker, Reach, Hitboxes, CrystalAura and AnchorAura.</p></div>
+      <div class="card"><div class="ico">🛰️</div><h3>Meteor detection</h3><p>Detects Meteor on join with the sign translation probe, even when the client hides its name.</p></div>
+      <div class="card"><div class="ico">🧠</div><h3>Local AI</h3><p>Record sessions, train a model on your own PC, score players in the plugin. Free and without a cloud.</p></div>
+      <div class="card"><div class="ico">🙈</div><h3>Plugin hiding</h3><p>Blocks /pl, /plugins, /version, /help and hides plugins from tab completion. The server type shows as "vanilla".</p></div>
+      <div class="card"><div class="ico">⛏️</div><h3>Anti-xray</h3><p>Optionally turns on the built-in anti-xray of Paper, Purpur and Folia automatically.</p></div>
+      <div class="card"><div class="ico">🪶</div><h3>Lightweight</h3><p>Checks run on the netty thread, nothing blocks the main or region threads. Folia is fully supported.</p></div>
+      <div class="card"><div class="ico">💬</div><h3>Clear alerts</h3><p>Compact purple alerts with cheat names, hover details, click to spectate and spam throttling.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="checks">
+  <div class="wrap">
+    <h2>What is detected</h2>
+    <p class="sub"><span class="tag on">active</span> sets players back and can punish. <span class="tag exp">experimental</span> alerts in chat (marked *), but only punishes once you set <code>experimental-checks: true</code>.</p>
+    <div class="scroll">
+    <table>
+      <tr><th>Cheat</th><th>Check</th><th>Status</th></tr>
+      <tr><td>Flight, Speed, Step, Jesus, Spider</td><td>Movement simulation (alert says Flight / Speed)</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>NoFall, GroundSpoof</td><td>NoFall, GroundSpoof</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>Timer, Blink</td><td>Timer, NegativeTimer, TransactionOrder</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>Velocity / AntiKnockback</td><td>Velocity (anti-knockback / explosion)</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>Reach, Hitboxes</td><td>Reach, Hitboxes</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>Scaffold, Tower, FastPlace</td><td>Scaffold checks, FastPlace/Tower</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>Nuker, FastBreak</td><td>Nuker and FastBreak checks</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>InvMove</td><td>InvMove (click while moving, with setback), InventoryMove</td><td><span class="tag on">active</span> / <span class="tag exp">exp.</span></td></tr>
+      <tr><td>Meteor &amp; other hacked clients</td><td>Hacked client (brand, channels, sign probe)</td><td><span class="tag on">active</span></td></tr>
+      <tr><td>KillAura</td><td>KillAura (aim lock, target switching), Hitboxes, packet order</td><td><span class="tag exp">exp.</span></td></tr>
+      <tr><td>AimAssist, Aimbot</td><td>AimAssist (sensitivity), Aimbot (smooth rotation)</td><td><span class="tag exp">exp.</span></td></tr>
+      <tr><td>TriggerBot</td><td>TriggerBot</td><td><span class="tag exp">exp.</span></td></tr>
+      <tr><td>AutoClicker</td><td>AutoClicker (CPS, consistency, patterns)</td><td><span class="tag exp">exp.</span></td></tr>
+      <tr><td>CrystalAura, FastCrystal, AnchorAura</td><td>CrystalAura/FastCrystal, AnchorAura, ID prediction</td><td><span class="tag exp">exp.</span></td></tr>
+      <tr><td>ChestStealer, AutoArmor, inventory macros</td><td>ChestStealer/inventory macro</td><td><span class="tag exp">exp.</span></td></tr>
+      <tr><td>Several cheats at once</td><td>Improbable (alert → kick → ban)</td><td><span class="tag exp">exp.</span></td></tr>
+      <tr><td>Combat behaviour in general</td><td>AI: combat cheat (with your own model)</td><td><span class="tag exp">exp.</span></td></tr>
+    </table>
+    </div>
+    <p class="note">To be honest: visual-only cheats such as ESP, Tracers, Fullbright, Xray or Freecam send nothing to the server – no anticheat can detect them reliably. Against Xray the anti-xray helps by hiding ores from clients.</p>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Installation</h2>
+    <p class="sub">Ready in two minutes.</p>
+    <div class="steps">
+      <div class="step"><p><strong>Download the jar</strong> – get <code>noskillanticheat-bukkit-….jar</code> from the <a href="https://github.com/BwProo/NoSkillAntiCheat/releases/latest">release page</a>.</p></div>
+      <div class="step"><p><strong>Put it into the plugins folder</strong> – <code>plugins/</code> of your Paper, Folia, Purpur or Spigot server (Minecraft 26.x, Java 25).</p></div>
+      <div class="step"><p><strong>Start the server</strong> – the config is created. Restart once to activate the anti-xray.</p></div>
+      <div class="step"><p><strong>Test and measure</strong> – measure false positives with <code>/nsac session start legit-pvp</code>, then set <code>experimental-checks: true</code>.</p></div>
+    </div>
+    <p class="note">Existing <code>grim.*</code> permissions are called <code>nsac.*</code> here. ViaVersion and ViaBackwards are supported.</p>
+  </div>
+</section>
+
+<section id="commands">
+  <div class="wrap">
+    <h2>Commands &amp; permissions</h2>
+    <p class="sub">All commands start with <code>/nsac</code> (alias <code>/noskillanticheat</code>).</p>
+    <div class="scroll">
+    <table>
+      <tr><th>Command</th><th>What it does</th><th>Permission</th></tr>
+      <tr><td><code>/nsac alerts</code></td><td>Toggle alerts</td><td><code>nsac.alerts</code></td></tr>
+      <tr><td><code>/nsac top</code></td><td>Players with the most violations</td><td><code>nsac.top</code></td></tr>
+      <tr><td><code>/nsac spectate &lt;spieler&gt;</code></td><td>Spectate a suspect</td><td><code>nsac.spectate</code></td></tr>
+      <tr><td><code>/nsac knockback &lt;spieler&gt;</code></td><td>Send test knockback (check AntiKB)</td><td><code>nsac.knockback</code></td></tr>
+      <tr><td><code>/nsac session start|stop</code></td><td>Measure false positives per check</td><td><code>nsac.stats</code></td></tr>
+      <tr><td><code>/nsac record start|stop</code></td><td>Record sessions for the AI</td><td><code>nsac.record</code></td></tr>
+      <tr><td><code>/nsac history &lt;spieler&gt;</code></td><td>Violation history</td><td><code>nsac.history</code></td></tr>
+      <tr><td><code>/nsac reload</code></td><td>Reload the config</td><td><code>nsac.reload</code></td></tr>
+      <tr><td><code>/nsac version</code></td><td>Show the version</td><td><code>nsac.version</code></td></tr>
+      <tr><td>–</td><td>Use /pl, /version, /help etc. and see them in tab completion</td><td><code>nsac.commands.bypass</code></td></tr>
+      <tr><td>–</td><td>Exempt from all checks</td><td><code>nsac.exempt</code></td></tr>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section id="ai">
+  <div class="wrap">
+    <h2>Train the AI yourself</h2>
+    <p class="sub">No subscription, no cloud: the data stays on your server, training uses plain Python.</p>
+    <div class="steps">
+      <div class="step"><p><strong>Record</strong> – <code>/nsac record start &lt;player&gt; legit-pvp</code> for honest play, <code>cheat-killaura</code> with a hacked client on a test server.</p></div>
+      <div class="step"><p><strong>Train</strong> – <code>python3 tools/ai/train.py recordings/ --out model.json</code>. The report shows detection rate and false alarms per hour on players the model has never seen.</p></div>
+      <div class="step"><p><strong>Use it</strong> – put <code>model.json</code> into <code>plugins/NoSkillAntiCheat/ai/</code> and run <code>/nsac reload</code>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <details><summary>Is it really free?</summary><p>Yes. NoSkillAntiCheat is open source under the GPL-3.0. No paid features, no telemetry – no data is sent to third-party servers.</p></details>
+    <details><summary>Are honest players with high ping flagged?</summary><p>The movement simulation compensates for ping using transactions. New checks start as experimental: they only alert until you have measured with <code>/nsac session</code> that they cause no false positives.</p></details>
+    <details><summary>Does it detect every hacked client?</summary><p>No anticheat can. Meteor is detected on join as long as it does not block the sign probe. Everything else is caught by its behaviour – Flight, Speed, KillAura and so on.</p></details>
+    <details><summary>Are mods like Sodium or Mouse Tweaks banned?</summary><p>Sodium, Iris, Lunar, Voice Chat etc. are not. Mouse Tweaks has no detectable signature; at most the inventory check reports very fast item moving.</p></details>
+    <details><summary>Where does the code come from?</summary><p>NoSkillAntiCheat is a fork of <a href="https://github.com/GrimAnticheat/Grim">GrimAC</a> (GPL-3.0). Origin and all changes are listed in <a href="https://github.com/BwProo/NoSkillAntiCheat/blob/main/NOTICE.md">NOTICE.md</a>.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>NoSkillAntiCheat · based on GrimAC · GPL-3.0</span>
+    <span><a href="https://github.com/BwProo/NoSkillAntiCheat">GitHub</a> · <a href="https://github.com/BwProo/NoSkillAntiCheat/releases">Releases</a> · <a href="https://github.com/BwProo/NoSkillAntiCheat/issues">Report a bug</a> · <a href="../" hreflang="de">Deutsch</a></span>
+    <div class="claude">✨ Fully built with <strong>Claude</strong> (AI by Anthropic) – on top of GrimAC's open-source code.</div>
+  </div>
+</footer>
+</body>
+</html>
