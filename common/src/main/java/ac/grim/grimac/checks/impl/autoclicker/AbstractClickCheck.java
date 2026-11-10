@@ -31,6 +31,9 @@ public abstract class AbstractClickCheck extends Check implements PreViaPacketRe
     private int swingsThisTick;
     private boolean tickExcluded;
     private boolean digging;
+    // Holding left click while mining swings every tick, also in the short pause after each block.
+    private static final int MINING_GRACE_TICKS = 10;
+    private int ticksSinceDigging = Integer.MAX_VALUE;
     protected double minCps;
 
     protected AbstractClickCheck(@NotNull GrimPlayer player) {
@@ -59,6 +62,7 @@ public abstract class AbstractClickCheck extends Check implements PreViaPacketRe
             digging = false;
         }
         tickExcluded = true;
+        ticksSinceDigging = 0;
     }
 
     @Override
@@ -70,10 +74,13 @@ public abstract class AbstractClickCheck extends Check implements PreViaPacketRe
                 || type == PacketType.Play.Client.USE_ITEM
                 || type == PacketType.Play.Client.PLAYER_DIGGING) {
             tickExcluded = true;
+            if (type == PacketType.Play.Client.PLAYER_DIGGING) ticksSinceDigging = 0;
         } else if (type == PacketType.Play.Client.INTERACT_ENTITY) {
             WrapperPlayClientInteractEntity interact = new WrapperPlayClientInteractEntity(event);
             if (interact.getAction() != WrapperPlayClientInteractEntity.InteractAction.ATTACK) {
                 tickExcluded = true;
+            } else {
+                digging = false; // attacking ends mining (instant breaks never send FINISHED_DIGGING)
             }
         }
 
@@ -84,7 +91,7 @@ public abstract class AbstractClickCheck extends Check implements PreViaPacketRe
 
     private void onTick() {
         if (swingsThisTick > 0) {
-            if (tickExcluded || digging) {
+            if (isMiningSwing(tickExcluded, digging, ticksSinceDigging)) {
                 ticksSinceSwing = Integer.MAX_VALUE; // a non-attack swing breaks the streak
             } else {
                 if (ticksSinceSwing <= ClickStats.MAX_DELAY_TICKS) add(ticksSinceSwing);
@@ -93,8 +100,14 @@ public abstract class AbstractClickCheck extends Check implements PreViaPacketRe
             }
         }
         if (ticksSinceSwing != Integer.MAX_VALUE) ticksSinceSwing++;
+        if (ticksSinceDigging != Integer.MAX_VALUE) ticksSinceDigging++;
         swingsThisTick = 0;
         tickExcluded = false;
+    }
+
+    /** Pure rule, unit-tested: this tick's swings belong to mining/using, not to attacking. */
+    public static boolean isMiningSwing(boolean tickExcluded, boolean digging, int ticksSinceDigging) {
+        return tickExcluded || digging || ticksSinceDigging <= MINING_GRACE_TICKS;
     }
 
     private void add(int delay) {

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ClickStatsTest {
@@ -54,6 +55,16 @@ class ClickStatsTest {
         assertEquals(0.0, s.skewness(), 1e-9);
         assertEquals(-1.36, s.kurtosis(), 1e-9);
         assertEquals(4, s.distinctDelays());
+    }
+
+    @Test
+    void holdingLeftClickWhileMiningIsNotCounted() {
+        assertTrue(AbstractClickCheck.isMiningSwing(false, true, 0));   // breaking a block
+        assertTrue(AbstractClickCheck.isMiningSwing(false, false, 3));  // pause right after a block broke
+        assertTrue(AbstractClickCheck.isMiningSwing(false, false, 10));
+        assertFalse(AbstractClickCheck.isMiningSwing(false, false, 11)); // back to fighting
+        assertFalse(AbstractClickCheck.isMiningSwing(false, false, Integer.MAX_VALUE));
+        assertTrue(AbstractClickCheck.isMiningSwing(true, false, Integer.MAX_VALUE)); // placing/using
     }
 
     @Test
