@@ -42,4 +42,8 @@ Changes made in this fork, starting 2026-11-10:
   category within a time window) and `/nsac top`.
 - Added experimental CrystalTiming (near-instant, constant end-crystal
   place-to-break gaps, as from AutoCrystal/FastCrystal cheats).
+- Added experimental TriggerBot (instant hits on crosshair entry without air
+  swings) and AnchorTiming (automated respawn-anchor PvP), the
+  `/nsac knockback` test command, and an alert/kick/ban escalation for
+  Improbable in punishments.yml.
 - CI workflow runs on the `main` branch.

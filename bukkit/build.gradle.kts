@@ -195,6 +195,11 @@ bukkit {
             default = Permission.Default.OP
         }
 
+        register("grim.knockback") {
+            description = "Send a player test knockback to check AntiKB"
+            default = Permission.Default.OP
+        }
+
         register("grim.top") {
             description = "Show online players with the most violations"
             default = Permission.Default.OP

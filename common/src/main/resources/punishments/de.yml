@@ -106,6 +106,8 @@ Punishments:
       - "Aim"
       - "KillAura"
       - "Crystal"
+      - "TriggerBot"
+      - "Anchor"
     commands:
       - "20:40 [alert]"
       - "1:1 [log]"
@@ -128,10 +130,15 @@ Punishments:
       - "1:0 [log]"
       - "1:0 ban %player% Unerlaubter Client"
   # NoSkillAntiCheat: several different checks of one category flagged within a short time.
+  # Escalation: alert from the first flag, kick at 3, ban at 5 within 30 minutes.
+  # Improbable is experimental: these commands only run once "experimental-checks: true" is set
+  # in config.yml (do that after your legit test sessions show no false positives).
   Improbable:
-    remove-violations-after: 600
+    remove-violations-after: 1800
     checks:
       - "Improbable"
     commands:
       - "1:1 [alert]"
       - "1:1 [log]"
+      - "3:0 kick %player% Verdaechtiges Spielverhalten"
+      - "5:0 ban %player% Cheating (mehrere Checks)"
