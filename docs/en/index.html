@@ -156,7 +156,6 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
       <tr><td>AutoClicker</td><td>AutoClicker (CPS, consistency, patterns)</td><td><span class="tag exp">exp.</span></td></tr>
       <tr><td>CrystalAura, FastCrystal, AnchorAura</td><td>CrystalAura/FastCrystal, AnchorAura, ID prediction</td><td><span class="tag exp">exp.</span></td></tr>
       <tr><td>ShieldBreaker, MaceSwap, AutoTool, KeybindPearl</td><td>QuickSwap</td><td><span class="tag exp">exp.</span></td></tr>
-      <tr><td>AutoTotem</td><td>AutoTotem</td><td><span class="tag exp">exp.</span></td></tr>
       <tr><td>ChestStealer, AutoArmor, inventory macros</td><td>ChestStealer/inventory macro</td><td><span class="tag exp">exp.</span></td></tr>
       <tr><td>Several cheats at once</td><td>Improbable (alert → kick → ban)</td><td><span class="tag exp">exp.</span></td></tr>
       <tr><td>Combat behaviour in general</td><td>AI: combat cheat (with your own model)</td><td><span class="tag exp">exp.</span></td></tr>
@@ -221,6 +220,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
     <details><summary>Is it really free?</summary><p>Yes. NoSkillAntiCheat is open source under the GPL-3.0. No paid features, no telemetry – no data is sent to third-party servers.</p></details>
     <details><summary>Are honest players with high ping flagged?</summary><p>The movement simulation compensates for ping using transactions. New checks start as experimental: they only alert until you have measured with <code>/nsac session</code> that they cause no false positives.</p></details>
     <details><summary>Does it detect every hacked client?</summary><p>No anticheat can. Meteor is detected on join as long as it does not block the sign probe. Everything else is caught by its behaviour – Flight, Speed, KillAura and so on.</p></details>
+    <details><summary>Does it work with TotemGuard?</summary><p>Yes. NoSkillAntiCheat leaves AutoTotem to <a href="https://github.com/Bram1903/TotemGuard">TotemGuard</a>, which you can install alongside (with PacketEvents). NoSkillAntiCheat ships a relocated copy of PacketEvents, so there are no conflicts.</p></details>
     <details><summary>Are mods like Sodium or Mouse Tweaks banned?</summary><p>Sodium, Iris, Lunar, Voice Chat etc. are not. Mouse Tweaks has no detectable signature; at most the inventory check reports very fast item moving.</p></details>
     <details><summary>Where does the code come from?</summary><p>NoSkillAntiCheat is a fork of <a href="https://github.com/GrimAnticheat/Grim">GrimAC</a> (GPL-3.0). Origin and all changes are listed in <a href="https://github.com/BwProo/NoSkillAntiCheat/blob/main/NOTICE.md">NOTICE.md</a>.</p></details>
   </div>

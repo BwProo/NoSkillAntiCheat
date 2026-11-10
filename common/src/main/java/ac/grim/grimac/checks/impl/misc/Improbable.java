@@ -25,7 +25,7 @@ public class Improbable extends Check {
         for (String name : Set.of("Reach", "Hitboxes", "AutoClickerA", "AutoClickerB", "AutoClickerC",
                 "AimGCD", "AimSmooth", "AimModulo360", "AimDuplicateLook", "KillAuraSwitch",
                 "MultiInteractA", "MultiInteractB", "PacketOrderB", "MultiActionsA", "InvalidInteractCursor",
-                "CrystalTiming", "InvalidInteractTarget", "TriggerBot", "AnchorTiming", "AICombat", "KillAuraAim", "QuickSwap", "AutoTotem")) {
+                "CrystalTiming", "InvalidInteractTarget", "TriggerBot", "AnchorTiming", "AICombat", "KillAuraAim", "QuickSwap")) {
             CATEGORIES.put(name, Category.COMBAT);
         }
         for (String name : Set.of("Simulation", "GroundSpoof", "NoFall", "Timer", "TimerLimit", "NoSlow",

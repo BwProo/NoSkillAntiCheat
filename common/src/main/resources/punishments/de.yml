@@ -96,7 +96,6 @@ Punishments:
       - "Exploit"
       - "Inventory"
       - "QuickSwap"
-      - "AutoTotem"
     commands:
       - "10:5 [alert]"
       - "1:1 [log]"

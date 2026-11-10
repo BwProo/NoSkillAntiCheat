@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SwapAndTotemTest {
+class QuickSwapTest {
 
     private static SwapPattern start(int slot) {
         SwapPattern p = new SwapPattern();
@@ -52,12 +52,5 @@ class SwapAndTotemTest {
         p.slotChanged(4);
         p.slotChanged(0);
         assertEquals(0, p.endTick());
-    }
-
-    @Test
-    void totemRefillTiming() {
-        assertTrue(AutoTotem.isBotLike(new int[]{0, 1, 2, 1}));
-        assertFalse(AutoTotem.isBotLike(new int[]{1, 1, 6, 1})); // one human-speed refill
-        assertFalse(AutoTotem.isBotLike(new int[]{8, 12, 9, 7}));
     }
 }

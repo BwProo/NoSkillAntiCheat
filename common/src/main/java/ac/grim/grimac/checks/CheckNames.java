@@ -55,7 +55,6 @@ public final class CheckNames {
         put("BlacklistedClient", "Hacked client");
         put("InventoryMove", "InvMove");
         put("QuickSwap", "QuickSwap (ShieldBreaker/MaceSwap/AutoTool)");
-        put("AutoTotem", "AutoTotem");
         put("InventorySpeed", "ChestStealer/inventory macro");
         put("MultiActionsA", "AutoBlock (hit while using item)");
         put("MultiActionsB", "FastBreak (break while using item)");

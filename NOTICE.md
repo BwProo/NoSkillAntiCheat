@@ -75,6 +75,6 @@ Changes made in this fork, starting 2026-11-10:
   purple theme, MultiActionsC (InvMove) also sets the player back, and
   optional enabling of Paper's built-in anti-xray.
 - Experimental QuickSwap (switch slot, act, switch back: ShieldBreaker,
-  MaceSwap, AutoTool, KeybindPearl) and AutoTotem (offhand refill within
-  2 ticks of a totem pop) checks; flight attempts are labelled Flight.
+  MaceSwap, AutoTool, KeybindPearl) check (AutoTotem is left to the optional
+  TotemGuard plugin); flight attempts are labelled Flight.
 - CI workflow runs on the `main` branch.
