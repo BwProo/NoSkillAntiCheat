@@ -142,7 +142,7 @@ Punishments:
     commands:
       - "1:0 [alert]"
       - "1:0 [log]"
-      - "1:0 ban %player% Unauthorized client"
+      - "1:0 [animation] ban %player% Unauthorized client"
   # NoSkillAntiCheat: several different checks of one category flagged within a short time.
   # Escalation: alert from the first flag, kick at 3, ban at 5 within 30 minutes.
   # Improbable is experimental: these commands only run once "experimental-checks: true" is set
@@ -155,7 +155,7 @@ Punishments:
       - "1:1 [alert]"
       - "1:1 [log]"
       - "3:0 kick %player% Suspicious gameplay"
-      - "5:0 ban %player% Cheating (multiple checks)"
+      - "5:0 [animation] ban %player% Cheating (multiple checks)"
   # NoSkillAntiCheat: breaking blocks without swinging, e.g. Baritone #mine or a Nuker.
   # Baritone produces many flags per second; a legit player never reaches these numbers.
   AutoMining:
@@ -166,4 +166,4 @@ Punishments:
       - "5:20 [alert]"
       - "1:1 [log]"
       - "100:0 kick %player% Automated mining (Baritone/Nuker)"
-      - "300:0 ban %player% Automated mining (Baritone/Nuker)"
+      - "300:0 [animation] ban %player% Automated mining (Baritone/Nuker)"

@@ -89,3 +89,6 @@ Changes made in this fork, starting 2026-11-10:
 - CI workflow runs on the `main` branch.
 - Experimental BedTiming (BedAura), BowSpam (BowSpam/Quiver), FastUse
   (ExpThrower/AutoMend) and AutoSign checks.
+- Ban animation: punishment commands prefixed with `[animation]` first play a
+  packet-only effect (particle helix, lightning, sounds, title); `/nsac animation`
+  previews it. Default ban commands use it.

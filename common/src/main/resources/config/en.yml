@@ -286,6 +286,15 @@ server-brand:
     enabled: true
     name: "vanilla"
 
+# NoSkillAntiCheat: ban animation. Punishment commands written as "[animation] ban ..." first play a
+# three-second show around the cheater (purple helix, lightning, sounds, title), then run the command.
+# Packets only: nothing in the world changes. Preview: /nsac animation <player>
+ban-animation:
+    enabled: true
+    view-distance: 48
+    title: "&5&lNSAC"
+    subtitle: "&7Cheat detected"
+
 # NoSkillAntiCheat: sign translation probe. Detects hacked clients such as Meteor even when they hide their brand.
 # Shortly after joining, the client gets an invisible sign with mod translation keys; a client with the mod
 # sends the translation back. Hits count as BlacklistedClient (punishment: see punishments.yml).

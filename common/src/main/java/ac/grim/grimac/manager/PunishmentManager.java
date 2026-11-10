@@ -189,12 +189,19 @@ public class PunishmentManager implements ConfigReloadable {
                                         GrimAPI.INSTANCE.getAlertManager().sendAlert(message, verboseListeners);
                                     }
                                 }
-                                default -> GrimAPI.INSTANCE.getScheduler().getGlobalRegionScheduler().run(GrimAPI.INSTANCE.getGrimPlugin(), () ->
-                                        GrimAPI.INSTANCE.getPlatformServer().dispatchCommand(
-                                                GrimAPI.INSTANCE.getPlatformServer().getConsoleSender(),
-                                                cmd
-                                        )
-                                );
+                                default -> {
+                                    // NoSkillAntiCheat: "[animation] <command>" plays the ban animation first
+                                    String animated = ac.grim.grimac.manager.punish.BanAnimation.stripPrefix(cmd);
+                                    String toRun = animated == null ? cmd : animated;
+                                    Runnable dispatch = () -> GrimAPI.INSTANCE.getScheduler().getGlobalRegionScheduler().run(GrimAPI.INSTANCE.getGrimPlugin(), () ->
+                                            GrimAPI.INSTANCE.getPlatformServer().dispatchCommand(
+                                                    GrimAPI.INSTANCE.getPlatformServer().getConsoleSender(),
+                                                    toRun
+                                            )
+                                    );
+                                    if (animated == null) dispatch.run();
+                                    else ac.grim.grimac.manager.punish.BanAnimation.play(player, dispatch);
+                                }
                             }
                         }
 

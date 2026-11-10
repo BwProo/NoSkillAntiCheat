@@ -45,7 +45,7 @@ TEXT = {
         "other_label": "English", "other_short": "EN",
         "title": "NoSkillAntiCheat – kostenloses Minecraft-Anticheat",
         "desc": "Kostenloses, leichtes Anticheat für Paper, Folia, Spigot und Purpur 26.x – mit Bewegungs-Simulation, Kampf-Checks, lokaler KI und Meteor-Erkennung.",
-        "nav": ["Erkennung", "Funktionsweise", "Installation", "Befehle", "FAQ"],
+        "nav": ["Erkennung", "Ban", "Funktionsweise", "Installation", "Befehle", "FAQ"],
         "eyebrow": "Kostenlos · Open Source · Minecraft 26.x",
         "h1": "Das Anticheat, das Cheater beim Namen nennt.",
         "lead": "NoSkillAntiCheat rechnet jede Bewegung nach, prüft Kampfverhalten und erkennt Cheat-Clients wie Meteor schon beim Beitritt. Kostenlos, ohne Cloud und so leicht, dass dein Server nichts davon merkt.",
@@ -57,6 +57,11 @@ TEXT = {
         "catch_sub": "Über 130 Checks in fünf Bereichen. Jeder Alarm sagt dir, welcher Cheat es war.",
         "cats": {"movement": "Bewegung", "combat": "Kampf", "client": "Client", "world": "Welt", "inventory": "Inventar"},
         "limit": "Was kein Anticheat sieht: ESP, Tracers, Fullbright, Freecam und andere reine Anzeige-Cheats senden nichts an den Server. Gegen Xray hilft der eingebaute Anti-Xray, der Erze verschleiert.",
+        "ban_h": "So sieht ein Ban aus",
+        "ban_sub": "Bei einem Ban spielt NSAC eine drei Sekunden lange Animation um den Cheater: Spirale, Blitz, Titel. Alle in der Nähe sehen es, an der Welt ändert sich nichts. Vorschau ingame mit /nsac animation <spieler>.",
+        "ban_subtitle": "Cheat erkannt",
+        "ban_chat": "wurde gebannt: Hacked client",
+        "ban_label": "Animierte Vorschau der Ban-Animation im Spiel",
         "how_h": "Wie die Erkennung funktioniert",
         "diag": {"pred": "vorhergesagt", "act": "tatsächlich", "ground": "Boden", "offset": "Abweichung", "caption": "Ein Fly-Cheat: Die Physik sagt „fallen“, der Spieler bleibt oben. Die Abweichung wird gemessen und benannt."},
         "nav_dl": "Download",
@@ -80,6 +85,7 @@ TEXT = {
             ("/nsac top", "Spieler mit den meisten Verstößen", "nsac.top"),
             ("/nsac spectate <spieler>", "Einem Verdächtigen zuschauen", "nsac.spectate"),
             ("/nsac knockback <spieler>", "Test-Rückstoß senden", "nsac.knockback"),
+            ("/nsac animation <spieler>", "Ban-Animation als Vorschau abspielen", "nsac.animation"),
             ("/nsac session start <label>", "Fehlalarme pro Check messen", "nsac.stats"),
             ("/nsac record start <spieler> <label>", "Sitzung für die KI aufnehmen", "nsac.record"),
             ("/nsac history <spieler>", "Verlauf der Verstöße", "nsac.history"),
@@ -103,7 +109,7 @@ TEXT = {
         "other_label": "Deutsch", "other_short": "DE",
         "title": "NoSkillAntiCheat – free Minecraft anticheat",
         "desc": "Free, lightweight anticheat for Paper, Folia, Spigot and Purpur 26.x – with movement simulation, combat checks, local AI and Meteor detection.",
-        "nav": ["Detection", "How it works", "Install", "Commands", "FAQ"],
+        "nav": ["Detection", "Bans", "How it works", "Install", "Commands", "FAQ"],
         "eyebrow": "Free · Open source · Minecraft 26.x",
         "h1": "The anticheat that calls cheats by their name.",
         "lead": "NoSkillAntiCheat recalculates every movement, checks combat behaviour and catches hacked clients such as Meteor the moment they join. Free, no cloud, and light enough that your server never notices.",
@@ -115,6 +121,11 @@ TEXT = {
         "catch_sub": "More than 130 checks in five areas. Every alert tells you which cheat it was.",
         "cats": {"movement": "Movement", "combat": "Combat", "client": "Client", "world": "World", "inventory": "Inventory"},
         "limit": "What no anticheat can see: ESP, Tracers, Fullbright, Freecam and other visual-only cheats send nothing to the server. Against Xray, the built-in anti-xray hides ores from clients.",
+        "ban_h": "What a ban looks like",
+        "ban_sub": "When NSAC bans, it plays a three-second animation around the cheater: helix, lightning, title. Everyone nearby sees it; nothing in the world changes. Preview it in game with /nsac animation <player>.",
+        "ban_subtitle": "Cheat detected",
+        "ban_chat": "was banned: Hacked client",
+        "ban_label": "Animated preview of the in-game ban animation",
         "how_h": "How detection works",
         "diag": {"pred": "predicted", "act": "actual", "ground": "ground", "offset": "offset", "caption": "A fly cheat: physics says fall, the player stays up. The offset is measured and named."},
         "nav_dl": "Download",
@@ -138,6 +149,7 @@ TEXT = {
             ("/nsac top", "Players with the most violations", "nsac.top"),
             ("/nsac spectate <player>", "Spectate a suspect", "nsac.spectate"),
             ("/nsac knockback <player>", "Send test knockback", "nsac.knockback"),
+            ("/nsac animation <player>", "Preview the ban animation", "nsac.animation"),
             ("/nsac session start <label>", "Measure false positives per check", "nsac.stats"),
             ("/nsac record start <player> <label>", "Record a session for the AI", "nsac.record"),
             ("/nsac history <player>", "Violation history", "nsac.history"),
@@ -278,13 +290,31 @@ footer.site{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);f
 footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
 footer.site a{color:var(--muted)}
 footer.site .claude{flex-basis:100%;font-size:.85rem}
+/* ban stage (signature 2): the in-game animation, replayed */
+.ban-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.stage{margin:0;background:var(--console);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(22,19,31,.45)}
+.stage canvas{display:block;width:100%;height:auto;image-rendering:pixelated}
+/* small motion */
+.cats.in li{animation:li-in .45s calc(var(--d,0)*45ms + .15s) ease both}
+@keyframes li-in{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
+.feed li:last-child{animation:line-in .45s ease both,flash 1.4s ease}
+@keyframes flash{0%{background:rgba(167,139,250,.28)}100%{background:transparent}}
+.nav ul a{background:linear-gradient(var(--violet),var(--violet)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .25s,color .15s}
+.nav ul a:hover{background-size:100% 2px}
+h1 em{background:linear-gradient(var(--lilac),var(--lilac)) 0 88%/0 .32em no-repeat;animation:mark 1s .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes mark{to{background-size:100% .32em}}
+.steps li{transition:opacity .7s ease,transform .7s ease,border-color .2s}
+.steps li:hover{border-color:var(--violet)}
+.steps li.in::before{animation:pop .5s .2s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+.cat li{transition:color .15s}.cat li:hover{color:var(--violet)}
 /* motion */
 .rise{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .rise.in{opacity:1;transform:none}
 .hero .rise:nth-child(2){transition-delay:.08s}.hero .rise:nth-child(3){transition-delay:.16s}.hero .rise:nth-child(4){transition-delay:.24s}.hero .rise:nth-child(5){transition-delay:.32s}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise{opacity:1;transform:none}.d-act{stroke-dashoffset:0}.d-off,.d-offlbl,.d-chip{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise{opacity:1;transform:none}.d-act{stroke-dashoffset:0}.d-off,.d-offlbl,.d-chip{opacity:1}h1 em{background-size:100% .32em}}
 /* responsive */
-@media (max-width:980px){.how-wrap{grid-template-columns:1fr}.nav .dl{display:none}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
+@media (max-width:980px){.how-wrap{grid-template-columns:1fr}.nav .dl{display:none}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.ban-wrap{grid-template-columns:1fr}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
 @media (max-width:560px){.wrap{padding:0 16px}.hero{padding:48px 0 60px}section{padding:60px 0}.cats,.steps{grid-template-columns:1fr}.cat{border-right:0}.feed{height:260px;font-size:.78rem}}
 """
 
@@ -300,6 +330,47 @@ JS = """
   if(dg){ if(reduce){dg.classList.add('play');} else if('IntersectionObserver' in window){
     var dio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){dg.classList.add('play');dio.disconnect();
       setInterval(function(){dg.classList.remove('play');void dg.offsetWidth;dg.classList.add('play')},9000);}})},{threshold:.4});dio.observe(dg);} else dg.classList.add('play'); }
+
+  var cv=document.getElementById('ban-stage');
+  if(cv){
+    var g=cv.getContext('2d'),W=640,H=360,dpr=Math.min(2,window.devicePixelRatio||1);
+    cv.width=W*dpr;cv.height=H*dpr;g.scale(dpr,dpr);
+    var GROUND=300,CX=320,S=5,LOOP=6200,parts=[],burst=[],bolt=null,t0=null,running=false,last=-1;
+    var VIO='#6d28d9',LIL='#c4b5fd',sub=cv.dataset.sub,chat=cv.dataset.chat;
+    function helix(f,strand){var p=Math.min(1,f/44),a=f*.45+strand*Math.PI,r=1.1*(1-.55*p);return [Math.cos(a)*r,p*2.4,Math.sin(a)*r];}
+    function px(x,y,w,h,c){g.fillStyle=c;g.fillRect(Math.round(x),Math.round(y),w,h);}
+    function ground(){for(var i=0;i<W/20;i++){px(i*20,GROUND,20,60,i%2?'#2a2637':'#262232');px(i*20,GROUND,20,4,i%3?'#3b3550':'#433c5c');}}
+    function player(alpha){g.globalAlpha=alpha;var x=CX-4*S,top=GROUND-32*S;
+      px(x,top,8*S,8*S,'#3a3548');px(x+S,top+3*S,6*S,2*S,VIO);           // head + visor
+      px(x,top+8*S,8*S,12*S,'#2f2a3d');px(x-4*S,top+8*S,4*S,12*S,'#3a3548');px(x+8*S,top+8*S,4*S,12*S,'#3a3548');
+      px(x,top+20*S,4*S,12*S,'#24202f');px(x+4*S,top+20*S,4*S,12*S,'#2b2638');g.globalAlpha=1;}
+    function toScreen(o){return [CX+o[0]*70,GROUND-o[1]*68+o[2]*14,o[2]];}
+    function makeBolt(){var pts=[[CX+40,-10]],y=-10,x=CX+40;while(y<GROUND-160){y+=22+Math.random()*18;x+=(Math.random()-.5)*46;pts.push([x,y]);}pts.push([CX,GROUND-150]);return pts;}
+    function draw(ms){
+      var t=ms%LOOP,f=Math.floor(t/50);if(t<last){parts=[];burst=[];bolt=null;}last=t;
+      g.clearRect(0,0,W,H);g.fillStyle='#191622';g.fillRect(0,0,W,H);
+      for(var k=0;k<40;k++){px((k*97)%W,(k*53)%220,2,2,'rgba(255,255,255,'+(.08+(k%5)*.03)+')');}
+      ground();
+      if(f<=44&&(parts.length===0||parts[parts.length-1].f!==f)){for(var s2=0;s2<2;s2++){var p=toScreen(helix(f,s2));parts.push({x:p[0],y:p[1],z:p[2],b:t,f:f,c:s2?LIL:VIO});}}
+      parts=parts.filter(function(q){return t-q.b<1300;});
+      function dots(front){parts.forEach(function(q){if((q.z>=0)!==front)return;var a=1-(t-q.b)/1300;g.globalAlpha=a;px(q.x-4,q.y-4-(t-q.b)*.012,8,8,q.c);});g.globalAlpha=1;}
+      dots(false);player(t>4700?Math.max(0,1-(t-4700)/500):1);dots(true);
+      if(f>=46&&!bolt){bolt=makeBolt();for(var b=0;b<70;b++){var an=Math.random()*Math.PI*2,sp=1+Math.random()*4;burst.push({x:CX,y:GROUND-90,vx:Math.cos(an)*sp,vy:Math.sin(an)*sp-1.5,c:b%3?LIL:'#ffffff'});}}
+      if(bolt&&t<2300+700){var age=t-2300;if(age>=0){g.save();g.strokeStyle='rgba(237,233,251,'+Math.max(0,1-age/380)+')';g.lineWidth=5;g.shadowColor=LIL;g.shadowBlur=18;g.beginPath();bolt.forEach(function(p,i){i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]);});g.stroke();g.restore();
+        if(age<260){g.fillStyle='rgba(237,233,251,'+(.35*(1-age/260))+')';g.fillRect(0,0,W,H);}}}
+      burst.forEach(function(q){q.x+=q.vx;q.y+=q.vy;q.vy+=.06;q.vx*=.985;var a=Math.max(0,1-(t-2300)/1400);g.globalAlpha=a;px(q.x,q.y,4,4,q.c);});g.globalAlpha=1;
+      if(t>700&&t<5400){var ta=Math.min(1,(t-700)/300)*(t>5000?Math.max(0,1-(t-5000)/400):1);g.globalAlpha=ta;g.textAlign='center';
+        g.font='900 54px Archivo, system-ui, sans-serif';g.fillStyle='#000';g.fillText('NSAC',CX+3,95+3);g.fillStyle='#8b5cf6';g.fillText('NSAC',CX,95);
+        g.font='500 18px "IBM Plex Sans", system-ui, sans-serif';g.fillStyle='#b8b2cc';g.fillText(sub,CX,124);g.globalAlpha=1;}
+      if(t>3200&&t<5600){var ca=Math.min(1,(t-3200)/250)*(t>5200?Math.max(0,1-(t-5200)/400):1);g.globalAlpha=ca;g.fillStyle='rgba(0,0,0,.45)';g.fillRect(14,322,W-28,26);
+        g.textAlign='left';g.font='600 14px "JetBrains Mono", monospace';g.fillStyle='#a78bfa';g.fillText('NSAC',24,340);g.fillStyle='#6f6984';g.fillText('»',70,340);
+        g.fillStyle='#ffffff';g.fillText('Steve',88,340);g.fillStyle='#f1a7c4';g.fillText(chat,142,340);g.globalAlpha=1;}
+    }
+    function loop(ms){if(!running)return;if(t0===null)t0=ms;draw(ms-t0);requestAnimationFrame(loop);}
+    if(reduce){draw(3400);}
+    else if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!running){running=true;t0=null;last=-1;requestAnimationFrame(loop);}else if(!e.isIntersecting){running=false;}})},{threshold:.25}).observe(cv);}
+    else{running=true;requestAnimationFrame(loop);}
+  }
   var feed=document.querySelector('.feed'); if(!feed) return;
   var lines=JSON.parse(feed.dataset.lines), i=0, max=12;
   function add(){var l=lines[i%lines.length];i++;var li=document.createElement('li');
@@ -340,7 +411,7 @@ def diagram(t: dict) -> str:
 
 
 def page(t: dict) -> str:
-    ids = ["checks", "how", "install", "commands", "faq"]
+    ids = ["checks", "ban", "how", "install", "commands", "faq"]
     nav = "".join(f'<li><a href="#{i}">{esc(n)}</a></li>' for i, n in zip(ids, t["nav"]))
     other_rel = "en/" if t["lang"] == "de" else "../"
     h1 = esc(t["h1"])
@@ -348,7 +419,7 @@ def page(t: dict) -> str:
     key = "beim Namen nennt" if t["lang"] == "de" else "by their name"
     h1 = h1.replace(key, f"<em>{key}</em>")
     cats = "".join(
-        f'<div class="cat"><h3>{esc(t["cats"][k])}<span>{len(v)}</span></h3><ul>' + "".join(f"<li>{esc(x)}</li>" for x in v) + "</ul></div>"
+        f'<div class="cat"><h3>{esc(t["cats"][k])}<span>{len(v)}</span></h3><ul>' + "".join(f'<li style="--d:{i}">{esc(x)}</li>' for i, x in enumerate(v)) + "</ul></div>"
         for k, v in CATEGORIES.items())
     how = "".join(f"<div class=\"rise\"><h3>{esc(h)}</h3><p>{esc(p)}</p></div>" for h, p in t["how"])
     steps = "".join(f"<li class=\"rise\"><h3>{esc(h)}</h3><p>{p}</p></li>" for h, p in t["install"])
@@ -435,6 +506,15 @@ def page(t: dict) -> str:
   <p class="sub rise">{esc(t['catch_sub'])}</p>
   <div class="cats rise">{cats}</div>
   <p class="limit rise">{esc(t['limit'])}</p>
+</div></section>
+
+<section id="ban"><div class="wrap ban-wrap">
+  <div>
+    <h2 class="rise">{esc(t['ban_h'])}</h2>
+    <p class="sub rise">{esc(t['ban_sub'])}</p>
+  </div>
+  <figure class="stage rise"><canvas id="ban-stage" width="640" height="360" role="img" aria-label="{esc(t['ban_label'])}"
+    data-sub="{esc(t['ban_subtitle'])}" data-chat="{esc(t['ban_chat'])}"></canvas></figure>
 </div></section>
 
 <section id="how"><div class="wrap">

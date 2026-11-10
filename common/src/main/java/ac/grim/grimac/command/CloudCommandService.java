@@ -66,6 +66,7 @@ public class CloudCommandService implements CommandService {
         new GrimStats().register(commandManager, commandArguments);
         new GrimTop().register(commandManager, commandArguments);
         new GrimKnockback().register(commandManager, commandArguments);
+        new GrimAnimation().register(commandManager, commandArguments);
         new GrimRecord().register(commandManager, commandArguments);
 
         final RequirementPostprocessor<Sender, SenderRequirement>

@@ -210,6 +210,11 @@ bukkit {
             default = Permission.Default.OP
         }
 
+        register("nsac.animation") {
+            description = "Preview the ban animation on a player"
+            default = Permission.Default.OP
+        }
+
         register("nsac.top") {
             description = "Show online players with the most violations"
             default = Permission.Default.OP

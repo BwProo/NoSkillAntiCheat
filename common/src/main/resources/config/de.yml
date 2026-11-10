@@ -289,6 +289,15 @@ server-brand:
     enabled: true
     name: "vanilla"
 
+# NoSkillAntiCheat: Ban-Animation. Strafbefehle der Form "[animation] ban ..." spielen erst eine
+# drei Sekunden lange Show um den Cheater (lila Spirale, Blitz, Sounds, Titel) und laufen dann.
+# Nur Pakete: an der Welt aendert sich nichts. Vorschau: /nsac animation <spieler>
+ban-animation:
+    enabled: true
+    view-distance: 48
+    title: "&5&lNSAC"
+    subtitle: "&7Cheat erkannt"
+
 # NoSkillAntiCheat: Schild-Uebersetzungs-Probe. Erkennt Cheat-Clients wie Meteor auch dann, wenn sie ihren Brand verstecken.
 # Kurz nach dem Beitritt bekommt der Client ein unsichtbares Schild mit Mod-Schluesseln; ein Client mit dem Mod
 # schickt die Uebersetzung zurueck. Treffer zaehlen als BlacklistedClient (Strafe siehe punishments.yml).
