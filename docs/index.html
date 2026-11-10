@@ -16,9 +16,20 @@
 <meta property="og:description" content="Kostenloses, leichtes Anticheat für Paper, Folia, Spigot und Purpur 26.x – mit Bewegungs-Simulation, Kampf-Checks, lokaler KI und Meteor-Erkennung.">
 <meta property="og:url" content="https://bwproo.github.io/NoSkillAntiCheat/">
 <meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="NoSkillAntiCheat">
+<meta property="og:image" content="https://bwproo.github.io/NoSkillAntiCheat/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="application-name" content="NoSkillAntiCheat">
 <meta name="theme-color" content="#6d28d9">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "NoSkillAntiCheat", "applicationCategory": "GameApplication", "operatingSystem": "Paper, Folia, Purpur, Spigot (Minecraft 26.x), Velocity 4.x", "description": "Kostenloses, leichtes Anticheat für Paper, Folia, Spigot und Purpur 26.x – mit Bewegungs-Simulation, Kampf-Checks, lokaler KI und Meteor-Erkennung.", "url": "https://bwproo.github.io/NoSkillAntiCheat/", "downloadUrl": "https://github.com/BwProo/NoSkillAntiCheat/releases/latest/download/NoSkillAntiCheat.jar", "codeRepository": "https://github.com/BwProo/NoSkillAntiCheat", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 8 14v16c0 15 10 26 24 30 14-4 24-15 24-30V14z' fill='%236d28d9'/%3E%3Cpath d='M22 33l7 7 14-15' stroke='white' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="https://bwproo.github.io/NoSkillAntiCheat/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="https://bwproo.github.io/NoSkillAntiCheat/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://bwproo.github.io/NoSkillAntiCheat/icon-192.png">
+<link rel="apple-touch-icon" href="https://bwproo.github.io/NoSkillAntiCheat/apple-touch-icon.png">
+<link rel="manifest" href="https://bwproo.github.io/NoSkillAntiCheat/site.webmanifest">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "NoSkillAntiCheat", "alternateName": ["NSAC", "NoSkillAntiCheat Minecraft Anticheat"], "url": "https://bwproo.github.io/NoSkillAntiCheat/", "inLanguage": "de"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "NoSkillAntiCheat", "applicationCategory": "GameApplication", "operatingSystem": "Paper, Folia, Purpur, Spigot (Minecraft 26.x), Velocity 4.x", "description": "Kostenloses, leichtes Anticheat für Paper, Folia, Spigot und Purpur 26.x – mit Bewegungs-Simulation, Kampf-Checks, lokaler KI und Meteor-Erkennung.", "url": "https://bwproo.github.io/NoSkillAntiCheat/", "downloadUrl": "https://github.com/BwProo/NoSkillAntiCheat/releases/latest/download/NoSkillAntiCheat.jar", "codeRepository": "https://github.com/BwProo/NoSkillAntiCheat", "image": "https://bwproo.github.io/NoSkillAntiCheat/icon-512.png", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -42,7 +53,7 @@ code,.mono{font-family:var(--mono);font-size:.86em}
 .nav.scrolled{border-bottom-color:var(--line)}
 .nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font:800 1.02rem/1 var(--display);font-stretch:112%;color:var(--ink);text-decoration:none;letter-spacing:.2px}
-.brand svg{width:26px;height:26px}
+.brand img{width:26px;height:26px;border-radius:6px}
 .nav ul{display:flex;gap:22px;margin:0 0 0 auto;padding:0;list-style:none}
 .nav ul a{color:var(--muted);text-decoration:none;font-size:.94rem}
 .nav ul a:hover{color:var(--ink)}
@@ -93,6 +104,30 @@ h2{font:800 clamp(1.8rem,3.2vw,2.5rem)/1.1 var(--display);font-stretch:112%;lett
 .how h3{font:700 1.15rem/1.2 var(--display);font-stretch:108%;margin:0 0 10px}
 .how p{margin:0;color:var(--muted)}
 .how div{border-top:3px solid var(--ink);padding-top:18px}
+.how-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;margin-top:36px}
+.how-wrap .how{grid-template-columns:1fr;gap:26px}
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 16px}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram figcaption{color:var(--muted);font-size:.9rem;margin-top:10px}
+.d-grid{stroke:var(--line);stroke-width:1}
+.d-ground{stroke:var(--ink);stroke-width:2}
+.d-label{font:500 12px var(--mono);fill:var(--muted)}
+.d-pred{fill:none;stroke:#9a95ad;stroke-width:2.5;stroke-dasharray:6 6}
+.d-act{fill:none;stroke:var(--violet);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520}
+.d-off{stroke:#c2410c;stroke-width:2;opacity:0}
+.d-offlbl{font:600 12px var(--mono);fill:#c2410c;opacity:0}
+.d-chip{opacity:0}
+.d-chip rect{fill:var(--console)}
+.d-chip text{font:600 12.5px var(--mono)}
+.diagram.play .d-act{animation:draw 2.2s .3s ease-out forwards}
+.diagram.play .d-off,.diagram.play .d-offlbl{animation:fade .5s 2.5s forwards}
+.diagram.play .d-chip{animation:chip .5s 3.1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@keyframes chip{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.nav .dl{font:600 .86rem/1 var(--body);background:var(--violet);color:#fff;padding:9px 14px;border-radius:8px;text-decoration:none;transition:background .15s}
+.nav .dl:hover{background:var(--violet-ink);color:#fff}
+.cat h3 span{color:var(--muted);font-weight:500;margin-left:6px}
 /* install: a real sequence, so it is numbered */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
 .steps li{counter-increment:step;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
@@ -122,16 +157,17 @@ footer.site .claude{flex-basis:100%;font-size:.85rem}
 .rise{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .rise.in{opacity:1;transform:none}
 .hero .rise:nth-child(2){transition-delay:.08s}.hero .rise:nth-child(3){transition-delay:.16s}.hero .rise:nth-child(4){transition-delay:.24s}.hero .rise:nth-child(5){transition-delay:.32s}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise{opacity:1;transform:none}.d-act{stroke-dashoffset:0}.d-off,.d-offlbl,.d-chip{opacity:1}}
 /* responsive */
-@media (max-width:980px){.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
+@media (max-width:980px){.how-wrap{grid-template-columns:1fr}.nav .dl{display:none}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
 @media (max-width:560px){.wrap{padding:0 16px}.hero{padding:48px 0 60px}section{padding:60px 0}.cats,.steps{grid-template-columns:1fr}.cat{border-right:0}.feed{height:260px;font-size:.78rem}}
 </style>
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="#"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 8 14v16c0 15 10 26 24 30 14-4 24-15 24-30V14z" fill="#6d28d9"/><path d="M22 33l7 7 14-15" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>NoSkillAntiCheat</a>
+  <a class="brand" href="#"><img src="https://bwproo.github.io/NoSkillAntiCheat/favicon.svg" alt="" width="26" height="26">NoSkillAntiCheat</a>
   <ul><li><a href="#checks">Erkennung</a></li><li><a href="#how">Funktionsweise</a></li><li><a href="#install">Installation</a></li><li><a href="#commands">Befehle</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <a class="dl" href="https://github.com/BwProo/NoSkillAntiCheat/releases/latest/download/NoSkillAntiCheat.jar">Download</a>
   <a class="lang" href="en/" hreflang="en">EN</a>
 </div></nav>
 
@@ -157,13 +193,28 @@ footer.site .claude{flex-basis:100%;font-size:.85rem}
 <section id="checks"><div class="wrap">
   <h2 class="rise">Was erkannt wird</h2>
   <p class="sub rise">Über 130 Checks in fünf Bereichen. Jeder Alarm sagt dir, welcher Cheat es war.</p>
-  <div class="cats rise"><div class="cat"><h3>Bewegung</h3><ul><li>Flight</li><li>Speed</li><li>Step</li><li>Spider</li><li>WaterWalk / Jesus</li><li>NoFall</li><li>NoSlow</li><li>Strafe</li><li>Timer</li><li>Blink</li><li>Phase</li><li>NoJumpDelay</li><li>ElytraFly</li><li>BoatFly</li></ul></div><div class="cat"><h3>Kampf</h3><ul><li>KillAura</li><li>Reach</li><li>Hitboxes</li><li>AimAssist</li><li>TriggerBot</li><li>AutoClicker</li><li>Velocity</li><li>CrystalAura</li><li>AnchorAura</li><li>AutoBlock</li><li>ShieldBreaker / MaceSwap</li></ul></div><div class="cat"><h3>Client</h3><ul><li>Meteor (sign probe)</li><li>Brand and mod channels</li><li>Plugin list hidden</li><li>Server type hidden</li></ul></div><div class="cat"><h3>Welt</h3><ul><li>Scaffold</li><li>Tower / FastPlace</li><li>Nuker</li><li>FastBreak</li><li>Baritone #mine</li><li>Xray (mining pattern)</li><li>Paper anti-xray</li></ul></div><div class="cat"><h3>Inventar</h3><ul><li>InvMove</li><li>ChestStealer</li><li>AutoArmor</li><li>Inventory macros</li><li>NoRotate</li></ul></div></div>
+  <div class="cats rise"><div class="cat"><h3>Bewegung<span>14</span></h3><ul><li>Flight</li><li>Speed</li><li>Step</li><li>Spider</li><li>WaterWalk / Jesus</li><li>NoFall</li><li>NoSlow</li><li>Strafe</li><li>Timer</li><li>Blink</li><li>Phase</li><li>NoJumpDelay</li><li>ElytraFly</li><li>BoatFly</li></ul></div><div class="cat"><h3>Kampf<span>11</span></h3><ul><li>KillAura</li><li>Reach</li><li>Hitboxes</li><li>AimAssist</li><li>TriggerBot</li><li>AutoClicker</li><li>Velocity</li><li>CrystalAura</li><li>AnchorAura</li><li>AutoBlock</li><li>ShieldBreaker / MaceSwap</li></ul></div><div class="cat"><h3>Client<span>4</span></h3><ul><li>Meteor (sign probe)</li><li>Brand and mod channels</li><li>Plugin list hidden</li><li>Server type hidden</li></ul></div><div class="cat"><h3>Welt<span>7</span></h3><ul><li>Scaffold</li><li>Tower / FastPlace</li><li>Nuker</li><li>FastBreak</li><li>Baritone #mine</li><li>Xray (mining pattern)</li><li>Paper anti-xray</li></ul></div><div class="cat"><h3>Inventar<span>5</span></h3><ul><li>InvMove</li><li>ChestStealer</li><li>AutoArmor</li><li>Inventory macros</li><li>NoRotate</li></ul></div></div>
   <p class="limit rise">Was kein Anticheat sieht: ESP, Tracers, Fullbright, Freecam und andere reine Anzeige-Cheats senden nichts an den Server. Gegen Xray hilft der eingebaute Anti-Xray, der Erze verschleiert.</p>
 </div></section>
 
 <section id="how"><div class="wrap">
   <h2 class="rise">Wie die Erkennung funktioniert</h2>
-  <div class="how" style="margin-top:36px"><div class="rise"><h3>Simulation</h3><p>Jede Bewegung wird mit der echten Minecraft-Physik nachgerechnet, inklusive Ping-Ausgleich. Wer fliegt oder zu schnell läuft, wird zurückgesetzt.</p></div><div class="rise"><h3>Heuristiken</h3><p>Kampf, Klicks, Inventar und Abbauen werden statistisch geprüft: zu gleichmäßig, zu schnell oder unmöglich präzise fällt auf.</p></div><div class="rise"><h3>Lokale KI</h3><p>Aus aufgenommenen Sitzungen trainierst du ein eigenes Modell. Es bewertet Kampfverhalten direkt im Plugin, ohne Daten zu verschicken.</p></div></div>
+  <div class="how-wrap"><figure class="diagram rise" aria-label="Ein Fly-Cheat: Die Physik sagt „fallen“, der Spieler bleibt oben. Die Abweichung wird gemessen und benannt.">
+<svg viewBox="0 0 520 260" role="img">
+  <line class="d-grid" x1="40" y1="60" x2="500" y2="60"/><line class="d-grid" x1="40" y1="120" x2="500" y2="120"/><line class="d-grid" x1="40" y1="180" x2="500" y2="180"/>
+  <line class="d-ground" x1="30" y1="220" x2="505" y2="220"/>
+  <text class="d-label" x="34" y="242">Boden</text>
+  <path class="d-pred" d="M50 220 C 130 110, 200 110, 280 220"/>
+  <text class="d-label" x="210" y="158">vorhergesagt</text>
+  <path class="d-act" d="M50 220 C 120 120, 170 95, 230 92 S 400 92, 480 92"/>
+  <text class="d-label" x="404" y="80" style="fill:#6d28d9">tatsächlich</text>
+  <line class="d-off" x1="340" y1="92" x2="340" y2="220" stroke-dasharray="4 4"/>
+  <text class="d-offlbl" x="348" y="160">Abweichung</text>
+  <g class="d-chip"><rect x="250" y="16" width="230" height="30" rx="7"/>
+    <text x="262" y="36"><tspan fill="#a78bfa">NSAC</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#ffffff">Steve</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#f1a7c4">Flight</tspan><tspan fill="#8f89a6"> (x1)</tspan></text></g>
+</svg>
+<figcaption>Ein Fly-Cheat: Die Physik sagt „fallen“, der Spieler bleibt oben. Die Abweichung wird gemessen und benannt.</figcaption>
+</figure><div class="how"><div class="rise"><h3>Simulation</h3><p>Jede Bewegung wird mit der echten Minecraft-Physik nachgerechnet, inklusive Ping-Ausgleich. Wer fliegt oder zu schnell läuft, wird zurückgesetzt.</p></div><div class="rise"><h3>Heuristiken</h3><p>Kampf, Klicks, Inventar und Abbauen werden statistisch geprüft: zu gleichmäßig, zu schnell oder unmöglich präzise fällt auf.</p></div><div class="rise"><h3>Lokale KI</h3><p>Aus aufgenommenen Sitzungen trainierst du ein eigenes Modell. Es bewertet Kampfverhalten direkt im Plugin, ohne Daten zu verschicken.</p></div></div></div>
 </div></section>
 
 <section id="install"><div class="wrap">
@@ -195,6 +246,10 @@ footer.site .claude{flex-basis:100%;font-size:.85rem}
   var els=document.querySelectorAll('.rise');
   if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});}
   else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)});}
+  var dg=document.querySelector('.diagram');
+  if(dg){ if(reduce){dg.classList.add('play');} else if('IntersectionObserver' in window){
+    var dio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){dg.classList.add('play');dio.disconnect();
+      setInterval(function(){dg.classList.remove('play');void dg.offsetWidth;dg.classList.add('play')},9000);}})},{threshold:.4});dio.observe(dg);} else dg.classList.add('play'); }
   var feed=document.querySelector('.feed'); if(!feed) return;
   var lines=JSON.parse(feed.dataset.lines), i=0, max=12;
   function add(){var l=lines[i%lines.length];i++;var li=document.createElement('li');

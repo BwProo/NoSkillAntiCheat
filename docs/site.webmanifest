@@ -1,0 +1,13 @@
+{
+  "name": "NoSkillAntiCheat",
+  "short_name": "NSAC",
+  "description": "Free, lightweight Minecraft anticheat",
+  "start_url": "/NoSkillAntiCheat/",
+  "icons": [
+    {"src": "/NoSkillAntiCheat/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/NoSkillAntiCheat/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ],
+  "theme_color": "#6d28d9",
+  "background_color": "#f4f3f8",
+  "display": "standalone"
+}
