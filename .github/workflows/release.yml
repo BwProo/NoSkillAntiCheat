@@ -39,5 +39,9 @@ jobs:
               run: |
                   JAR=$(ls bukkit/build/libs/noskillanticheat-bukkit-*.jar | grep -v -e sources -e javadoc | head -1)
                   PROXY=$(ls velocity/build/libs/noskillanticheat-velocity-*.jar | head -1)
+                  # Copies with fixed names, so the website can always link releases/latest/download/<name>
+                  cp "$JAR" NoSkillAntiCheat.jar
+                  cp "$PROXY" NoSkillAntiCheat-Velocity.jar
                   echo "Uploading $JAR and $PROXY"
-                  gh release create "$TAG" "$JAR" "$PROXY" --repo "$GITHUB_REPOSITORY" --title "NoSkillAntiCheat $TAG" --generate-notes
+                  gh release create "$TAG" "$JAR" "$PROXY" NoSkillAntiCheat.jar NoSkillAntiCheat-Velocity.jar \
+                      --repo "$GITHUB_REPOSITORY" --title "NoSkillAntiCheat $TAG" --generate-notes
