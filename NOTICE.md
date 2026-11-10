@@ -33,4 +33,7 @@ Changes made in this fork, starting 2026-11-10:
 - Added experimental AutoClickerA/B/C checks (click-delay statistics in
   client ticks), written from scratch; ideas taken from public descriptions
   of Vulcan's checks, no Vulcan code.
+- Added experimental AimGCD (sensitivity-grid mismatch in combat), AimSmooth
+  (interpolated combat aim) and KillAuraSwitch (fast repeated target
+  switching) checks, written from scratch from public Vulcan check ideas.
 - CI workflow runs on the `main` branch.
