@@ -56,4 +56,7 @@ Changes made in this fork, starting 2026-11-10:
 - In-game rebranding: permission nodes are `nsac.*` instead of `grim.*`,
   message prefix and Discord titles say NSAC, PlaceholderAPI identifier is
   `nsac`. `/nsac version` states "Based on GrimAC - licensed under GPL-3.0".
+- Added command protection: players without nsac.commands.bypass cannot run
+  /pl, /plugins, /?, /help, /version and similar commands or namespaced
+  commands, and those are removed from tab completion.
 - CI workflow runs on the `main` branch.

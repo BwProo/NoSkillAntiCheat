@@ -195,6 +195,11 @@ bukkit {
             default = Permission.Default.OP
         }
 
+        register("nsac.commands.bypass") {
+            description = "Use /pl, /version, /help and namespaced commands and see them in tab completion"
+            default = Permission.Default.OP
+        }
+
         register("nsac.record") {
             description = "Record player sessions for AI training and regression tests"
             default = Permission.Default.OP

@@ -245,3 +245,27 @@ update-permission-ticks: -1
 #                   auto-migrate up via the bundled updater on next start.
 config-flavor: V2
 config-version: 11
+
+# NoSkillAntiCheat: hide the server's plugins from players.
+# Players without the permission nsac.commands.bypass (default: OP only) cannot run the commands below,
+# cannot run namespaced commands like /bukkit:pl, and do not see them in tab completion.
+command-protection:
+    enabled: true
+    blocked-commands:
+        - "pl"
+        - "plugins"
+        - "?"
+        - "help"
+        - "version"
+        - "ver"
+        - "about"
+        - "icanhasbukkit"
+        - "paper"
+        - "spigot"
+        - "purpur"
+        - "folia"
+    # Remove every "plugin:command" entry from tab completion (they reveal plugin names)
+    hide-namespaced-commands: true
+    # Block running "plugin:command" for players (they can still use the plain command name)
+    block-namespaced-commands: true
+    message: "&cUnknown command."

@@ -248,3 +248,27 @@ update-permission-ticks: -1
 
 config-flavor: V2
 config-version: 11
+
+# NoSkillAntiCheat: Plugins des Servers vor Spielern verstecken.
+# Spieler ohne die Berechtigung nsac.commands.bypass (Standard: nur OPs) koennen diese Befehle nicht nutzen,
+# keine Befehle wie /bukkit:pl ausfuehren und sehen sie nicht in der Tab-Vervollstaendigung.
+command-protection:
+    enabled: true
+    blocked-commands:
+        - "pl"
+        - "plugins"
+        - "?"
+        - "help"
+        - "version"
+        - "ver"
+        - "about"
+        - "icanhasbukkit"
+        - "paper"
+        - "spigot"
+        - "purpur"
+        - "folia"
+    # Alle "plugin:befehl"-Eintraege aus der Tab-Vervollstaendigung entfernen (sie verraten Plugin-Namen)
+    hide-namespaced-commands: true
+    # "plugin:befehl" fuer Spieler sperren (der normale Befehlsname funktioniert weiter)
+    block-namespaced-commands: true
+    message: "&cUnbekannter Befehl."
