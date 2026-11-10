@@ -456,9 +456,9 @@ public class CheckManager implements BasicReloadable {
         registerBuiltInVerboseTemplates();
 
         final String[] permissions = {
-                "grim.exempt.",
-                "grim.nosetback.",
-                "grim.nomodifypacket.",
+                "nsac.exempt.",
+                "nsac.nosetback.",
+                "nsac.nomodifypacket.",
         };
 
         for (final AbstractCheck check : checks) {

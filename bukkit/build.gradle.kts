@@ -165,93 +165,93 @@ bukkit {
     )
 
     permissions {
-        register("grim.alerts") {
+        register("nsac.alerts") {
             description = "Receive alerts for violations"
             default = Permission.Default.OP
         }
 
-        register("grim.alerts.enable-on-join") {
+        register("nsac.alerts.enable-on-join") {
             description = "Enable alerts on join"
             default = Permission.Default.OP
         }
 
-        register("grim.performance") {
+        register("nsac.performance") {
             description = "Check performance metrics"
             default = Permission.Default.OP
         }
 
-        register("grim.profile") {
+        register("nsac.profile") {
             description = "Check user profile"
             default = Permission.Default.OP
         }
 
-        register("grim.brand") {
+        register("nsac.brand") {
             description = "Show client brands on join"
             default = Permission.Default.OP
         }
 
-        register("grim.brand.enable-on-join") {
+        register("nsac.brand.enable-on-join") {
             description = "Enable showing client brands on join"
             default = Permission.Default.OP
         }
 
-        register("grim.record") {
+        register("nsac.record") {
             description = "Record player sessions for AI training and regression tests"
             default = Permission.Default.OP
         }
 
-        register("grim.knockback") {
+        register("nsac.knockback") {
             description = "Send a player test knockback to check AntiKB"
             default = Permission.Default.OP
         }
 
-        register("grim.top") {
+        register("nsac.top") {
             description = "Show online players with the most violations"
             default = Permission.Default.OP
         }
 
-        register("grim.stats") {
+        register("nsac.stats") {
             description = "View false-positive stats and run measurement sessions"
             default = Permission.Default.OP
         }
 
-        register("grim.sendalert") {
+        register("nsac.sendalert") {
             description = "Send cheater alert"
             default = Permission.Default.OP
         }
 
-        register("grim.nosetback") {
+        register("nsac.nosetback") {
             description = "Disable setback"
             default = Permission.Default.FALSE
         }
 
-        register("grim.nomodifypacket") {
+        register("nsac.nomodifypacket") {
             description = "Disable modifying packets"
             default = Permission.Default.FALSE
         }
 
-        register("grim.disabled") {
-            description = "Disable Grim checks while keeping player state tracked"
+        register("nsac.disabled") {
+            description = "Disable NoSkillAntiCheat checks while keeping player state tracked"
             default = Permission.Default.FALSE
         }
 
-        register("grim.exempt") {
+        register("nsac.exempt") {
             description = "Exempt from all checks"
             default = Permission.Default.FALSE
         }
 
-        register("grim.verbose") {
+        register("nsac.verbose") {
             description = "Receive verbose alerts for violations"
             default = Permission.Default.OP
         }
 
-        register("grim.verbose.enable-on-join") {
+        register("nsac.verbose.enable-on-join") {
             description =
                 "Enable verbose alerts on join"
             default = Permission.Default.FALSE
         }
 
-        register("grim.list") {
+        register("nsac.list") {
             description =
                 "Shows lists of specific data"
             default = Permission.Default.FALSE

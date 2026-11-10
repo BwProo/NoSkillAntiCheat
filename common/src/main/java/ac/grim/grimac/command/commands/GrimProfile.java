@@ -23,7 +23,7 @@ public class GrimProfile implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("profile")
-                        .permission("grim.profile")
+                        .permission("nsac.profile")
                         .required("target", arguments.singlePlayerSelectorParser())
                         .handler(this::handleProfile)
         );

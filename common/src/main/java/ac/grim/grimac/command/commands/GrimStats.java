@@ -31,8 +31,8 @@ public class GrimStats implements BuildableCommand {
     @Override
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
         Command.Builder<Sender> root = commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES);
-        commandManager.command(root.literal("stats").permission("grim.stats").handler(this::handleStats));
-        Command.Builder<Sender> session = root.literal("session").permission("grim.stats");
+        commandManager.command(root.literal("stats").permission("nsac.stats").handler(this::handleStats));
+        Command.Builder<Sender> session = root.literal("session").permission("nsac.stats");
         commandManager.command(session.literal("start")
                 .required("label", StringParser.stringParser())
                 .handler(this::handleStart));

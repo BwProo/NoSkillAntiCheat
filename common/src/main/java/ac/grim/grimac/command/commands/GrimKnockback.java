@@ -27,7 +27,7 @@ public class GrimKnockback implements BuildableCommand {
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
         commandManager.command(commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                 .literal("knockback", "kb")
-                .permission("grim.knockback")
+                .permission("nsac.knockback")
                 .required("target", arguments.singlePlayerSelectorParser())
                 .handler(this::handleKnockback));
     }

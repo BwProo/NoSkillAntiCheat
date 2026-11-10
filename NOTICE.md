@@ -20,7 +20,7 @@ corresponding source code under the GPL-3.0 (GPL-3.0 section 6).
 Changes made in this fork, starting 2026-11-10:
 
 - Plugin renamed to NoSkillAntiCheat; root command is now `/nsac`
-  (alias `/noskillanticheat`). Permissions keep the `grim.*` names.
+  (alias `/noskillanticheat`).
 - Removed the Fabric platform modules; only Bukkit-based servers
   (Paper, Folia, Spigot, Purpur) are built.
 - Removed bStats metrics and the automatic update check against Grim's API.
@@ -50,4 +50,10 @@ Changes made in this fork, starting 2026-11-10:
   per client tick, gzip-compressed, players stored as a salted SHA-256
   pseudonym, written on a single low-priority background thread; plus
   `tools/ai/recordings.py` to summarize recordings.
+- Added the combat AI pipeline (tools/ai: features, training, synthetic
+  test data) and the experimental AICombat check that scores combat windows
+  with a local model file.
+- In-game rebranding: permission nodes are `nsac.*` instead of `grim.*`,
+  message prefix and Discord titles say NSAC, PlaceholderAPI identifier is
+  `nsac`. `/nsac version` states "Based on GrimAC - licensed under GPL-3.0".
 - CI workflow runs on the `main` branch.

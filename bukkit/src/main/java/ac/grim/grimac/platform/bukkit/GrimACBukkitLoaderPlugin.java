@@ -187,7 +187,7 @@ public final class GrimACBukkitLoaderPlugin extends JavaPlugin implements Platfo
             return new CloudCommandService(this::createCloudCommandManager, commandArguments);
         } catch (Throwable t) {
             LogUtil.warn("CRITICAL: Failed to initialize Command Framework. " +
-                    "Grim will continue to run with no commands.", t);
+                    "NoSkillAntiCheat will continue to run with no commands.", t);
             return () -> {};
         }
     }

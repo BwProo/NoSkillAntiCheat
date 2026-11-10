@@ -28,7 +28,7 @@ public class GrimTop implements BuildableCommand {
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
         commandManager.command(commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                 .literal("top")
-                .permission("grim.top")
+                .permission("nsac.top")
                 .handler(this::handleTop));
     }
 

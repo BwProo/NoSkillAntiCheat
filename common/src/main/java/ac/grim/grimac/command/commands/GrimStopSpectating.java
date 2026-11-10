@@ -26,9 +26,9 @@ public class GrimStopSpectating implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("stopspectating")
-                        .permission("grim.spectate")
+                        .permission("nsac.spectate")
                         .optional("here", StringParser.stringParser(), SuggestionProvider.blocking((ctx, in) -> {
-                            if (ctx.sender().hasPermission("grim.spectate.stophere")) {
+                            if (ctx.sender().hasPermission("nsac.spectate.stophere")) {
                                 return List.of(Suggestion.suggestion("here"));
                             }
                             return List.of(); // No suggestions if no permission
@@ -42,7 +42,7 @@ public class GrimStopSpectating implements BuildableCommand {
         Sender sender = commandContext.sender();
         String string = commandContext.getOrDefault("here", null);
         if (GrimAPI.INSTANCE.getSpectateManager().isSpectating(sender.getUniqueId())) {
-            boolean teleportBack = string == null || !string.equalsIgnoreCase("here") || !sender.hasPermission("grim.spectate.stophere");
+            boolean teleportBack = string == null || !string.equalsIgnoreCase("here") || !sender.hasPermission("nsac.spectate.stophere");
             PlatformPlayer player = Objects.requireNonNull(sender.getPlatformPlayer(), "player");
             GrimAPI.INSTANCE.getSpectateManager().disable(player, teleportBack);
         } else {

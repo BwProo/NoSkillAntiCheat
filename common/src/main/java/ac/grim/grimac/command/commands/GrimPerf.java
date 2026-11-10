@@ -19,7 +19,7 @@ public class GrimPerf {
 
         Command.Builder<Sender> configuredBuilder = grimCommand
                 .literal("perf", "performance")
-                .permission("grim.performance")
+                .permission("nsac.performance")
                 .handler(this::handlePerformance);
 
         commandManager.command(configuredBuilder);

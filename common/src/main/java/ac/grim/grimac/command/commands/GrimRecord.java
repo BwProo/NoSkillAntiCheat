@@ -32,7 +32,7 @@ public class GrimRecord implements BuildableCommand {
     @Override
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
         Command.Builder<Sender> record = commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
-                .literal("record").permission("grim.record");
+                .literal("record").permission("nsac.record");
         commandManager.command(record.literal("start")
                 .required("target", arguments.singlePlayerSelectorParser())
                 .required("label", StringParser.stringParser())

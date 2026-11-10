@@ -77,7 +77,7 @@ public final class SuperDebug extends GrimProcessor implements PostPredictionLis
         if (predictionComplete.getIdentifier() == 0) return; // 1 - 256 are valid possible values
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Grim Version: ").append(GrimAPI.INSTANCE.getExternalAPI().getGrimVersion());
+        sb.append(ac.grim.grimac.utils.anticheat.Constants.PLUGIN_NAME + " Version: ").append(GrimAPI.INSTANCE.getExternalAPI().getGrimVersion());
         sb.append("\n");
         sb.append("Player Name: ");
         sb.append(player.user.getName());

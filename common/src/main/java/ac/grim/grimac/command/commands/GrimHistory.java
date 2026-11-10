@@ -90,7 +90,7 @@ public class GrimHistory implements BuildableCommand {
                         .literal("history", "hist")
                         .literal("repair")
                         .literal("check-ids")
-                        .permission("grim.history.repair")
+                        .permission("nsac.history.repair")
                         .handler(this::handleRepairCheckIds)
         );
 
@@ -117,7 +117,7 @@ public class GrimHistory implements BuildableCommand {
         java.util.function.Supplier<Command.Builder<Sender>> base = () -> {
             Command.Builder<Sender> b = commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                     .literal("history", "hist")
-                    .permission("grim.history");
+                    .permission("nsac.history");
             if (withPlayerLiteral) b = b.literal("player");
             // Brigadier's word parser rejects valid offline-mode names such as "*_Easy".
             // QUOTED keeps ordinary names unchanged while allowing those names to be entered

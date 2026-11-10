@@ -20,6 +20,8 @@ public class GrimVersion implements BuildableCommand {
                 .append(Component.text(Constants.PLUGIN_NAME + " Version: ").color(NamedTextColor.GRAY))
                 .append(Component.text(GrimAPI.INSTANCE.getExternalAPI().getGrimVersion()).color(NamedTextColor.AQUA))
                 .build());
+        // Attribution required by the GPL-3.0; this is the one in-game place that names the origin.
+        sender.sendMessage(Component.text("Based on GrimAC - licensed under GPL-3.0", NamedTextColor.DARK_GRAY));
     }
 
     @Override
@@ -27,7 +29,7 @@ public class GrimVersion implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("version")
-                        .permission("grim.version")
+                        .permission("nsac.version")
                         .handler(this::handleVersion)
         );
     }

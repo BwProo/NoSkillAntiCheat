@@ -19,7 +19,7 @@ public class GrimTestWebhook implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("testwebhook")
-                        .permission("grim.testwebhook")
+                        .permission("nsac.testwebhook")
                         .handler(this::handleTestWebhook)
         );
     }

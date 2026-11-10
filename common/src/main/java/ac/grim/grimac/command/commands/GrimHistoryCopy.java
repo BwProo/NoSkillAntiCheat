@@ -46,7 +46,7 @@ public class GrimHistoryCopy implements BuildableCommand {
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("history")
                         .literal("copy")
-                        .permission("grim.history.copy")
+                        .permission("nsac.history.copy")
                         .required("src", StringParser.stringParser())
                         .required("dst", StringParser.stringParser())
                         .flag(commandManager.flagBuilder("delete")

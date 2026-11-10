@@ -18,7 +18,7 @@ public class GrimReload implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("reload")
-                        .permission("grim.reload")
+                        .permission("nsac.reload")
                         .handler(this::handleReload)
         );
     }

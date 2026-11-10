@@ -119,7 +119,7 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
             embedThumbnailUrl = validatedConfigURL("embed-thumbnail-url", "https://crafthead.net/helm/%uuid%");
             embedFooterUrl = validatedConfigURL("embed-footer-url", "https://grim.ac/images/grim.png");
             embedFooterText = config.getStringElse("embed-footer-text", "v%grim_version%");
-            embedTitle = config.getStringElse("embed-title", "**Grim Alert**");
+            embedTitle = config.getStringElse("embed-title", "**NoSkillAntiCheat Alert**");
 
             try {
                 embedColor = Color.decode(config.getStringElse("embed-color", "#00FFFF")).getRGB();

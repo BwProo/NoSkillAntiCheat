@@ -22,7 +22,7 @@ public class GrimAlerts implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("alerts", Description.of("Toggle alerts for the sender"))
-                        .permission("grim.alerts")
+                        .permission("nsac.alerts")
                         .handler(this::handleAlerts)
         );
     }

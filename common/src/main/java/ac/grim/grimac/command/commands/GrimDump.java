@@ -36,7 +36,7 @@ public class GrimDump implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("dump", Description.of("Generate a debug dump"))
-                        .permission("grim.dump")
+                        .permission("nsac.dump")
                         .handler(this::handleDump)
         );
     }

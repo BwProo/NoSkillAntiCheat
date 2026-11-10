@@ -1,5 +1,5 @@
 # \u00BB se traduit par » (double >>). Les interprétations diffèrent entre les normes ANSI et UTF-8... vous pouvez même voir ? en raison de cela
-prefix: "&bGrim &8\u00BB"
+prefix: "&bNSAC &8\u00BB"
 
 alerts-enabled: "%prefix% &fAlertes activées"
 alerts-disabled: "%prefix% &fAlertes désactivées"
@@ -111,7 +111,7 @@ grim-history-crashed-marker: " &8(&ccrash&8)"
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
 grim-history-detail-header: "%prefix% &bDétail de la session &f%ordinal% &bde &f%player%&b :"
-grim-history-detail-meta1: "%prefix% &bGrim : &f%grim_version%&b, Serveur : &f%server_name%&b, Durée : &f%duration%&b, Date : &7il y a %timeago%"
+grim-history-detail-meta1: "%prefix% &bNSAC : &f%grim_version%&b, Serveur : &f%server_name%&b, Durée : &f%duration%&b, Date : &7il y a %timeago%"
 grim-history-detail-meta2: "%prefix% &bClient : &f%client_version%&b, Marque : &f%client_brand%"
 grim-history-detail-violations-header: "%prefix% &bViolations : &8(%violations% au total, %unique_checks% uniques)"
 grim-history-detail-empty: "%prefix% &7- (aucune)"

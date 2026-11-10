@@ -18,7 +18,7 @@ public class GrimHelp implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("help", Description.of("Display help information"))
-                        .permission("grim.help")
+                        .permission("nsac.help")
                         .handler(this::handleHelp)
         );
     }

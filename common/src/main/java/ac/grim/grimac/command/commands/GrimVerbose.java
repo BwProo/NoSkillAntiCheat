@@ -21,7 +21,7 @@ public class GrimVerbose implements BuildableCommand {
         commandManager.command(
                 commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("verbose")
-                        .permission("grim.verbose")
+                        .permission("nsac.verbose")
                         .handler(this::handleVerbose)
         );
     }

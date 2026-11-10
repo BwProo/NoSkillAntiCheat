@@ -94,9 +94,9 @@ public class Check extends GrimProcessor implements AbstractCheck {
 
     public final void updatePermissions() {
         final String id = getConfigName().toLowerCase();
-        exemptPermission = player.hasPermission("grim.exempt." + id);
-        noSetbackPermission = player.hasPermission("grim.nosetback." + id);
-        noModifyPacketPermission = player.hasPermission("grim.nomodifypacket." + id);
+        exemptPermission = player.hasPermission("nsac.exempt." + id);
+        noSetbackPermission = player.hasPermission("nsac.nosetback." + id);
+        noModifyPacketPermission = player.hasPermission("nsac.nomodifypacket." + id);
     }
 
     public final boolean flag() {
