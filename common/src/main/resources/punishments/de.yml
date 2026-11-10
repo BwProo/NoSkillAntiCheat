@@ -104,6 +104,7 @@ Punishments:
     checks:
       - "Interact"
       - "Aim"
+      - "KillAura"
     commands:
       - "20:40 [alert]"
       - "1:1 [log]"
@@ -114,4 +115,22 @@ Punishments:
       - "Autoclicker"
     commands:
       - "20:40 [alert]"
+      - "1:1 [log]"
+  # NoSkillAntiCheat: client that identifies itself as a hacked client (brand or mod channel).
+  # Default: instant ban on the first flag. Patterns: config.yml -> BlacklistedClient.patterns
+  BlacklistedClient:
+    remove-violations-after: 300
+    checks:
+      - "BlacklistedClient"
+    commands:
+      - "1:0 [alert]"
+      - "1:0 [log]"
+      - "1:0 ban %player% Unerlaubter Client"
+  # NoSkillAntiCheat: several different checks of one category flagged within a short time.
+  Improbable:
+    remove-violations-after: 600
+    checks:
+      - "Improbable"
+    commands:
+      - "1:1 [alert]"
       - "1:1 [log]"

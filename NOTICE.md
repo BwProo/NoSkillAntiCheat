@@ -36,4 +36,8 @@ Changes made in this fork, starting 2026-11-10:
 - Added experimental AimGCD (sensitivity-grid mismatch in combat), AimSmooth
   (interpolated combat aim) and KillAuraSwitch (fast repeated target
   switching) checks, written from scratch from public Vulcan check ideas.
+- Added BlacklistedClient (bans clients whose brand or registered mod
+  channels match configurable patterns; default punishment is a ban),
+  experimental Improbable meta-check (several distinct checks of one
+  category within a time window) and `/nsac top`.
 - CI workflow runs on the `main` branch.

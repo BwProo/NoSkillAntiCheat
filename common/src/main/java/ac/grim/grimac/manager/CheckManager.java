@@ -241,6 +241,8 @@ public class CheckManager implements BasicReloadable {
                 .put(ac.grim.grimac.checks.impl.aim.AimGCD.class, new ac.grim.grimac.checks.impl.aim.AimGCD(player))
                 .put(ac.grim.grimac.checks.impl.aim.AimSmooth.class, new ac.grim.grimac.checks.impl.aim.AimSmooth(player))
                 .put(ac.grim.grimac.checks.impl.combat.KillAuraSwitch.class, new ac.grim.grimac.checks.impl.combat.KillAuraSwitch(player))
+                .put(ac.grim.grimac.checks.impl.misc.Improbable.class, new ac.grim.grimac.checks.impl.misc.Improbable(player))
+                .put(ac.grim.grimac.checks.impl.misc.BlacklistedClient.class, new ac.grim.grimac.checks.impl.misc.BlacklistedClient(player))
                 .put(FarBreak.class, new FarBreak(player))
                 .put(InvalidBreak.class, new InvalidBreak(player))
                 .put(PositionBreakA.class, new PositionBreakA(player))

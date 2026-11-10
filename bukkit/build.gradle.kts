@@ -195,6 +195,11 @@ bukkit {
             default = Permission.Default.OP
         }
 
+        register("grim.top") {
+            description = "Show online players with the most violations"
+            default = Permission.Default.OP
+        }
+
         register("grim.stats") {
             description = "View false-positive stats and run measurement sessions"
             default = Permission.Default.OP

@@ -8,6 +8,7 @@ import ac.grim.grimac.api.storage.verbose.Verbose;
 import ac.grim.grimac.api.storage.verbose.VerboseBuf;
 import ac.grim.grimac.api.storage.verbose.VerboseRenderContext;
 import ac.grim.grimac.internal.storage.verbose.VerboseRegistry;
+import ac.grim.grimac.checks.impl.misc.Improbable;
 import ac.grim.grimac.manager.stats.FlagStats;
 import ac.grim.grimac.player.GrimPlayer;
 import lombok.Getter;
@@ -134,6 +135,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
             return false; // Avoid calling event if disabled
         if (experimental && !player.isExperimentalChecks()) {
             FlagStats.shadow(this); // NoSkillAntiCheat: count what an inactive experimental check would flag
+            Improbable.signal(player, this);
             return false;
         }
 
@@ -144,6 +146,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
         lastViolationTime = System.currentTimeMillis();
         violations++;
         FlagStats.flag(this);
+        Improbable.signal(player, this);
         return true;
     }
 
@@ -155,6 +158,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
             return false; // Avoid calling event if disabled
         if (experimental && !player.isExperimentalChecks()) {
             FlagStats.shadow(this); // NoSkillAntiCheat: count what an inactive experimental check would flag
+            Improbable.signal(player, this);
             return false;
         }
 
@@ -165,6 +169,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
         lastViolationTime = System.currentTimeMillis();
         violations++;
         FlagStats.flag(this);
+        Improbable.signal(player, this);
         GrimAPI.INSTANCE.getDataStoreLifecycle().liveWriteHooks()
                 .recordFlagDataFromCheck(player, this, violations, verboseData);
         return true;
