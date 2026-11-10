@@ -105,6 +105,7 @@ Punishments:
       - "Interact"
       - "Aim"
       - "KillAura"
+      - "Crystal"
     commands:
       - "20:40 [alert]"
       - "1:1 [log]"

@@ -40,4 +40,6 @@ Changes made in this fork, starting 2026-11-10:
   channels match configurable patterns; default punishment is a ban),
   experimental Improbable meta-check (several distinct checks of one
   category within a time window) and `/nsac top`.
+- Added experimental CrystalTiming (near-instant, constant end-crystal
+  place-to-break gaps, as from AutoCrystal/FastCrystal cheats).
 - CI workflow runs on the `main` branch.
