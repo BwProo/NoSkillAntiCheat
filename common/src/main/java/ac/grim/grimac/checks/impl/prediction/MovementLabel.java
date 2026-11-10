@@ -22,13 +22,19 @@ public final class MovementLabel {
                                            double actX, double actY, double actZ,
                                            boolean serverOnGround, boolean creativeFlying) {
         double dy = actY - predY;
-        double dh = Math.hypot(actX, actZ) - Math.hypot(predX, predZ);
-        if (!creativeFlying && !serverOnGround && dy > MIN_DIFF && dy >= dh) {
-            return FLIGHT; // rising or hovering in the air more than physics allows
+        double horizontalGain = Math.hypot(actX, actZ) - Math.hypot(predX, predZ);
+        if (!creativeFlying && !serverOnGround && dy > MIN_DIFF) {
+            return FLIGHT; // staying higher in the air than gravity allows, however fast horizontally
         }
-        if (dh > MIN_DIFF && dh >= Math.abs(dy)) {
+        if (horizontalGain > MIN_DIFF) {
             return SPEED; // horizontally faster than predicted
         }
         return SIMULATION;
+    }
+
+    /** Short debug text for the alert details: vertical and horizontal difference to the prediction. */
+    public static @NotNull String describe(double predX, double predY, double predZ, double actX, double actY, double actZ) {
+        return String.format(java.util.Locale.ROOT, "dy=%+.3f dh=%+.3f", actY - predY,
+                Math.hypot(actX, actZ) - Math.hypot(predX, predZ));
     }
 }

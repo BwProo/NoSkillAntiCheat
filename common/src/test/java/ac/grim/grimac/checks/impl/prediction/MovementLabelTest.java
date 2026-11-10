@@ -18,6 +18,17 @@ class MovementLabelTest {
     }
 
     @Test
+    void flyingForwardFastIsFlightNotSpeed() {
+        // Meteor fly: physics would fall, player keeps height while moving 0.9 blocks per tick
+        assertEquals("Flight", MovementLabel.classify(0.1, -0.08, 0, 0.9, 0.0, 0, false, false));
+    }
+
+    @Test
+    void describeShowsDifferences() {
+        assertEquals("dy=+0.080 dh=+0.800", MovementLabel.describe(0.1, -0.08, 0, 0.9, 0.0, 0));
+    }
+
+    @Test
     void creativeFlightIsNeverFlight() {
         assertEquals("Simulation", MovementLabel.classify(0, -0.08, 0, 0, 0.2, 0, false, true));
     }

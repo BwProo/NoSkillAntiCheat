@@ -54,7 +54,10 @@ public class OffsetHandler extends Check implements PostPredictionListener {
                         player.onGround, player.isFlying || player.canFly));
                 boolean flagged;
                 try {
-                    flagged = flag(V.write(verbose()).f64(offset), () -> humanFormattedOffset(offset) + " /gl " + flagId);
+                    String movement = MovementLabel.describe(
+                            player.predictedVelocity.vector.getX(), player.predictedVelocity.vector.getY(), player.predictedVelocity.vector.getZ(),
+                            player.actualMovement.getX(), player.actualMovement.getY(), player.actualMovement.getZ());
+                    flagged = flag(V.write(verbose()).f64(offset), () -> humanFormattedOffset(offset) + " " + movement + " /gl " + flagId);
                 } finally {
                     clearFlagAs();
                 }
