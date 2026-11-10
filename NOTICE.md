@@ -59,4 +59,6 @@ Changes made in this fork, starting 2026-11-10:
 - Added command protection: players without nsac.commands.bypass cannot run
   /pl, /plugins, /?, /help, /version and similar commands or namespaced
   commands, and those are removed from tab completion.
+- Added `shadow-flags.print-to-console` to print what experimental checks
+  would flag (test servers).
 - CI workflow runs on the `main` branch.

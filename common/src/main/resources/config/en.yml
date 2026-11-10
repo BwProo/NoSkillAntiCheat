@@ -18,6 +18,11 @@ alerts:
 verbose:
     print-to-console: false
 
+# NoSkillAntiCheat: also print flags of experimental checks (which do not punish) to the console.
+# Useful on test servers to see what AutoClicker, Aim, KillAura, TriggerBot, Crystal, Anchor and AI would flag.
+shadow-flags:
+    print-to-console: false
+
 
 client-brand:
     # This means it won't broadcast their brand to operators if the brand matches the following regexes

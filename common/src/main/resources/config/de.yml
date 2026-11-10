@@ -18,6 +18,11 @@ alerts:
 verbose:
     print-to-console: false
 
+# NoSkillAntiCheat: Flags experimenteller Checks (die nicht bestrafen) auch in die Konsole schreiben.
+# Praktisch auf Testservern, um zu sehen, was AutoClicker, Aim, KillAura, TriggerBot, Crystal, Anchor und KI flaggen wuerden.
+shadow-flags:
+    print-to-console: false
+
 
 client-brand:
     # Das bedeutet, dass die Marke nicht an die Betreiber weitergegeben wird, wenn die Marke mit den folgenden Regexes übereinstimmt

@@ -3,6 +3,7 @@ package ac.grim.grimac.manager.stats;
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.checks.Check;
 import ac.grim.grimac.manager.init.start.StartableInitable;
+import ac.grim.grimac.player.GrimPlayer;
 import ac.grim.grimac.utils.anticheat.LogUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -21,6 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
+import java.util.function.Supplier;
 
 /**
  * NoSkillAntiCheat: lightweight false-positive measurement.
@@ -87,6 +89,18 @@ public final class FlagStats implements StartableInitable {
 
     public static void shadow(@NotNull Check check) {
         INSTANCE.counters(check).forEach(c -> c.shadowFlags.increment());
+    }
+
+    /**
+     * Prints a shadow flag (experimental check, not active) to the console when
+     * {@code shadow-flags.print-to-console: true}. Meant for test servers: lets you watch what the
+     * experimental checks would flag without them punishing anyone.
+     */
+    public static void printShadow(@NotNull GrimPlayer player, @NotNull Check check, @NotNull Supplier<String> verbose) {
+        if (!GrimAPI.INSTANCE.getConfigManager().getConfig().getBooleanElse("shadow-flags.print-to-console", false)) return;
+        String detail = verbose.get();
+        LogUtil.info("[shadow] " + player.getName() + " failed " + check.getCheckName()
+                + (detail == null || detail.isEmpty() ? "" : " (" + detail + ")"));
     }
 
     private List<Counter> counters(@NotNull Check check) {
