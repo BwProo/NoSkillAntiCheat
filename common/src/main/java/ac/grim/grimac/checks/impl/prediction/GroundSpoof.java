@@ -34,7 +34,9 @@ public class GroundSpoof extends Check implements PostPredictionListener {
         boolean claimed = player.clientClaimsLastOnGround;
         if (claimed != player.onGround) {
             // NoSkillAntiCheat: claiming ground while in the air is the classic NoFall cheat
-            if (claimed && !player.onGround) flagAs("NoFall");
+            FlightContext flight = player.checkManager.get(FlightContext.class);
+            if (flight != null && flight.recentlyFlying()) flagAs(MovementLabel.FLIGHT); // part of a flight attempt
+            else if (claimed && !player.onGround) flagAs("NoFall");
             try {
                 flagWithSetback(V.write(verbose()).bool(claimed));
             } finally {

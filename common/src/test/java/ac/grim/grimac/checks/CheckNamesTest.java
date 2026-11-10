@@ -8,17 +8,17 @@ class CheckNamesTest {
 
     @Test
     void knownChecksGetReadableNames() {
-        assertEquals("Reach (Reichweite)", CheckNames.friendly("Reach"));
-        assertEquals("Velocity (AntiKnockback)", CheckNames.friendly("AntiKB"));
-        assertEquals("InvMove (Klick beim Laufen)", CheckNames.friendly("MultiActionsC"));
-        assertEquals("Cheat-Client", CheckNames.friendly("BlacklistedClient"));
+        assertEquals("Reach", CheckNames.friendly("Reach"));
+        assertEquals("Velocity (anti-knockback)", CheckNames.friendly("AntiKB"));
+        assertEquals("InvMove (click while moving)", CheckNames.friendly("MultiActionsC"));
+        assertEquals("Hacked client", CheckNames.friendly("BlacklistedClient"));
     }
 
     @Test
     void familiesKeepTheirLetter() {
         assertEquals("BadPackets H", CheckNames.friendly("BadPacketsH"));
         assertEquals("ElytraFly C", CheckNames.friendly("ElytraC"));
-        assertEquals("Paket-Reihenfolge B", CheckNames.friendly("PacketOrderB"));
+        assertEquals("Packet order B", CheckNames.friendly("PacketOrderB"));
     }
 
     @Test

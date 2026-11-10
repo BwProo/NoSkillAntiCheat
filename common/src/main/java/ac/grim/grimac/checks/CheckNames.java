@@ -7,80 +7,80 @@ import java.util.Map;
 
 /**
  * NoSkillAntiCheat: readable default names for alerts, so staff see at once which cheat was
- * detected. The internal check name stays the ID (permissions, config, punishments); a configured
+ * detected (English). The internal check name stays the ID (permissions, config, punishments); a configured
  * "<Check>.displayname" still wins. Families (BadPacketsA, ElytraC ...) keep their letter.
  */
 public final class CheckNames {
     private static final Map<String, String> EXACT = new HashMap<>();
     private static final String[][] FAMILIES = {
-            {"BadPackets", "BadPackets"}, {"PacketOrder", "Paket-Reihenfolge"}, {"Crash", "Crash-Versuch"},
-            {"Exploit", "Exploit"}, {"Chat", "Chat-Exploit"}, {"Elytra", "ElytraFly"}, {"Vehicle", "BoatFly/EntitySpeed"},
-            {"Sprint", "Sprint"}, {"MultiActions", "Mehrfach-Aktion"}, {"PositionBreak", "Nuker (Position)"},
+            {"BadPackets", "BadPackets"}, {"PacketOrder", "Packet order"}, {"Crash", "Crash attempt"},
+            {"Exploit", "Exploit"}, {"Chat", "Chat exploit"}, {"Elytra", "ElytraFly"}, {"Vehicle", "BoatFly/EntitySpeed"},
+            {"Sprint", "Sprint"}, {"MultiActions", "Multi action"}, {"PositionBreak", "Nuker (position)"},
     };
 
     static {
-        put("Simulation", "Bewegung");
+        put("Simulation", "Movement");
         put("GroundSpoof", "GroundSpoof");
         put("NoFall", "NoFall");
-        put("Phase", "Phase (durch Blöcke)");
-        put("Timer", "Timer (Spieltempo)");
-        put("TimerLimit", "Timer (Ping-Missbrauch)");
-        put("TickTimer", "Timer (Ticks)");
-        put("NegativeTimer", "Blink (Timer)");
-        put("VehicleTimer", "Timer (Reittier)");
+        put("Phase", "Phase (through blocks)");
+        put("Timer", "Timer (game speed)");
+        put("TimerLimit", "Timer (ping abuse)");
+        put("TickTimer", "Timer (ticks)");
+        put("NegativeTimer", "Blink (timer)");
+        put("VehicleTimer", "Timer (vehicle)");
         put("NoSlow", "NoSlow");
-        put("AntiKB", "Velocity (AntiKnockback)");
-        put("AntiExplosion", "Velocity (Explosion)");
-        put("Reach", "Reach (Reichweite)");
+        put("AntiKB", "Velocity (anti-knockback)");
+        put("AntiExplosion", "Velocity (explosion)");
+        put("Reach", "Reach");
         put("Hitboxes", "Hitboxes (KillAura)");
-        put("SelfInteract", "Selbst geschlagen");
-        put("InvalidInteractCursor", "KillAura (ungültiger Trefferpunkt)");
-        put("InvalidInteractTarget", "CrystalAura (ID-Vorhersage)");
-        put("MultiInteractA", "KillAura (mehrere Ziele)");
-        put("MultiInteractB", "KillAura (mehrere Trefferpunkte)");
-        put("AimModulo360", "Aimbot (Drehsprung)");
-        put("AimDuplicateLook", "Aimbot (doppelte Rotation)");
-        put("AimGCD", "AimAssist (Sensitivität)");
-        put("AimSmooth", "Aimbot (glatte Drehung)");
-        put("KillAuraSwitch", "KillAura (Zielwechsel)");
-        put("KillAuraAim", "KillAura (Aim-Lock)");
+        put("SelfInteract", "Self hit");
+        put("InvalidInteractCursor", "KillAura (invalid hit point)");
+        put("InvalidInteractTarget", "CrystalAura (ID prediction)");
+        put("MultiInteractA", "KillAura (multiple targets)");
+        put("MultiInteractB", "KillAura (multiple hit points)");
+        put("AimModulo360", "Aimbot (rotation snap)");
+        put("AimDuplicateLook", "Aimbot (duplicate rotation)");
+        put("AimGCD", "AimAssist (sensitivity)");
+        put("AimSmooth", "Aimbot (smooth rotation)");
+        put("KillAuraSwitch", "KillAura (target switch)");
+        put("KillAuraAim", "KillAura (aim lock)");
         put("TriggerBot", "TriggerBot");
         put("AutoClickerA", "AutoClicker (CPS)");
-        put("AutoClickerB", "AutoClicker (zu gleichmäßig)");
-        put("AutoClickerC", "AutoClicker (Muster)");
+        put("AutoClickerB", "AutoClicker (too consistent)");
+        put("AutoClickerC", "AutoClicker (pattern)");
         put("CrystalTiming", "CrystalAura/FastCrystal");
         put("AnchorTiming", "AnchorAura");
-        put("AICombat", "KI: Kampf-Cheat");
-        put("Improbable", "Mehrere Cheats (Improbable)");
-        put("BlacklistedClient", "Cheat-Client");
+        put("AICombat", "AI: combat cheat");
+        put("Improbable", "Multiple cheats (Improbable)");
+        put("BlacklistedClient", "Hacked client");
         put("InventoryMove", "InvMove");
-        put("InventorySpeed", "ChestStealer/Inventar-Makro");
-        put("MultiActionsA", "AutoBlock (Schlag beim Benutzen)");
-        put("MultiActionsB", "FastBreak (Abbau beim Benutzen)");
-        put("MultiActionsC", "InvMove (Klick beim Laufen)");
-        put("MultiActionsD", "InvMove (Schließen beim Laufen)");
-        put("MultiActionsE", "Schwung beim Benutzen");
-        put("MultiActionsF", "Block und Entity gleichzeitig");
-        put("MultiActionsG", "Aktion beim Rudern");
+        put("InventorySpeed", "ChestStealer/inventory macro");
+        put("MultiActionsA", "AutoBlock (hit while using item)");
+        put("MultiActionsB", "FastBreak (break while using item)");
+        put("MultiActionsC", "InvMove (click while moving)");
+        put("MultiActionsD", "InvMove (close while moving)");
+        put("MultiActionsE", "Swing while using item");
+        put("MultiActionsF", "Block and entity at once");
+        put("MultiActionsG", "Action while rowing");
         put("FastBreak", "FastBreak");
-        put("FarBreak", "Nuker (zu weit)");
-        put("MultiBreak", "Nuker (mehrere Blöcke)");
-        put("RotationBreak", "Nuker (ohne Hinsehen)");
-        put("NoSwingBreak", "Nuker (ohne Armschwung)");
-        put("AirLiquidBreak", "Abbau in Luft/Flüssigkeit");
-        put("WrongBreak", "Abbau des falschen Blocks");
-        put("InvalidBreak", "Ungültiger Abbau");
+        put("FarBreak", "Nuker (too far)");
+        put("MultiBreak", "Nuker (multiple blocks)");
+        put("RotationBreak", "Nuker (not looking)");
+        put("NoSwingBreak", "Nuker (no swing)");
+        put("AirLiquidBreak", "Break air/liquid");
+        put("WrongBreak", "Break wrong block");
+        put("InvalidBreak", "Invalid break");
         put("RotationPlace", "Scaffold (Rotation)");
-        put("FarPlace", "Scaffold (zu weit)");
+        put("FarPlace", "Scaffold (too far)");
         put("PositionPlace", "Scaffold (Position)");
         put("AirLiquidPlace", "AirPlace");
-        put("FabricatedPlace", "Scaffold (gefälscht)");
-        put("DuplicateRotPlace", "Scaffold (doppelte Rotation)");
+        put("FabricatedPlace", "Scaffold (fabricated)");
+        put("DuplicateRotPlace", "Scaffold (duplicate rotation)");
         put("MultiPlace", "FastPlace/Tower");
-        put("InvalidPlaceFace", "Scaffold (ungültige Seite)");
-        put("InvalidPlaceCursor", "Scaffold (ungültiger Punkt)");
-        put("Post", "Paket-Reihenfolge (Post)");
-        put("TransactionOrder", "Blink/Ping-Spoof");
+        put("InvalidPlaceFace", "Scaffold (invalid face)");
+        put("InvalidPlaceCursor", "Scaffold (invalid point)");
+        put("Post", "Packet order (post)");
+        put("TransactionOrder", "Blink/ping spoof");
         put("FlightA", "Flight");
     }
 

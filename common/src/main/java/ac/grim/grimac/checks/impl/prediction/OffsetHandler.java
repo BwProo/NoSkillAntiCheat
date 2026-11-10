@@ -48,10 +48,15 @@ public class OffsetHandler extends Check implements PostPredictionListener {
                 int flagId = (flags.get() & 255) + 1; // 1-256 as possible values
 
                 // NoSkillAntiCheat: name the cheat type in the alert (Flight / Speed / Simulation)
-                flagAs(MovementLabel.classify(
+                String label = MovementLabel.classify(
                         player.predictedVelocity.vector.getX(), player.predictedVelocity.vector.getY(), player.predictedVelocity.vector.getZ(),
                         player.actualMovement.getX(), player.actualMovement.getY(), player.actualMovement.getZ(),
-                        player.onGround, player.isFlying || player.canFly));
+                        player.onGround, player.isFlying || player.canFly);
+                FlightContext flight = player.checkManager.get(FlightContext.class);
+                if (!label.equals(MovementLabel.FLIGHT) && flight != null && flight.recentlyFlying()) {
+                    label = MovementLabel.FLIGHT; // still the same flight attempt, e.g. right after a setback
+                }
+                flagAs(label);
                 boolean flagged;
                 try {
                     String movement = MovementLabel.describe(
