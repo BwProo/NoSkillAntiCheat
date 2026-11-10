@@ -7,7 +7,7 @@ webhook: ""
 # これにより、任意の有効なHTTPS URLが許可されます（プロキシやMatrixフォワーダーに便利です）。
 disable-webhook-validation: false
 embed-title: "**NSAC 警告**"
-embed-color: "#00FFFF"
+embed-color: "#A855F7"
 include-timestamp: true
 # 値（クライアントのブランド名など）に含まれるバッククォート (`) を置換し、Discordのテキスト書式が崩れるのを防ぎます。
 # この置換を無効にするには "`" を設定してください。

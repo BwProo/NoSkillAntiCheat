@@ -84,7 +84,7 @@ public class GrimHistoryMigrate implements BuildableCommand {
         }
 
         logBoth(sender, Component.text()
-                .append(Component.text("Starting v0 → v1 migration from ", NamedTextColor.AQUA))
+                .append(Component.text("Starting v0 → v1 migration from ", NamedTextColor.LIGHT_PURPLE))
                 .append(Component.text(source.summary(), NamedTextColor.WHITE))
                 .build());
 

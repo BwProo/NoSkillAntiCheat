@@ -1,5 +1,5 @@
 # \u00BB eşittir » (çift >>), ANSI ve UTF-8 bunu farklı yorumlar. bu nedenle ? bile görebilirsiniz
-prefix: "&bNSAC &8\u00BB"
+prefix: "&5&lNSAC &8\u00BB"
 
 alerts-enabled: "%prefix% &fUyarılar aktif edildi."
 alerts-disabled: "%prefix% &fUyarılar deaktif edildi."
@@ -42,19 +42,19 @@ webhook-test-failed: "Discord webhook test failed!"
 # %experimental%
 # %vl% - ihlal uyarıları
 # %verbose% - detaylı olarak verilen tüm uyarılar, checkler tüm bilgileri vermez
-alerts-format: "%prefix% &b%player% &fadlı oyuncuda &f(x&c%vl%&f) &fadet <hover:show_text:\"&b%check_name%%experimental%\n&8Açıklama: &f%description%\">&b%check_name%%experimental%</hover> &ftespit edildi: &7%verbose%"
-alerts-format-proxy: "%prefix% &f[&cproxy&f] &b%player% &fadlı oyuncuda &f(x&c%vl%&f) &fadet <hover:show_text:\"&b%check_name%%experimental%\n&8Açıklama: &f%description%\">&b%check_name%%experimental%</hover> &ftespit edildi: &7%verbose%"
+alerts-format: "%prefix% &d%player% &fadlı oyuncuda &f(x&c%vl%&f) &fadet <hover:show_text:\"&d%check_name%%experimental%\n&8Açıklama: &f%description%\">&d%check_name%%experimental%</hover> &ftespit edildi: &7%verbose%"
+alerts-format-proxy: "%prefix% &f[&cproxy&f] &d%player% &fadlı oyuncuda &f(x&c%vl%&f) &fadet <hover:show_text:\"&d%check_name%%experimental%\n&8Açıklama: &f%description%\">&d%check_name%%experimental%</hover> &ftespit edildi: &7%verbose%"
 experimental-symbol: "*"
 
 profile:
     - "&7======================"
-    - "%prefix% &f%player% &badlı oyuncunun profili:"
-    - "&bGecikme: &f%ping%"
-    - "&bVersiyon: &f%version%"
-    - "&bKullanılan Client: &f%brand%"
-    - "&bDikey Hassasiyet: &f%h_sensitivity%%"
-    - "&bYatay Hassasiyet: &f%v_sensitivity%%"
-    - "&bFastMath Ayarı: &f%fast_math%"
+    - "%prefix% &f%player% &dadlı oyuncunun profili:"
+    - "&dGecikme: &f%ping%"
+    - "&dVersiyon: &f%version%"
+    - "&dKullanılan Client: &f%brand%"
+    - "&dDikey Hassasiyet: &f%h_sensitivity%%"
+    - "&dYatay Hassasiyet: &f%v_sensitivity%%"
+    - "&dFastMath Ayarı: &f%fast_math%"
     - "&7======================"
 help:
     - "&7======================"
@@ -88,7 +88,7 @@ grim-history-no-sessions: "%prefix% &7&f%player% &7için oturum geçmişi yok."
 grim-history-session-not-found: "%prefix% &c&f%player% &ciçin &f%ordinal% &cnumaralı oturum bulunamadı."
 
 # Oturum listesi — geçerli placeholder'lar: %prefix% %player% %page% %max_pages%
-grim-history-header: "%prefix% &b&f%player% &biçin oturum geçmişi &8[&f%page%&7/&f%max_pages%&8]"
+grim-history-header: "%prefix% &d&f%player% &diçin oturum geçmişi &8[&f%page%&7/&f%max_pages%&8]"
 # Tek oturum özeti satırı — geçerli placeholder'lar:
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -97,7 +97,7 @@ grim-history-header: "%prefix% &b&f%player% &biçin oturum geçmişi &8[&f%page%
 # UserDisconnectEvent tetiklemeyen channel RST gibi) için %crashed_marker%
 # grim-history-crashed-marker olarak genişler. Devam eden veya düzgün
 # kapatılmış oturumlarda boş string olur.
-grim-history-session: "<hover:show_text:'&bOturum &7%session_uuid%<newline>&7Tıkla veya &e%detail_command% &7komutunu çalıştır<newline>&7oturum detaylarını görmek için.'>%prefix% &8[&b%grim_version%&8] &8[&b%server_name%&8] &8[&b%client_version%&8] &bOturum &f%ordinal%&b, süre &f%duration%&b, &c%violations%&b ihlal &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% önce&8)</hover>"
+grim-history-session: "<hover:show_text:'&dOturum &7%session_uuid%<newline>&7Tıkla veya &e%detail_command% &7komutunu çalıştır<newline>&7oturum detaylarını görmek için.'>%prefix% &8[&d%grim_version%&8] &8[&d%server_name%&8] &8[&d%client_version%&8] &dOturum &f%ordinal%&d, süre &f%duration%&d, &c%violations%&d ihlal &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% önce&8)</hover>"
 
 # closed_at == last_activity olan oturumlar (yani disconnect yolu yerine bir
 # sonraki başlatmanın crash-sweep'i tarafından damgalananlar) için
@@ -109,23 +109,23 @@ grim-history-crashed-marker: " &8(&cçöktü&8)"
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-grim-history-detail-header: "%prefix% &b&f%player% &boyuncusunun &f%ordinal% &bnumaralı oturum detayı:"
-grim-history-detail-meta1: "%prefix% &bNSAC: &f%grim_version%&b, Sunucu: &f%server_name%&b, Süre: &f%duration%&b, Tarih: &7%timeago% önce"
-grim-history-detail-meta2: "%prefix% &bİstemci: &f%client_version%&b, Marka: &f%client_brand%"
-grim-history-detail-violations-header: "%prefix% &bİhlaller: &8(toplam %violations%, benzersiz %unique_checks%)"
+grim-history-detail-header: "%prefix% &d&f%player% &doyuncusunun &f%ordinal% &dnumaralı oturum detayı:"
+grim-history-detail-meta1: "%prefix% &dNSAC: &f%grim_version%&d, Sunucu: &f%server_name%&d, Süre: &f%duration%&d, Tarih: &7%timeago% önce"
+grim-history-detail-meta2: "%prefix% &dİstemci: &f%client_version%&d, Marka: &f%client_brand%"
+grim-history-detail-violations-header: "%prefix% &dİhlaller: &8(toplam %violations%, benzersiz %unique_checks%)"
 grim-history-detail-empty: "%prefix% &7- (yok)"
 # Gruplanmış satır (varsayılan) — geçerli placeholder'lar: %prefix% %offset% %checks_list%
 #   %bucket_start% %bucket_end% %bucket_hover_entries%
 #   %checks_list%, grim-history-check-count girdileri ", " ile birleştirilerek oluşur
-grim-history-detail-group: "<hover:show_text:'&b%bucket_start%–%bucket_end% aralığındaki ihlaller:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&b%offset%&8)</hover>"
-grim-history-detail-group-hover: "&b%bucket_start%–%bucket_end% aralığındaki ihlaller:%bucket_hover_entries%"
-grim-history-detail-group-hover-entry: "<newline>&8  %offset% &b%check%%description%%verbose%"
+grim-history-detail-group: "<hover:show_text:'&d%bucket_start%–%bucket_end% aralığındaki ihlaller:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&d%offset%&8)</hover>"
+grim-history-detail-group-hover: "&d%bucket_start%–%bucket_end% aralığındaki ihlaller:%bucket_hover_entries%"
+grim-history-detail-group-hover-entry: "<newline>&8  %offset% &d%check%%description%%verbose%"
 grim-history-hover-description: " — &f%description%"
 grim-history-detail-group-hover-verbose: " — &7%verbose%"
 # Tek ham ihlal satırı (--detailed) — geçerli placeholder'lar:
 #   %prefix% %offset% %check% %description% %vl% %verbose%
-grim-history-detail-entry: "%prefix% &7- &f%check% &8(&b%offset%&8)&7 %verbose%"
-grim-history-detail-entry-hover: "&b%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
+grim-history-detail-entry: "%prefix% &7- &f%check% &8(&d%offset%&8)&7 %verbose%"
+grim-history-detail-entry-hover: "&d%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
 grim-history-detail-entry-hover-verbose: "<newline>&7%verbose%"
 # %checks_list% içinde her kontrol için iç biçim — geçerli placeholder'lar: %check_name% %count%
 grim-history-check-count: "&f%check_name%&7 x&c%count%"

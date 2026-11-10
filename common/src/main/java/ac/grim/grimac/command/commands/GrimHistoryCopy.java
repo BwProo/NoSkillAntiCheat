@@ -90,9 +90,9 @@ public class GrimHistoryCopy implements BuildableCommand {
         }
 
         logBoth(sender, Component.text()
-                .append(Component.text("Copying v1 history ", NamedTextColor.AQUA))
+                .append(Component.text("Copying v1 history ", NamedTextColor.LIGHT_PURPLE))
                 .append(Component.text(srcId, NamedTextColor.WHITE))
-                .append(Component.text(" → ", NamedTextColor.AQUA))
+                .append(Component.text(" → ", NamedTextColor.LIGHT_PURPLE))
                 .append(Component.text(dstId, NamedTextColor.WHITE))
                 .build());
 

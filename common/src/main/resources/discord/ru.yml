@@ -5,7 +5,7 @@ webhook: ""
 # Это разрешает любой действительный HTTPS URL (полезно для прокси или Matrix forwarder).
 disable-webhook-validation: false
 embed-title: "**NSAC Оповещение**"
-embed-color: "#00FFFF"
+embed-color: "#A855F7"
 include-timestamp: true
 # Заменяет обратные кавычки (`) в значениях (например, в названиях клиентов), чтобы не нарушать форматирование текста в Discord.
 # Установите значение "`", чтобы отключить эту замену.

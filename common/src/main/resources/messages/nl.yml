@@ -1,5 +1,5 @@
 # \u00BB is » (double >>), ANSI en UTF-8 interpreteren dit anders... je kunt zelfs "?" zien als gevolg hiervan
-prefix: "&bNSAC &8\u00BB"
+prefix: "&5&lNSAC &8\u00BB"
 
 alerts-enabled: "%prefix% &fMeldingen ingeschakeld"
 alerts-disabled: "%prefix% &fMeldingen uitgeschakeld"
@@ -42,19 +42,19 @@ webhook-test-failed: "Discord webhook test failed!"
 # %experimental%
 # %vl% - overtredingen
 # %verbose% - extra informatie van de controle zoals offsets, niet alle controles voegen informatie toe
-alerts-format: "%prefix% &f%player% &bmislukt <hover:show_text:\"&b%check_name%%experimental%\n&8Beschrijving: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
-alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &bmislukt <hover:show_text:\"&b%check_name%%experimental%\n&8Beschrijving: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+alerts-format: "%prefix% &f%player% &dmislukt <hover:show_text:\"&d%check_name%%experimental%\n&8Beschrijving: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &dmislukt <hover:show_text:\"&d%check_name%%experimental%\n&8Beschrijving: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
 experimental-symbol: "*"
 
 profile:
     - "&7======================"
-    - "%prefix% &bProfiel voor &f%player%"
-    - "&bPing: &f%ping%"
-    - "&bVersie: &f%version%"
-    - "&bClient Merk: &f%brand%"
-    - "&bHorizontale Gevoeligheid: &f%h_sensitivity%%"
-    - "&bVerticale Gevoeligheid: &f%v_sensitivity%%"
-    - "&bFastMath Ingeschakeld: &f%fast_math%"
+    - "%prefix% &dProfiel voor &f%player%"
+    - "&dPing: &f%ping%"
+    - "&dVersie: &f%version%"
+    - "&dClient Merk: &f%brand%"
+    - "&dHorizontale Gevoeligheid: &f%h_sensitivity%%"
+    - "&dVerticale Gevoeligheid: &f%v_sensitivity%%"
+    - "&dFastMath Ingeschakeld: &f%fast_math%"
     - "&7======================"
 help:
     - "&7======================"
@@ -88,7 +88,7 @@ grim-history-no-sessions: "%prefix% &7Geen sessiegeschiedenis voor &f%player%&7.
 grim-history-session-not-found: "%prefix% &cSessie &f%ordinal%&c niet gevonden voor &f%player%&c."
 
 # Sessielijst — geldige placeholders: %prefix% %player% %page% %max_pages%
-grim-history-header: "%prefix% &bSessiegeschiedenis tonen voor &f%player% &8[&f%page%&7/&f%max_pages%&8]"
+grim-history-header: "%prefix% &dSessiegeschiedenis tonen voor &f%player% &8[&f%page%&7/&f%max_pages%&8]"
 # Samenvattingsregel per sessie — geldige placeholders:
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -97,7 +97,7 @@ grim-history-header: "%prefix% &bSessiegeschiedenis tonen voor &f%player% &8[&f%
 # waarvan de verbinding zonder nette afsluiting wegviel (servercrash, kill -9,
 # kanaal-RST die geen UserDisconnectEvent vuurt). Lege string voor lopende of
 # netjes gesloten sessies.
-grim-history-session: "<hover:show_text:'&bSessie &7%session_uuid%<newline>&7Klik of voer &e%detail_command% &7uit<newline>&7om sessiedetails te bekijken.'>%prefix% &8[&b%grim_version%&8] &8[&b%server_name%&8] &8[&b%client_version%&8] &bSessie &f%ordinal%&b, duur &f%duration%&b, met &c%violations%&b overtredingen &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% geleden&8)</hover>"
+grim-history-session: "<hover:show_text:'&dSessie &7%session_uuid%<newline>&7Klik of voer &e%detail_command% &7uit<newline>&7om sessiedetails te bekijken.'>%prefix% &8[&d%grim_version%&8] &8[&d%server_name%&8] &8[&d%client_version%&8] &dSessie &f%ordinal%&d, duur &f%duration%&d, met &c%violations%&d overtredingen &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% geleden&8)</hover>"
 
 # Inline-markering die in %crashed_marker% wordt geplaatst voor sessies met
 # closed_at == last_activity (d.w.z. gestempeld door de crash-sweep bij de
@@ -110,23 +110,23 @@ grim-history-crashed-marker: " &8(&cgecrasht&8)"
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-grim-history-detail-header: "%prefix% &bDetails van sessie &f%ordinal% &bvan &f%player%&b:"
-grim-history-detail-meta1: "%prefix% &bNSAC: &f%grim_version%&b, Server: &f%server_name%&b, Duur: &f%duration%&b, Datum: &7%timeago% geleden"
-grim-history-detail-meta2: "%prefix% &bClient: &f%client_version%&b, Merk: &f%client_brand%"
-grim-history-detail-violations-header: "%prefix% &bOvertredingen: &8(%violations% totaal, %unique_checks% uniek)"
+grim-history-detail-header: "%prefix% &dDetails van sessie &f%ordinal% &dvan &f%player%&d:"
+grim-history-detail-meta1: "%prefix% &dNSAC: &f%grim_version%&d, Server: &f%server_name%&d, Duur: &f%duration%&d, Datum: &7%timeago% geleden"
+grim-history-detail-meta2: "%prefix% &dClient: &f%client_version%&d, Merk: &f%client_brand%"
+grim-history-detail-violations-header: "%prefix% &dOvertredingen: &8(%violations% totaal, %unique_checks% uniek)"
 grim-history-detail-empty: "%prefix% &7- (geen)"
 # Gegroepeerde regel (standaard) — geldige placeholders: %prefix% %offset% %checks_list%
 #   %bucket_start% %bucket_end% %bucket_hover_entries%
 #   %checks_list% wordt gebouwd door grim-history-check-count-items te verbinden met ", "
-grim-history-detail-group: "<hover:show_text:'&bOvertredingen in &f%bucket_start%–%bucket_end%&b:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&b%offset%&8)</hover>"
-grim-history-detail-group-hover: "&bOvertredingen in &f%bucket_start%–%bucket_end%&b:%bucket_hover_entries%"
-grim-history-detail-group-hover-entry: "<newline>&8  %offset% &b%check%%description%%verbose%"
+grim-history-detail-group: "<hover:show_text:'&dOvertredingen in &f%bucket_start%–%bucket_end%&d:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&d%offset%&8)</hover>"
+grim-history-detail-group-hover: "&dOvertredingen in &f%bucket_start%–%bucket_end%&d:%bucket_hover_entries%"
+grim-history-detail-group-hover-entry: "<newline>&8  %offset% &d%check%%description%%verbose%"
 grim-history-hover-description: " — &f%description%"
 grim-history-detail-group-hover-verbose: " — &7%verbose%"
 # Enkele ruwe overtredingsregel (--detailed) — geldige placeholders:
 #   %prefix% %offset% %check% %description% %vl% %verbose%
-grim-history-detail-entry: "%prefix% &7- &f%check% &8(&b%offset%&8)&7 %verbose%"
-grim-history-detail-entry-hover: "&b%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
+grim-history-detail-entry: "%prefix% &7- &f%check% &8(&d%offset%&8)&7 %verbose%"
+grim-history-detail-entry-hover: "&d%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
 grim-history-detail-entry-hover-verbose: "<newline>&7%verbose%"
 # Intern formaat per check in %checks_list% — geldige placeholders: %check_name% %count%
 grim-history-check-count: "&f%check_name%&7 x&c%count%"

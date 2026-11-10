@@ -71,4 +71,7 @@ Changes made in this fork, starting 2026-11-10:
 - Experimental InventoryMove (movement keys or camera turns while clicking
   in an inventory) and InventorySpeed (clicks in too many consecutive ticks)
   checks; the sign probe closes the editor in the same batch it opens it.
+- Readable German alert names for all checks (CheckNames, ID in hover),
+  purple theme, MultiActionsC (InvMove) also sets the player back, and
+  optional enabling of Paper's built-in anti-xray.
 - CI workflow runs on the `main` branch.

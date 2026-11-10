@@ -47,6 +47,8 @@ public class MultiActionsC extends Check implements PacketReceiveListener {
         if (flag(V.write(verbose()).bool(sprinting).bool(sneaking).bool(input)) && shouldModifyPackets()) {
             event.setCancelled(true);
             player.onPacketCancel();
+            // NoSkillAntiCheat: also stop the movement itself (InvMove), not only the click
+            executeViolationSetback();
         }
     }
 }

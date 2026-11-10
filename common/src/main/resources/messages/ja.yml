@@ -1,5 +1,5 @@
 # \u00BB は » (二重 >>)です。ANSI と UTF-8 はこれを異なる方法で解釈します... 場合によっては ? と表示されることがあります。
-prefix: "&bNSAC &8\u00BB"
+prefix: "&5&lNSAC &8\u00BB"
 
 alerts-enabled: "%prefix% &fアラートが有効になりました"
 alerts-disabled: "%prefix% &fアラートが無効になりました"
@@ -39,19 +39,19 @@ webhook-test-failed: "Discord webhook test failed!"
 # %experimental%
 # %vl% - 違反回数
 # %verbose% - チェックからの追加情報（全てのチェックが情報を追加するわけではありません）
-alerts-format: "%prefix% &f%player% が <hover:show_text:\"&b%check_name%%experimental%\n&8説明: &f%description%\">&b%check_name%%experimental%</hover> &fに失敗しました (x&c%vl%&f) &7%verbose%"
-alerts-format-proxy: "%prefix% &f[&cプロキシ&f] &f%player% が <hover:show_text:\"&b%check_name%%experimental%\n&8説明: &f%description%\">&b%check_name%%experimental%</hover> &fに失敗しました (x&c%vl%&f) &7%verbose%"
+alerts-format: "%prefix% &f%player% が <hover:show_text:\"&d%check_name%%experimental%\n&8説明: &f%description%\">&d%check_name%%experimental%</hover> &fに失敗しました (x&c%vl%&f) &7%verbose%"
+alerts-format-proxy: "%prefix% &f[&cプロキシ&f] &f%player% が <hover:show_text:\"&d%check_name%%experimental%\n&8説明: &f%description%\">&d%check_name%%experimental%</hover> &fに失敗しました (x&c%vl%&f) &7%verbose%"
 experimental-symbol: "*"
 
 profile:
     - "&7======================"
-    - "%prefix% &b%player% のプロファイル"
-    - "&bPing: &f%ping%"
-    - "&bバージョン: &f%version%"
-    - "&bクライアントブランド: &f%brand%"
-    - "&b水平感度: &f%h_sensitivity%%"
-    - "&b垂直感度: &f%v_sensitivity%%"
-    - "&bFastMath 有効: &f%fast_math%"
+    - "%prefix% &d%player% のプロファイル"
+    - "&dPing: &f%ping%"
+    - "&dバージョン: &f%version%"
+    - "&dクライアントブランド: &f%brand%"
+    - "&d水平感度: &f%h_sensitivity%%"
+    - "&d垂直感度: &f%v_sensitivity%%"
+    - "&dFastMath 有効: &f%fast_math%"
     - "&7======================"
 help:
     - "&7======================"
@@ -85,7 +85,7 @@ grim-history-no-sessions: "%prefix% &7&f%player% &7のセッション履歴は�
 grim-history-session-not-found: "%prefix% &c&f%player% &cの第 &f%ordinal% &c回セッションが見つかりません。"
 
 # セッション一覧 — 有効なプレースホルダ: %prefix% %player% %page% %max_pages%
-grim-history-header: "%prefix% &b&f%player% &bのセッション履歴 &8[&f%page%&7/&f%max_pages%&8]"
+grim-history-header: "%prefix% &d&f%player% &dのセッション履歴 &8[&f%page%&7/&f%max_pages%&8]"
 # セッション概要行 — 有効なプレースホルダ:
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -94,7 +94,7 @@ grim-history-header: "%prefix% &b&f%player% &bのセッション履歴 &8[&f%pag
 # 接続が正常終了せずに失われたセッションでは %crashed_marker% が
 # grim-history-crashed-marker に展開されます。継続中／正常終了したセッションでは
 # 空文字列になります。
-grim-history-session: "<hover:show_text:'&bセッション &7%session_uuid%<newline>&7クリックするか &e%detail_command% &7を実行<newline>&7してセッション詳細を表示します。'>%prefix% &8[&b%grim_version%&8] &8[&b%server_name%&8] &8[&b%client_version%&8] &b第 &f%ordinal% &b回セッション、時間 &f%duration%&b、違反 &c%violations%&b 件 &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% 前&8)</hover>"
+grim-history-session: "<hover:show_text:'&dセッション &7%session_uuid%<newline>&7クリックするか &e%detail_command% &7を実行<newline>&7してセッション詳細を表示します。'>%prefix% &8[&d%grim_version%&8] &8[&d%server_name%&8] &8[&d%client_version%&8] &d第 &f%ordinal% &d回セッション、時間 &f%duration%&d、違反 &c%violations%&d 件 &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% 前&8)</hover>"
 
 # closed_at == last_activity のセッション（つまり次回起動時のクラッシュ掃引で
 # スタンプされ、切断パスを通っていない行）に対して %crashed_marker% に
@@ -106,23 +106,23 @@ grim-history-crashed-marker: " &8(&cクラッシュ&8)"
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-grim-history-detail-header: "%prefix% &b&f%player% &bの第 &f%ordinal% &b回セッションの詳細："
-grim-history-detail-meta1: "%prefix% &bNSAC: &f%grim_version%&b, サーバー: &f%server_name%&b, 時間: &f%duration%&b, 日時: &7%timeago% 前"
-grim-history-detail-meta2: "%prefix% &bクライアント: &f%client_version%&b, ブランド: &f%client_brand%"
-grim-history-detail-violations-header: "%prefix% &b違反: &8(合計 %violations% 件、ユニーク %unique_checks% 件)"
+grim-history-detail-header: "%prefix% &d&f%player% &dの第 &f%ordinal% &d回セッションの詳細："
+grim-history-detail-meta1: "%prefix% &dNSAC: &f%grim_version%&d, サーバー: &f%server_name%&d, 時間: &f%duration%&d, 日時: &7%timeago% 前"
+grim-history-detail-meta2: "%prefix% &dクライアント: &f%client_version%&d, ブランド: &f%client_brand%"
+grim-history-detail-violations-header: "%prefix% &d違反: &8(合計 %violations% 件、ユニーク %unique_checks% 件)"
 grim-history-detail-empty: "%prefix% &7- (なし)"
 # グループ化された行（デフォルト） — 有効なプレースホルダ: %prefix% %offset% %checks_list%
 #   %bucket_start% %bucket_end% %bucket_hover_entries%
 #   %checks_list% は grim-history-check-count の項目を ", " で連結したものです
-grim-history-detail-group: "<hover:show_text:'&b%bucket_start%–%bucket_end% の違反:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&b%offset%&8)</hover>"
-grim-history-detail-group-hover: "&b%bucket_start%–%bucket_end% の違反:%bucket_hover_entries%"
-grim-history-detail-group-hover-entry: "<newline>&8  %offset% &b%check%%description%%verbose%"
+grim-history-detail-group: "<hover:show_text:'&d%bucket_start%–%bucket_end% の違反:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&d%offset%&8)</hover>"
+grim-history-detail-group-hover: "&d%bucket_start%–%bucket_end% の違反:%bucket_hover_entries%"
+grim-history-detail-group-hover-entry: "<newline>&8  %offset% &d%check%%description%%verbose%"
 grim-history-hover-description: " — &f%description%"
 grim-history-detail-group-hover-verbose: " — &7%verbose%"
 # 単一の生違反行（--detailed） — 有効なプレースホルダ:
 #   %prefix% %offset% %check% %description% %vl% %verbose%
-grim-history-detail-entry: "%prefix% &7- &f%check% &8(&b%offset%&8)&7 %verbose%"
-grim-history-detail-entry-hover: "&b%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
+grim-history-detail-entry: "%prefix% &7- &f%check% &8(&d%offset%&8)&7 %verbose%"
+grim-history-detail-entry-hover: "&d%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
 grim-history-detail-entry-hover-verbose: "<newline>&7%verbose%"
 # %checks_list% の各チェック項目の内部書式 — 有効なプレースホルダ: %check_name% %count%
 grim-history-check-count: "&f%check_name%&7 x&c%count%"

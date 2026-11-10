@@ -1,5 +1,5 @@
 # \u00BB 表示 » (相当于缩小版的 >>), ANSI和UTF-8的显示方式有所不同,有时你甚至可以看到乱码.
-prefix: "&bNSAC &8\u00BB"
+prefix: "&5&lNSAC &8\u00BB"
 
 alerts-enabled: "%prefix% &f警报 已开启"
 alerts-disabled: "%prefix% &f警报 已禁用"
@@ -42,19 +42,19 @@ webhook-test-failed: "Discord webhook test failed!"
 # %experimental% - 检查是否是实验性
 # %vl% - VL值
 # %verbose% - 检查中的额外信息说明，例如偏移量，并非所有检查都会添加信息
-alerts-format: "%prefix% &f%player% &b触发了 <hover:show_text:\"&b%check_name%%experimental%\n&8描述: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
-alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &b触发了 <hover:show_text:\"&b%check_name%%experimental%\n&8描述: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+alerts-format: "%prefix% &f%player% &d触发了 <hover:show_text:\"&d%check_name%%experimental%\n&8描述: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &d触发了 <hover:show_text:\"&d%check_name%%experimental%\n&8描述: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
 experimental-symbol: "*"
 
 profile:
     - "&7======================"
-    - "%prefix% &f%player% &b 的信息"
-    - "&b延迟: &f%ping%"
-    - "&b版本: &f%version%"
-    - "&b客户端型号: &f%brand%"
-    - "&b水平灵敏度: &f%h_sensitivity%%"
-    - "&b垂直灵敏度: &f%v_sensitivity%%"
-    - "&bFastMath: &f%fast_math%"
+    - "%prefix% &f%player% &d 的信息"
+    - "&d延迟: &f%ping%"
+    - "&d版本: &f%version%"
+    - "&d客户端型号: &f%brand%"
+    - "&d水平灵敏度: &f%h_sensitivity%%"
+    - "&d垂直灵敏度: &f%v_sensitivity%%"
+    - "&dFastMath: &f%fast_math%"
     - "&7======================"
 help:
     - "&7======================"
@@ -87,14 +87,14 @@ grim-history-no-sessions: "%prefix% &7没有 &f%player% &7的会话历史。"
 grim-history-session-not-found: "%prefix% &c未找到 &f%player% &c的第 &f%ordinal% &c次会话。"
 
 # 会话列表 — 可用占位符: %prefix% %player% %page% %max_pages%
-grim-history-header: "%prefix% &b显示 &f%player% 的会话历史 &8[&f%page%&7/&f%max_pages%&8]"
+grim-history-header: "%prefix% &d显示 &f%player% 的会话历史 &8[&f%page%&7/&f%max_pages%&8]"
 # 单条会话摘要 — 可用占位符:
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker% %session_uuid% %detail_command%
 # 当会话因服务器崩溃、kill -9 或未触发 UserDisconnectEvent 的连接重置而非正常关闭时，
 # %crashed_marker% 会展开为 grim-history-crashed-marker；正在进行或正常关闭的会话则为空字符串。
-grim-history-session: "<hover:show_text:'&b会话 &7%session_uuid%<newline>&7点击或运行 &e%detail_command%<newline>&7查看会话详情。'>%prefix% &8[&b%grim_version%&8] &8[&b%server_name%&8] &8[&b%client_version%&8] &b第 &f%ordinal% &b次会话，时长 &f%duration%&b，含 &c%violations% &b次违规 &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% 前&8)</hover>"
+grim-history-session: "<hover:show_text:'&d会话 &7%session_uuid%<newline>&7点击或运行 &e%detail_command%<newline>&7查看会话详情。'>%prefix% &8[&d%grim_version%&8] &8[&d%server_name%&8] &8[&d%client_version%&8] &d第 &f%ordinal% &d次会话，时长 &f%duration%&d，含 &c%violations% &d次违规 &8[&c%unique_checks%&8]%crashed_marker% &8(&7%timeago% 前&8)</hover>"
 
 # 替换到 %crashed_marker% 的内联标记：仅对 closed_at == last_activity 的会话显示
 # （即由下次启动的崩溃扫描而非正常断开路径标记的会话）。包含前导空格，
@@ -105,23 +105,23 @@ grim-history-crashed-marker: " &8(&c崩溃&8)"
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-grim-history-detail-header: "%prefix% &b显示 &f%player% &b的第 &f%ordinal% &b次会话详情："
-grim-history-detail-meta1: "%prefix% &bNSAC：&f%grim_version%&b，服务器：&f%server_name%&b，时长：&f%duration%&b，时间：&7%timeago% 前"
-grim-history-detail-meta2: "%prefix% &b客户端：&f%client_version%&b，品牌：&f%client_brand%"
-grim-history-detail-violations-header: "%prefix% &b违规：&8(共 %violations% 次，独立检查 %unique_checks% 个)"
+grim-history-detail-header: "%prefix% &d显示 &f%player% &d的第 &f%ordinal% &d次会话详情："
+grim-history-detail-meta1: "%prefix% &dNSAC：&f%grim_version%&d，服务器：&f%server_name%&d，时长：&f%duration%&d，时间：&7%timeago% 前"
+grim-history-detail-meta2: "%prefix% &d客户端：&f%client_version%&d，品牌：&f%client_brand%"
+grim-history-detail-violations-header: "%prefix% &d违规：&8(共 %violations% 次，独立检查 %unique_checks% 个)"
 grim-history-detail-empty: "%prefix% &7- (无)"
 # 分组行（默认） — 可用占位符: %prefix% %offset% %checks_list%
 #   %bucket_start% %bucket_end% %bucket_hover_entries%
 #   %checks_list% 是用 ", " 拼接 grim-history-check-count 项构成的列表
-grim-history-detail-group: "<hover:show_text:'&b%bucket_start%–%bucket_end% 内的违规:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&b%offset%&8)</hover>"
-grim-history-detail-group-hover: "&b%bucket_start%–%bucket_end% 内的违规:%bucket_hover_entries%"
-grim-history-detail-group-hover-entry: "<newline>&8  %offset% &b%check%%description%%verbose%"
+grim-history-detail-group: "<hover:show_text:'&d%bucket_start%–%bucket_end% 内的违规:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&d%offset%&8)</hover>"
+grim-history-detail-group-hover: "&d%bucket_start%–%bucket_end% 内的违规:%bucket_hover_entries%"
+grim-history-detail-group-hover-entry: "<newline>&8  %offset% &d%check%%description%%verbose%"
 grim-history-hover-description: " — &f%description%"
 grim-history-detail-group-hover-verbose: " — &7%verbose%"
 # 单条原始违规行（--detailed） — 可用占位符:
 #   %prefix% %offset% %check% %description% %vl% %verbose%
-grim-history-detail-entry: "%prefix% &7- &f%check% &8(&b%offset%&8)&7 %verbose%"
-grim-history-detail-entry-hover: "&b%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
+grim-history-detail-entry: "%prefix% &7- &f%check% &8(&d%offset%&8)&7 %verbose%"
+grim-history-detail-entry-hover: "&d%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
 grim-history-detail-entry-hover-verbose: "<newline>&7%verbose%"
 # %checks_list% 中每个检查项的内部格式 — 可用占位符: %check_name% %count%
 grim-history-check-count: "&f%check_name%&7 x&c%count%"

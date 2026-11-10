@@ -298,3 +298,10 @@ mod-probe:
     delay-seconds: 3
     keys:
         - "Meteor Client=key.category.meteor-client.meteor-client"
+
+# NoSkillAntiCheat: eingebauten Anti-Xray von Paper / Purpur / Folia automatisch einschalten
+# (in config/paper-world-defaults.yml, wirkt nach dem naechsten Neustart). Spigot hat keinen eingebauten Anti-Xray.
+# engine-mode: 1 = Erze als Stein verstecken, 2 = zusaetzlich falsche Erze ueberall (staerker), 3 = wie 2, wechselnd
+anti-xray:
+    enable-paper-anti-xray: true
+    engine-mode: 2

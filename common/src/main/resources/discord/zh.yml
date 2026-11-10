@@ -5,7 +5,7 @@ webhook: ""
 # 这将允许任何有效的 HTTPS URL（适用于代理或 Matrix 转发器）。
 disable-webhook-validation: false
 embed-title: "**NSAC 警报**"
-embed-color: "#00FFFF"
+embed-color: "#A855F7"
 include-timestamp: true
 # 替换变量值（如客户端品牌）中的反引号 (`)，以防止破坏 Discord 的文本格式。
 # 将其设置为 "`" 即可禁用此替换。

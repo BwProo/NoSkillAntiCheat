@@ -6,7 +6,7 @@ webhook: ""
 # This allows any valid HTTPS URL (useful for proxies or Matrix forwarders).
 disable-webhook-validation: false
 embed-title: "**NSAC Alert**"
-embed-color: "#00FFFF"
+embed-color: "#A855F7"
 include-timestamp: true
 # Replaces backticks in values (like client brands) so they don't break Discord's text formatting.
 # Set to "`" to disable this replacement.

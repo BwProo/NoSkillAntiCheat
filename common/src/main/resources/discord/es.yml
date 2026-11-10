@@ -14,7 +14,7 @@ disable-webhook-validation: false
 embed-title: "**NSAC Alerta**"
 
 # El color del embed que se mandara por este webhook.
-embed-color: "#00FFFF"
+embed-color: "#A855F7"
 
 include-timestamp: true
 

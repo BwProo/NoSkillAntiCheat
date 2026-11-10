@@ -1,4 +1,4 @@
-prefix: "&bNSAC &8\u00BB"
+prefix: "&5&lNSAC &8\u00BB"
 
 alerts-enabled: "%prefix% &fBenachrichtigungen aktiviert"
 alerts-disabled: "%prefix% &fBenachrichtigungen deaktiviert"
@@ -41,19 +41,19 @@ webhook-test-failed: "Discord webhook test failed!"
 # %experimental%
 # %vl% - Verstöße
 # %verbose% - zusätzliche Informationen von der Prüfung, nicht alle Prüfungen liefern zusätzliche Informationen
-alerts-format: "%prefix% &f%player% &7» <click:run_command:'/nsac spectate %player%'><hover:show_text:\"&c%check_name%%experimental% &8| &7%description%\n&7Details: &f%verbose%\n&7Verstöße: &f%vl%\n&8Klicken zum Zuschauen\">&c%check_name%%experimental%</hover></click> &8(&7x%vl%&8)"
-alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &bbestand <hover:show_text:\"&b%check_name%%experimental%\n&8Beschreibung: &f%description%\">&f%check_name%%experimental%</hover> &bnicht &f(x&c%vl%&f) &7%verbose%"
+alerts-format: "%prefix% &f%player% &7» <click:run_command:'/nsac spectate %player%'><hover:show_text:\"&c%check_name%%experimental% &8| &7%description%\n&7Details: &f%verbose%\n&7Verstöße: &f%vl%\n&7ID: &f%stable_key%\n&8Klicken zum Zuschauen\">&c%check_name%%experimental%</hover></click> &8(&7x%vl%&8)"
+alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &dbestand <hover:show_text:\"&d%check_name%%experimental%\n&8Beschreibung: &f%description%\">&f%check_name%%experimental%</hover> &dnicht &f(x&c%vl%&f) &7%verbose%"
 experimental-symbol: "*"
 
 profile:
     - "&7======================"
-    - "%prefix% &bProfil für &f%player%"
-    - "&bPing: &f%ping%"
-    - "&bVersion: &f%version%"
-    - "&bClient Marke: &f%brand%"
-    - "&bHorizontale Sensitivität: &f%h_sensitivity%%"
-    - "&bVertikale Sensitivität: &f%v_sensitivity%%"
-    - "&bFastMath aktiviert: &f%fast_math%"
+    - "%prefix% &dProfil für &f%player%"
+    - "&dPing: &f%ping%"
+    - "&dVersion: &f%version%"
+    - "&dClient Marke: &f%brand%"
+    - "&dHorizontale Sensitivität: &f%h_sensitivity%%"
+    - "&dVertikale Sensitivität: &f%v_sensitivity%%"
+    - "&dFastMath aktiviert: &f%fast_math%"
     - "&7======================"
 help:
     - "&7======================"
@@ -87,7 +87,7 @@ grim-history-no-sessions: "%prefix% &7Keine Sitzungs-Historie für &f%player%&7.
 grim-history-session-not-found: "%prefix% &cSitzung &f%ordinal%&c für &f%player%&c nicht gefunden."
 
 # Sitzungsliste — gültige Platzhalter: %prefix% %player% %page% %max_pages%
-grim-history-header: "%prefix% &bZeige Sitzungs-Historie für &f%player% &8[&f%page%&7/&f%max_pages%&8]"
+grim-history-header: "%prefix% &dZeige Sitzungs-Historie für &f%player% &8[&f%page%&7/&f%max_pages%&8]"
 # Einzelne Sitzungszeile — gültige Platzhalter:
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -96,7 +96,7 @@ grim-history-header: "%prefix% &bZeige Sitzungs-Historie für &f%player% &8[&f%p
 # deren Verbindung ohne sauberes Schließen wegfiel (Server-Crash, kill -9,
 # Channel-RST ohne UserDisconnectEvent). Für laufende oder sauber geschlossene
 # Sitzungen leerer String.
-grim-history-session: "<hover:show_text:'&bSitzung &7%session_uuid%<newline>&7Klicke oder führe &e%detail_command% &7aus<newline>&7um Sitzungsdetails anzuzeigen.'>%prefix% &8[&b%grim_version%&8] &8[&b%server_name%&8] &8[&b%client_version%&8] &bSitzung &f%ordinal%&b, Dauer &f%duration%&b, &c%violations%&b Verstöße &8[&c%unique_checks%&8]%crashed_marker% &8(&7vor %timeago%&8)</hover>"
+grim-history-session: "<hover:show_text:'&dSitzung &7%session_uuid%<newline>&7Klicke oder führe &e%detail_command% &7aus<newline>&7um Sitzungsdetails anzuzeigen.'>%prefix% &8[&d%grim_version%&8] &8[&d%server_name%&8] &8[&d%client_version%&8] &dSitzung &f%ordinal%&d, Dauer &f%duration%&d, &c%violations%&d Verstöße &8[&c%unique_checks%&8]%crashed_marker% &8(&7vor %timeago%&8)</hover>"
 
 # Inline-Marker, der in %crashed_marker% eingesetzt wird bei Sitzungen mit
 # closed_at == last_activity (also vom Crash-Sweep beim nächsten Start
@@ -108,23 +108,23 @@ grim-history-crashed-marker: " &8(&cabgestürzt&8)"
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-grim-history-detail-header: "%prefix% &bDetails zu Sitzung &f%ordinal% &bvon &f%player%&b:"
-grim-history-detail-meta1: "%prefix% &bNSAC: &f%grim_version%&b, Server: &f%server_name%&b, Dauer: &f%duration%&b, Datum: &7vor %timeago%"
-grim-history-detail-meta2: "%prefix% &bClient: &f%client_version%&b, Marke: &f%client_brand%"
-grim-history-detail-violations-header: "%prefix% &bVerstöße: &8(%violations% gesamt, %unique_checks% verschiedene)"
+grim-history-detail-header: "%prefix% &dDetails zu Sitzung &f%ordinal% &dvon &f%player%&d:"
+grim-history-detail-meta1: "%prefix% &dNSAC: &f%grim_version%&d, Server: &f%server_name%&d, Dauer: &f%duration%&d, Datum: &7vor %timeago%"
+grim-history-detail-meta2: "%prefix% &dClient: &f%client_version%&d, Marke: &f%client_brand%"
+grim-history-detail-violations-header: "%prefix% &dVerstöße: &8(%violations% gesamt, %unique_checks% verschiedene)"
 grim-history-detail-empty: "%prefix% &7- (keine)"
 # Gruppenzeile (Standard) — gültige Platzhalter: %prefix% %offset% %checks_list%
 #   %bucket_start% %bucket_end% %bucket_hover_entries%
 #   %checks_list% wird gebaut aus grim-history-check-count-Einträgen, getrennt mit ", "
-grim-history-detail-group: "<hover:show_text:'&bVerstöße in &f%bucket_start%–%bucket_end%&b:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&b%offset%&8)</hover>"
-grim-history-detail-group-hover: "&bVerstöße in &f%bucket_start%–%bucket_end%&b:%bucket_hover_entries%"
-grim-history-detail-group-hover-entry: "<newline>&8  %offset% &b%check%%description%%verbose%"
+grim-history-detail-group: "<hover:show_text:'&dVerstöße in &f%bucket_start%–%bucket_end%&d:%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&d%offset%&8)</hover>"
+grim-history-detail-group-hover: "&dVerstöße in &f%bucket_start%–%bucket_end%&d:%bucket_hover_entries%"
+grim-history-detail-group-hover-entry: "<newline>&8  %offset% &d%check%%description%%verbose%"
 grim-history-hover-description: " — &f%description%"
 grim-history-detail-group-hover-verbose: " — &7%verbose%"
 # Einzelner Verstoß (--detailed) — gültige Platzhalter:
 #   %prefix% %offset% %check% %description% %vl% %verbose%
-grim-history-detail-entry: "%prefix% &7- &f%check% &8(&b%offset%&8)&7 %verbose%"
-grim-history-detail-entry-hover: "&b%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
+grim-history-detail-entry: "%prefix% &7- &f%check% &8(&d%offset%&8)&7 %verbose%"
+grim-history-detail-entry-hover: "&d%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
 grim-history-detail-entry-hover-verbose: "<newline>&7%verbose%"
 # Inneres Format für jeden Check in einer Gruppen-%checks_list% — gültige Platzhalter: %check_name% %count%
 grim-history-check-count: "&f%check_name%&7 x&c%count%"

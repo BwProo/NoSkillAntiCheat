@@ -73,7 +73,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
         this.experimental = checkData.experimental();
         this.description = this.defaultDescription = checkData.description();
         this.stableKey = checkData.stableKey();
-        this.displayName = this.checkName;
+        this.displayName = CheckNames.friendly(this.checkName);
 
         reload();
     }
@@ -254,7 +254,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
     public final void reload(@NotNull ConfigManager configuration) {
         decay = configuration.getDoubleElse(getConfigName() + ".decay", defaultDecay);
         setbackVL = configuration.getDoubleElse(getConfigName() + ".setbackvl", defaultSetbackVL);
-        displayName = configuration.getStringElse(getConfigName() + ".displayname", checkName);
+        displayName = configuration.getStringElse(getConfigName() + ".displayname", CheckNames.friendly(checkName));
         description = configuration.getStringElse(getConfigName() + ".description", defaultDescription);
 
         if (setbackVL == -1) setbackVL = Double.MAX_VALUE;

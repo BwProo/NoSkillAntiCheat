@@ -5,7 +5,7 @@ webhook: ""
 # Cela autorise n'importe quelle URL HTTPS valide (utile pour les proxys ou redirecteurs Matrix).
 disable-webhook-validation: false
 embed-title: "**NSAC Alerte**"
-embed-color: "#00FFFF"
+embed-color: "#A855F7"
 include-timestamp: true
 # Remplace les accents graves (`) dans les valeurs (ex. marques de clients) pour éviter de casser le formatage du texte sur Discord.
 # Définissez sur "`" pour désactiver ce remplacement.

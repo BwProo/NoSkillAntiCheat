@@ -18,7 +18,7 @@ public class GrimVersion implements BuildableCommand {
     public static void sendVersion(Sender sender) {
         sender.sendMessage(Component.text()
                 .append(Component.text(Constants.PLUGIN_NAME + " Version: ").color(NamedTextColor.GRAY))
-                .append(Component.text(GrimAPI.INSTANCE.getExternalAPI().getGrimVersion()).color(NamedTextColor.AQUA))
+                .append(Component.text(GrimAPI.INSTANCE.getExternalAPI().getGrimVersion()).color(NamedTextColor.LIGHT_PURPLE))
                 .build());
         // Attribution required by the GPL-3.0; this is the one in-game place that names the origin.
         sender.sendMessage(Component.text("Based on GrimAC - licensed under GPL-3.0", NamedTextColor.DARK_GRAY));

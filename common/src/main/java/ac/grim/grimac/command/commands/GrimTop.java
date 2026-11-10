@@ -51,7 +51,7 @@ public class GrimTop implements BuildableCommand {
             if (total > 0) entries.add(new Entry(player.getName(), total, worst, worstVl));
         }
         entries.sort((a, b) -> Double.compare(b.total(), a.total()));
-        sender.sendMessage(Component.text(Constants.PLUGIN_NAME + " top violations (online players):", NamedTextColor.AQUA));
+        sender.sendMessage(Component.text(Constants.PLUGIN_NAME + " top violations (online players):", NamedTextColor.LIGHT_PURPLE));
         if (entries.isEmpty()) {
             sender.sendMessage(Component.text("No online player has violations.", NamedTextColor.GREEN));
             return;

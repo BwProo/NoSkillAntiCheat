@@ -197,13 +197,13 @@ public final class HistoryComponentRenderer {
         out.add(parse(sender, cfg, "grim-history-detail-header",
                 "%prefix% &bShowing &f%player%&b's session &f%ordinal%&b details:", metaVars).component());
         out.add(parse(sender, cfg, "grim-history-detail-meta1",
-                "&bGrim: &f%grim_version%&b, Server: &f%server_name%&b, Duration: &f%duration%&b, Date: &7%timeago% ago",
+                "&dGrim: &f%grim_version%&b, Server: &f%server_name%&b, Duration: &f%duration%&b, Date: &7%timeago% ago",
                 metaVars).component());
         out.add(parse(sender, cfg, "grim-history-detail-meta2",
-                "&bClient: &f%client_version%&b, Brand: &f%client_brand%",
+                "&dClient: &f%client_version%&b, Brand: &f%client_brand%",
                 metaVars).component());
         out.add(parse(sender, cfg, "grim-history-detail-violations-header",
-                "&bViolations: &8(%violations% total, %unique_checks% unique) &8[&f%page%&7/&f%max_pages%&8]",
+                "&dViolations: &8(%violations% total, %unique_checks% unique) &8[&f%page%&7/&f%max_pages%&8]",
                 metaVars).component());
 
         if (d.violations().isEmpty()) {
@@ -281,7 +281,7 @@ public final class HistoryComponentRenderer {
     private static Component bucketHover(Sender sender, ConfigManager cfg, String bucketStart, String bucketEnd,
                                          Component bucketHoverEntries) {
         return parse(sender, cfg, "grim-history-detail-group-hover",
-                "&bViolations in &f%bucket_start%–%bucket_end%&b:%bucket_hover_entries%",
+                "&dViolations in &f%bucket_start%–%bucket_end%&b:%bucket_hover_entries%",
                 Map.of(
                         "bucket_start", TemplateValue.text(bucketStart),
                         "bucket_end", TemplateValue.text(bucketEnd),
@@ -322,7 +322,7 @@ public final class HistoryComponentRenderer {
                         Map.of("verbose", TemplateValue.text(verboseText))).component()
                 : Component.empty();
         return parse(sender, cfg, "grim-history-detail-entry-hover",
-                "&b%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%",
+                "&d%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%",
                 Map.of(
                         "check", TemplateValue.text(v.displayName()),
                         "description", TemplateValue.component(description),
@@ -333,7 +333,7 @@ public final class HistoryComponentRenderer {
 
     private static Component sessionHover(Sender sender, String detailCommand, String sessionId) {
         return parseRaw(sender,
-                "&bSession &7%session_uuid%"
+                "&dSession &7%session_uuid%"
                         + "<newline>&7Click or run &e%detail_command%"
                         + "<newline>&7to view session details.",
                 Map.of(

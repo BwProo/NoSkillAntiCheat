@@ -86,6 +86,7 @@ public final class GrimACBukkitLoaderPlugin extends JavaPlugin implements Platfo
                 new BukkitTickEndEvent(),
                 new BukkitLuckPermsInitable(),
                 new ac.grim.grimac.platform.bukkit.initables.BukkitCommandProtection(),
+                new ac.grim.grimac.platform.bukkit.initables.BukkitPaperAntiXray(),
                 (StartableInitable) () -> {
                     if (BukkitMessagePlaceHolderManager.hasPlaceholderAPI) {
                         new PlaceholderAPIExpansion().register();

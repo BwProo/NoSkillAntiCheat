@@ -262,7 +262,7 @@ public class GrimHistory implements BuildableCommand {
                 .append(Component.text(addressPrefix, NamedTextColor.GRAY))
                 .append(Component.text(target, NamedTextColor.WHITE))
                 .append(Component.text(" session ", NamedTextColor.GRAY))
-                .append(Component.text("<N | latest>", NamedTextColor.AQUA))
+                .append(Component.text("<N | latest>", NamedTextColor.LIGHT_PURPLE))
                 .append(Component.text(" — show violations for a specific session.", NamedTextColor.GRAY))
                 .build());
         sender.sendMessage(Component.text(
@@ -514,7 +514,7 @@ public class GrimHistory implements BuildableCommand {
 
         List<CheckDefinition> liveChecks = snapshotLiveCheckDefinitions();
         logBoth(sender, Component.text(
-                "Repairing history check ids on backend '" + backendId + "' in the background...", NamedTextColor.AQUA));
+                "Repairing history check ids on backend '" + backendId + "' in the background...", NamedTextColor.LIGHT_PURPLE));
         GrimAPI.INSTANCE.getScheduler().getAsyncScheduler().runNow(
                 GrimAPI.INSTANCE.getGrimPlugin(),
                 () -> runRepairAsync(sender, lifecycle, backend, liveChecks));

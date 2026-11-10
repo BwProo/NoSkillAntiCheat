@@ -80,7 +80,7 @@ public class GrimStats implements BuildableCommand {
     private static void send(Sender sender, FlagStats.Window window) {
         double hours = window.playerHours();
         sender.sendMessage(Component.text(String.format(Locale.ROOT, "%s stats '%s': %.2f player-hours",
-                Constants.PLUGIN_NAME, window.label, hours), NamedTextColor.AQUA));
+                Constants.PLUGIN_NAME, window.label, hours), NamedTextColor.LIGHT_PURPLE));
         List<Map.Entry<String, FlagStats.Counter>> checks = FlagStats.sortedChecks(window);
         if (checks.isEmpty()) {
             sender.sendMessage(Component.text("No flags so far.", NamedTextColor.GREEN));

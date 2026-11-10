@@ -5,7 +5,7 @@ webhook: ""
 # Dit staat elke geldige HTTPS-URL toe (handig voor proxy's of Matrix-forwarders).
 disable-webhook-validation: false
 embed-title: "**NSAC Waarschuwing**"
-embed-color: "#00FFFF"
+embed-color: "#A855F7"
 include-timestamp: true
 # Vervangt backticks (`) in waarden (zoals clientmerken) om te voorkomen dat de tekstopmaak van Discord breekt.
 # Stel in op "`" om deze vervanging uit te schakelen.

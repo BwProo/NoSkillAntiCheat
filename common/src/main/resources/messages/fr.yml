@@ -1,5 +1,5 @@
 # \u00BB se traduit par » (double >>). Les interprétations diffèrent entre les normes ANSI et UTF-8... vous pouvez même voir ? en raison de cela
-prefix: "&bNSAC &8\u00BB"
+prefix: "&5&lNSAC &8\u00BB"
 
 alerts-enabled: "%prefix% &fAlertes activées"
 alerts-disabled: "%prefix% &fAlertes désactivées"
@@ -42,19 +42,19 @@ webhook-test-failed: "Discord webhook test failed!"
 # %experimental%
 # %vl% - violations
 # %verbose% - Informations supplémentaires sur les vérifivations comme les écarts, toutes les vérifications n'ajoutent pas d'information
-alerts-format: "%prefix% &f%player% &ba échoué <hover:show_text:\"&b%check_name%%experimental%\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
-alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &ba échoué <hover:show_text:\"&b%check_name%%experimental%\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+alerts-format: "%prefix% &f%player% &da échoué <hover:show_text:\"&d%check_name%%experimental%\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+alerts-format-proxy: "%prefix% &f[&cproxy&f] &f%player% &da échoué <hover:show_text:\"&d%check_name%%experimental%\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
 experimental-symbol: "*"
 
 profile:
     - "&7======================"
-    - "%prefix% &bProfil de &f%player%"
-    - "&bPing: &f%ping%"
-    - "&bVersion du client : &f%version%"
-    - "&bNature du client : &f%brand%"
-    - "&bSensibilité Horizontale : &f%h_sensitivity%%"
-    - "&bSensibilité Verticale : &f%v_sensitivity%%"
-    - "&bFastMath est activé : &f%fast_math%"
+    - "%prefix% &dProfil de &f%player%"
+    - "&dPing: &f%ping%"
+    - "&dVersion du client : &f%version%"
+    - "&dNature du client : &f%brand%"
+    - "&dSensibilité Horizontale : &f%h_sensitivity%%"
+    - "&dSensibilité Verticale : &f%v_sensitivity%%"
+    - "&dFastMath est activé : &f%fast_math%"
     - "&7======================"
 help:
     - "&7======================"
@@ -88,7 +88,7 @@ grim-history-no-sessions: "%prefix% &7Pas d'historique de sessions pour &f%playe
 grim-history-session-not-found: "%prefix% &cSession &f%ordinal%&c introuvable pour &f%player%&c."
 
 # Liste des sessions — placeholders valides : %prefix% %player% %page% %max_pages%
-grim-history-header: "%prefix% &bAffichage de l'historique des sessions pour &f%player% &8[&f%page%&7/&f%max_pages%&8]"
+grim-history-header: "%prefix% &dAffichage de l'historique des sessions pour &f%player% &8[&f%page%&7/&f%max_pages%&8]"
 # Ligne de résumé d'une session — placeholders valides :
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -97,7 +97,7 @@ grim-history-header: "%prefix% &bAffichage de l'historique des sessions pour &f%
 # dont la connexion a disparu sans fermeture propre (crash serveur, kill -9,
 # RST de canal sans UserDisconnectEvent). Chaîne vide pour les sessions en
 # cours ou closes proprement.
-grim-history-session: "<hover:show_text:'&bSession &7%session_uuid%<newline>&7Cliquez ou exécutez &e%detail_command%<newline>&7pour afficher les détails de la session.'>%prefix% &8[&b%grim_version%&8] &8[&b%server_name%&8] &8[&b%client_version%&8] &bSession &f%ordinal%&b, durée &f%duration%&b, avec &c%violations%&b violations &8[&c%unique_checks%&8]%crashed_marker% &8(&7il y a %timeago%&8)</hover>"
+grim-history-session: "<hover:show_text:'&dSession &7%session_uuid%<newline>&7Cliquez ou exécutez &e%detail_command%<newline>&7pour afficher les détails de la session.'>%prefix% &8[&d%grim_version%&8] &8[&d%server_name%&8] &8[&d%client_version%&8] &dSession &f%ordinal%&d, durée &f%duration%&d, avec &c%violations%&d violations &8[&c%unique_checks%&8]%crashed_marker% &8(&7il y a %timeago%&8)</hover>"
 
 # Marqueur en ligne substitué dans %crashed_marker% pour les sessions dont
 # closed_at == last_activity (c.-à-d. estampillées par le balayage de crash
@@ -110,23 +110,23 @@ grim-history-crashed-marker: " &8(&ccrash&8)"
 #   %prefix% %player% %ordinal% %grim_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-grim-history-detail-header: "%prefix% &bDétail de la session &f%ordinal% &bde &f%player%&b :"
-grim-history-detail-meta1: "%prefix% &bNSAC : &f%grim_version%&b, Serveur : &f%server_name%&b, Durée : &f%duration%&b, Date : &7il y a %timeago%"
-grim-history-detail-meta2: "%prefix% &bClient : &f%client_version%&b, Marque : &f%client_brand%"
-grim-history-detail-violations-header: "%prefix% &bViolations : &8(%violations% au total, %unique_checks% uniques)"
+grim-history-detail-header: "%prefix% &dDétail de la session &f%ordinal% &dde &f%player%&d :"
+grim-history-detail-meta1: "%prefix% &dNSAC : &f%grim_version%&d, Serveur : &f%server_name%&d, Durée : &f%duration%&d, Date : &7il y a %timeago%"
+grim-history-detail-meta2: "%prefix% &dClient : &f%client_version%&d, Marque : &f%client_brand%"
+grim-history-detail-violations-header: "%prefix% &dViolations : &8(%violations% au total, %unique_checks% uniques)"
 grim-history-detail-empty: "%prefix% &7- (aucune)"
 # Ligne groupée (par défaut) — placeholders valides : %prefix% %offset% %checks_list%
 #   %bucket_start% %bucket_end% %bucket_hover_entries%
 #   %checks_list% est construite en joignant les entrées grim-history-check-count avec ", "
-grim-history-detail-group: "<hover:show_text:'&bViolations entre &f%bucket_start%–%bucket_end%&b :%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&b%offset%&8)</hover>"
-grim-history-detail-group-hover: "&bViolations entre &f%bucket_start%–%bucket_end%&b :%bucket_hover_entries%"
-grim-history-detail-group-hover-entry: "<newline>&8  %offset% &b%check%%description%%verbose%"
+grim-history-detail-group: "<hover:show_text:'&dViolations entre &f%bucket_start%–%bucket_end%&d :%bucket_hover_entries%'>%prefix% &7- %checks_list% &8(&d%offset%&8)</hover>"
+grim-history-detail-group-hover: "&dViolations entre &f%bucket_start%–%bucket_end%&d :%bucket_hover_entries%"
+grim-history-detail-group-hover-entry: "<newline>&8  %offset% &d%check%%description%%verbose%"
 grim-history-hover-description: " — &f%description%"
 grim-history-detail-group-hover-verbose: " — &7%verbose%"
 # Ligne de violation brute (--detailed) — placeholders valides :
 #   %prefix% %offset% %check% %description% %vl% %verbose%
-grim-history-detail-entry: "%prefix% &7- &f%check% &8(&b%offset%&8)&7 %verbose%"
-grim-history-detail-entry-hover: "&b%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
+grim-history-detail-entry: "%prefix% &7- &f%check% &8(&d%offset%&8)&7 %verbose%"
+grim-history-detail-entry-hover: "&d%check%%description%<newline>&8@ %offset% — vl %vl%%verbose%"
 grim-history-detail-entry-hover-verbose: "<newline>&7%verbose%"
 # Format interne pour chaque check dans %checks_list% — placeholders valides : %check_name% %count%
 grim-history-check-count: "&f%check_name%&7 x&c%count%"

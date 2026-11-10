@@ -44,7 +44,7 @@ public class PunishmentManager implements ConfigReloadable {
 
         alertString = config.getStringElse(
                 "alerts-format",
-                "%prefix% &f%player% &bfailed <hover:show_text:\"&b%check_name%%experimental%\\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+                "%prefix% &f%player% &bfailed <hover:show_text:\"&d%check_name%%experimental%\\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
         );
 
         testMode = config.getBooleanElse("test-mode", false);
@@ -53,7 +53,7 @@ public class PunishmentManager implements ConfigReloadable {
 
         proxyAlertString = config.getStringElse(
                 "alerts-format-proxy",
-                "%prefix% &f[&cproxy&f] &f%player% &bfailed <hover:show_text:\"&b%check_name%%experimental%\\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
+                "%prefix% &f[&cproxy&f] &f%player% &bfailed <hover:show_text:\"&d%check_name%%experimental%\\n&8Description: &f%description%\">&f%check_name%%experimental%</hover> &f(x&c%vl%&f) &7%verbose%"
         );
 
         try {
