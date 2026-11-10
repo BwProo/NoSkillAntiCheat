@@ -245,6 +245,7 @@ public class CheckManager implements BasicReloadable {
                 .put(ac.grim.grimac.checks.impl.combat.TriggerBot.class, new ac.grim.grimac.checks.impl.combat.TriggerBot(player))
                 .put(ac.grim.grimac.checks.impl.combat.KillAuraAim.class, new ac.grim.grimac.checks.impl.combat.KillAuraAim(player))
                 .put(ac.grim.grimac.checks.impl.prediction.FlightContext.class, new ac.grim.grimac.checks.impl.prediction.FlightContext(player))
+                .put(ac.grim.grimac.checks.impl.movement.NoJumpDelay.class, new ac.grim.grimac.checks.impl.movement.NoJumpDelay(player))
                 .put(ac.grim.grimac.checks.impl.inventory.InventoryMove.class, new ac.grim.grimac.checks.impl.inventory.InventoryMove(player))
                 .put(ac.grim.grimac.checks.impl.inventory.InventorySpeed.class, new ac.grim.grimac.checks.impl.inventory.InventorySpeed(player))
                 .put(ac.grim.grimac.checks.impl.inventory.QuickSwap.class, new ac.grim.grimac.checks.impl.inventory.QuickSwap(player))

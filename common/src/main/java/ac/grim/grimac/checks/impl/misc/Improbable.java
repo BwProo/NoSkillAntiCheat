@@ -29,7 +29,7 @@ public class Improbable extends Check {
             CATEGORIES.put(name, Category.COMBAT);
         }
         for (String name : Set.of("Simulation", "GroundSpoof", "NoFall", "Timer", "TimerLimit", "NoSlow",
-                "Phase", "AntiKB", "AntiExplosion", "ElytraA", "ElytraB", "ElytraC", "InventoryMove")) {
+                "Phase", "AntiKB", "AntiExplosion", "ElytraA", "ElytraB", "ElytraC", "InventoryMove", "NoJumpDelay")) {
             CATEGORIES.put(name, Category.MOVEMENT);
         }
         for (String name : Set.of("RotationPlace", "FarPlace", "PositionPlace", "AirLiquidPlace", "FabricatedPlace",

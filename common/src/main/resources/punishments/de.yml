@@ -96,6 +96,7 @@ Punishments:
       - "Chat"
       - "Exploit"
       - "Inventory"
+      - "NoJumpDelay"
       - "Xray"
       - "QuickSwap"
     commands:

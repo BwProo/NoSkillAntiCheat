@@ -84,4 +84,6 @@ Changes made in this fork, starting 2026-11-10:
   #mine and Nukers.
 - Separate Velocity add-on (`velocity/`): hides the proxy software (F3 brand
   without " (Velocity)", server-list version without the software name).
+- Experimental NoJumpDelay check (jumps closer than 10 ticks while jump is
+  held); BadPacketsN is shown as "NoRotate / ignored teleport".
 - CI workflow runs on the `main` branch.

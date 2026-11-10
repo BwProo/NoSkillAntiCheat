@@ -29,6 +29,8 @@ public final class CheckNames {
         put("NegativeTimer", "Blink (timer)");
         put("VehicleTimer", "Timer (vehicle)");
         put("NoSlow", "NoSlow");
+        put("NoJumpDelay", "NoJumpDelay");
+        put("BadPacketsN", "NoRotate / ignored teleport");
         put("AntiKB", "Velocity (anti-knockback)");
         put("AntiExplosion", "Velocity (explosion)");
         put("Reach", "Reach");
