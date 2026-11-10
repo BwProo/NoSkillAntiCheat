@@ -171,14 +171,38 @@ h1 em{background:linear-gradient(var(--lilac),var(--lilac)) 0 88%/0 .32em no-rep
 .steps li.in::before{animation:pop .5s .2s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
 .cat li{transition:color .15s}.cat li:hover{color:var(--violet)}
+/* rhythm: dark bands */
+section.night{background:var(--console);color:#ece9f5;border-top:0;padding:110px 0;position:relative;overflow:hidden}
+section.night::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse at 70% 50%,#000 30%,transparent 75%);pointer-events:none}
+section.night h2{color:#fff}
+section.night .sub{color:#a7a1bb}
+section.night .wrap{position:relative}
+.night .stage{box-shadow:0 0 0 1px #2c2838,0 40px 80px -30px rgba(109,40,217,.55)}
+.night + section{border-top:0}
+.ban-wrap{grid-template-columns:.7fr 1.3fr!important}
+.ban-cmd{display:inline-block;margin-top:6px;font:600 .86rem/1 var(--mono);color:#c4b5fd;background:#221e2e;border:1px solid #2c2838;border-radius:8px;padding:10px 12px}
+section.end{background:var(--ink);color:#fff;text-align:center;padding:120px 0 110px;border-top:0}
+section.end h2{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-stretch:118%;margin:22px 0 14px}
+section.end p{color:#a7a1bb;max-width:34em;margin:0 auto 34px}
+section.end .ctas{justify-content:center}
+section.end .platforms{color:#6f6984}
+.end-mark{width:64px;height:64px;margin:0 auto;animation:float 5s ease-in-out infinite}
+.end-mark svg{width:100%;height:100%}
+@keyframes float{50%{transform:translateY(-8px)}}
+.btn.ghost{background:transparent;color:#fff;border-color:#3a3548}
+.btn.ghost:hover{border-color:#fff;color:#fff}
+footer.site{border-top:0}
+/* hero: fewer line breaks */
+.hero .wrap{grid-template-columns:1.2fr .8fr!important}
+h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
 /* motion */
 .rise{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .rise.in{opacity:1;transform:none}
 .hero .rise:nth-child(2){transition-delay:.08s}.hero .rise:nth-child(3){transition-delay:.16s}.hero .rise:nth-child(4){transition-delay:.24s}.hero .rise:nth-child(5){transition-delay:.32s}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise{opacity:1;transform:none}.d-act{stroke-dashoffset:0}.d-off,.d-offlbl,.d-chip{opacity:1}h1 em{background-size:100% .32em}}
 /* responsive */
-@media (max-width:980px){.how-wrap{grid-template-columns:1fr}.nav .dl{display:none}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.ban-wrap{grid-template-columns:1fr}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
-@media (max-width:560px){.wrap{padding:0 16px}.hero{padding:48px 0 60px}section{padding:60px 0}.cats,.steps{grid-template-columns:1fr}.cat{border-right:0}.feed{height:260px;font-size:.78rem}}
+@media (max-width:980px){.how-wrap{grid-template-columns:1fr}.nav .dl{display:none}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.ban-wrap{grid-template-columns:1fr!important}.hero .wrap{grid-template-columns:1fr!important}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
+@media (max-width:560px){section.night{padding:70px 0}section.end{padding:80px 0}.wrap{padding:0 16px}.hero{padding:48px 0 60px}section{padding:60px 0}.cats,.steps{grid-template-columns:1fr}.cat{border-right:0}.feed{height:260px;font-size:.78rem}}
 </style>
 </head>
 <body>
@@ -215,10 +239,11 @@ h1 em{background:linear-gradient(var(--lilac),var(--lilac)) 0 88%/0 .32em no-rep
   <p class="limit rise">Was kein Anticheat sieht: ESP, Tracers, Fullbright, Freecam und andere reine Anzeige-Cheats senden nichts an den Server. Gegen Xray hilft der eingebaute Anti-Xray, der Erze verschleiert.</p>
 </div></section>
 
-<section id="ban"><div class="wrap ban-wrap">
+<section id="ban" class="night"><div class="wrap ban-wrap">
   <div>
     <h2 class="rise">So sieht ein Ban aus</h2>
-    <p class="sub rise">Bei einem Ban spielt NSAC eine drei Sekunden lange Animation um den Cheater: Spirale, Blitz, Titel. Alle in der Nähe sehen es, an der Welt ändert sich nichts. Vorschau ingame mit /nsac animation &lt;spieler&gt;.</p>
+    <p class="sub rise">Bei einem Ban spielt NSAC eine drei Sekunden lange Animation um den Cheater: Spirale, Blitz, Titel. Alle in der Nähe sehen es, an der Welt ändert sich nichts. Ingame als Vorschau:</p>
+    <code class="ban-cmd rise">/nsac animation &lt;spieler&gt;</code>
   </div>
   <figure class="stage rise"><canvas id="ban-stage" width="640" height="360" role="img" aria-label="Animierte Vorschau der Ban-Animation im Spiel"
     data-sub="Cheat erkannt" data-chat="wurde gebannt: Hacked client"></canvas></figure>
@@ -258,6 +283,17 @@ h1 em{background:linear-gradient(var(--lilac),var(--lilac)) 0 88%/0 .32em no-rep
 <section id="faq"><div class="wrap">
   <h2 class="rise">Häufige Fragen</h2>
   <div class="rise" style="margin-top:20px"><details><summary>Ist es wirklich kostenlos?</summary><p>Ja. NoSkillAntiCheat steht unter der GPL-3.0, ohne bezahlte Funktionen und ohne Telemetrie.</p></details><details><summary>Werden Spieler mit hohem Ping geflaggt?</summary><p>Die Simulation gleicht den Ping aus. Neue Checks melden zuerst nur und bestrafen erst, wenn du sie freigibst.</p></details><details><summary>Erkennt es Meteor?</summary><p>Ja, beim Beitritt über die Schild-Probe, solange Meteor sie nicht blockiert. Alles Weitere fällt über das Verhalten auf.</p></details><details><summary>Funktioniert es mit TotemGuard?</summary><p>Ja. AutoTotem übernimmt das optionale Plugin <a href="https://github.com/Bram1903/TotemGuard">TotemGuard</a>. NoSkillAntiCheat bringt PacketEvents umbenannt mit, es gibt keine Konflikte.</p></details><details><summary>Woher kommt der Code?</summary><p>Es ist ein Fork von <a href="https://github.com/GrimAnticheat/Grim">GrimAC</a> (GPL-3.0). Alle Änderungen stehen in der <a href="https://github.com/BwProo/NoSkillAntiCheat/blob/main/NOTICE.md">NOTICE.md</a>.</p></details></div>
+</div></section>
+
+<section class="end"><div class="wrap">
+  <div class="end-mark rise"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 8 14v16c0 15 10 26 24 30 14-4 24-15 24-30V14z" fill="#6d28d9"/><path d="M22 33l7 7 14-15" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <h2 class="rise">Cheater raus. Kostenlos.</h2>
+  <p class="rise">Ein Jar für Paper, Folia, Purpur und Spigot, eins für Velocity. Keine Lizenz, kein Account, keine Cloud.</p>
+  <div class="ctas rise">
+    <a class="btn primary" href="https://github.com/BwProo/NoSkillAntiCheat/releases/latest/download/NoSkillAntiCheat.jar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M3 14h10" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Plugin herunterladen</a>
+    <a class="btn ghost" href="https://github.com/BwProo/NoSkillAntiCheat/releases/latest/download/NoSkillAntiCheat-Velocity.jar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m0 0L4.5 7.5M8 11l3.5-3.5M3 14h10" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Velocity-Add-on</a>
+  </div>
+  <div class="platforms rise">Paper · Folia · Purpur · Spigot · Velocity 4.x · Java 25</div>
 </div></section>
 
 <footer class="site"><div class="wrap">

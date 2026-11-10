@@ -58,7 +58,7 @@ TEXT = {
         "cats": {"movement": "Bewegung", "combat": "Kampf", "client": "Client", "world": "Welt", "inventory": "Inventar"},
         "limit": "Was kein Anticheat sieht: ESP, Tracers, Fullbright, Freecam und andere reine Anzeige-Cheats senden nichts an den Server. Gegen Xray hilft der eingebaute Anti-Xray, der Erze verschleiert.",
         "ban_h": "So sieht ein Ban aus",
-        "ban_sub": "Bei einem Ban spielt NSAC eine drei Sekunden lange Animation um den Cheater: Spirale, Blitz, Titel. Alle in der Nähe sehen es, an der Welt ändert sich nichts. Vorschau ingame mit /nsac animation <spieler>.",
+        "ban_sub": "Bei einem Ban spielt NSAC eine drei Sekunden lange Animation um den Cheater: Spirale, Blitz, Titel. Alle in der Nähe sehen es, an der Welt ändert sich nichts. Ingame als Vorschau:",
         "ban_subtitle": "Cheat erkannt",
         "ban_chat": "wurde gebannt: Hacked client",
         "ban_label": "Animierte Vorschau der Ban-Animation im Spiel",
@@ -99,6 +99,8 @@ TEXT = {
             ("Funktioniert es mit TotemGuard?", f'Ja. AutoTotem übernimmt das optionale Plugin <a href="https://github.com/Bram1903/TotemGuard">TotemGuard</a>. NoSkillAntiCheat bringt PacketEvents umbenannt mit, es gibt keine Konflikte.'),
             ("Woher kommt der Code?", f'Es ist ein Fork von <a href="https://github.com/GrimAnticheat/Grim">GrimAC</a> (GPL-3.0). Alle Änderungen stehen in der <a href="{REPO}/blob/main/NOTICE.md">NOTICE.md</a>.'),
         ],
+        "end_h": "Cheater raus. Kostenlos.",
+        "end_sub": "Ein Jar für Paper, Folia, Purpur und Spigot, eins für Velocity. Keine Lizenz, kein Account, keine Cloud.",
         "foot_left": "NoSkillAntiCheat · basiert auf GrimAC · GPL-3.0",
         "foot_links": [("GitHub", REPO), ("Releases", REPO + "/releases"), ("Fehler melden", REPO + "/issues")],
         "claude": "Komplett mit Claude (KI von Anthropic) gebaut, auf Basis des Open-Source-Codes von GrimAC.",
@@ -122,7 +124,7 @@ TEXT = {
         "cats": {"movement": "Movement", "combat": "Combat", "client": "Client", "world": "World", "inventory": "Inventory"},
         "limit": "What no anticheat can see: ESP, Tracers, Fullbright, Freecam and other visual-only cheats send nothing to the server. Against Xray, the built-in anti-xray hides ores from clients.",
         "ban_h": "What a ban looks like",
-        "ban_sub": "When NSAC bans, it plays a three-second animation around the cheater: helix, lightning, title. Everyone nearby sees it; nothing in the world changes. Preview it in game with /nsac animation <player>.",
+        "ban_sub": "When NSAC bans, it plays a three-second animation around the cheater: helix, lightning, title. Everyone nearby sees it; nothing in the world changes. Preview it in game:",
         "ban_subtitle": "Cheat detected",
         "ban_chat": "was banned: Hacked client",
         "ban_label": "Animated preview of the in-game ban animation",
@@ -163,6 +165,8 @@ TEXT = {
             ("Does it work with TotemGuard?", 'Yes. AutoTotem is left to the optional <a href="https://github.com/Bram1903/TotemGuard">TotemGuard</a> plugin. NoSkillAntiCheat ships a relocated PacketEvents, so there are no conflicts.'),
             ("Where does the code come from?", f'It is a fork of <a href="https://github.com/GrimAnticheat/Grim">GrimAC</a> (GPL-3.0). All changes are listed in <a href="{REPO}/blob/main/NOTICE.md">NOTICE.md</a>.'),
         ],
+        "end_h": "Cheaters out. For free.",
+        "end_sub": "One jar for Paper, Folia, Purpur and Spigot, one for Velocity. No licence, no account, no cloud.",
         "foot_left": "NoSkillAntiCheat · based on GrimAC · GPL-3.0",
         "foot_links": [("GitHub", REPO), ("Releases", REPO + "/releases"), ("Report a bug", REPO + "/issues")],
         "claude": "Fully built with Claude (AI by Anthropic), on top of GrimAC's open-source code.",
@@ -308,14 +312,38 @@ h1 em{background:linear-gradient(var(--lilac),var(--lilac)) 0 88%/0 .32em no-rep
 .steps li.in::before{animation:pop .5s .2s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
 .cat li{transition:color .15s}.cat li:hover{color:var(--violet)}
+/* rhythm: dark bands */
+section.night{background:var(--console);color:#ece9f5;border-top:0;padding:110px 0;position:relative;overflow:hidden}
+section.night::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse at 70% 50%,#000 30%,transparent 75%);pointer-events:none}
+section.night h2{color:#fff}
+section.night .sub{color:#a7a1bb}
+section.night .wrap{position:relative}
+.night .stage{box-shadow:0 0 0 1px #2c2838,0 40px 80px -30px rgba(109,40,217,.55)}
+.night + section{border-top:0}
+.ban-wrap{grid-template-columns:.7fr 1.3fr!important}
+.ban-cmd{display:inline-block;margin-top:6px;font:600 .86rem/1 var(--mono);color:#c4b5fd;background:#221e2e;border:1px solid #2c2838;border-radius:8px;padding:10px 12px}
+section.end{background:var(--ink);color:#fff;text-align:center;padding:120px 0 110px;border-top:0}
+section.end h2{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-stretch:118%;margin:22px 0 14px}
+section.end p{color:#a7a1bb;max-width:34em;margin:0 auto 34px}
+section.end .ctas{justify-content:center}
+section.end .platforms{color:#6f6984}
+.end-mark{width:64px;height:64px;margin:0 auto;animation:float 5s ease-in-out infinite}
+.end-mark svg{width:100%;height:100%}
+@keyframes float{50%{transform:translateY(-8px)}}
+.btn.ghost{background:transparent;color:#fff;border-color:#3a3548}
+.btn.ghost:hover{border-color:#fff;color:#fff}
+footer.site{border-top:0}
+/* hero: fewer line breaks */
+.hero .wrap{grid-template-columns:1.2fr .8fr!important}
+h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
 /* motion */
 .rise{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .rise.in{opacity:1;transform:none}
 .hero .rise:nth-child(2){transition-delay:.08s}.hero .rise:nth-child(3){transition-delay:.16s}.hero .rise:nth-child(4){transition-delay:.24s}.hero .rise:nth-child(5){transition-delay:.32s}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise{opacity:1;transform:none}.d-act{stroke-dashoffset:0}.d-off,.d-offlbl,.d-chip{opacity:1}h1 em{background-size:100% .32em}}
 /* responsive */
-@media (max-width:980px){.how-wrap{grid-template-columns:1fr}.nav .dl{display:none}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.ban-wrap{grid-template-columns:1fr}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
-@media (max-width:560px){.wrap{padding:0 16px}.hero{padding:48px 0 60px}section{padding:60px 0}.cats,.steps{grid-template-columns:1fr}.cat{border-right:0}.feed{height:260px;font-size:.78rem}}
+@media (max-width:980px){.how-wrap{grid-template-columns:1fr}.nav .dl{display:none}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.cat{border-bottom:1px solid var(--line)}.steps{grid-template-columns:1fr 1fr}.ban-wrap{grid-template-columns:1fr!important}.hero .wrap{grid-template-columns:1fr!important}.how{grid-template-columns:1fr}.nav ul{display:none}.lang{margin-left:auto}}
+@media (max-width:560px){section.night{padding:70px 0}section.end{padding:80px 0}.wrap{padding:0 16px}.hero{padding:48px 0 60px}section{padding:60px 0}.cats,.steps{grid-template-columns:1fr}.cat{border-right:0}.feed{height:260px;font-size:.78rem}}
 """
 
 JS = """
@@ -508,10 +536,11 @@ def page(t: dict) -> str:
   <p class="limit rise">{esc(t['limit'])}</p>
 </div></section>
 
-<section id="ban"><div class="wrap ban-wrap">
+<section id="ban" class="night"><div class="wrap ban-wrap">
   <div>
     <h2 class="rise">{esc(t['ban_h'])}</h2>
     <p class="sub rise">{esc(t['ban_sub'])}</p>
+    <code class="ban-cmd rise">/nsac animation {'&lt;spieler&gt;' if t['lang'] == 'de' else '&lt;player&gt;'}</code>
   </div>
   <figure class="stage rise"><canvas id="ban-stage" width="640" height="360" role="img" aria-label="{esc(t['ban_label'])}"
     data-sub="{esc(t['ban_subtitle'])}" data-chat="{esc(t['ban_chat'])}"></canvas></figure>
@@ -536,6 +565,17 @@ def page(t: dict) -> str:
 <section id="faq"><div class="wrap">
   <h2 class="rise">{esc(t['faq_h'])}</h2>
   <div class="rise" style="margin-top:20px">{faq}</div>
+</div></section>
+
+<section class="end"><div class="wrap">
+  <div class="end-mark rise">{SHIELD}</div>
+  <h2 class="rise">{esc(t['end_h'])}</h2>
+  <p class="rise">{esc(t['end_sub'])}</p>
+  <div class="ctas rise">
+    <a class="btn primary" href="{DL}NoSkillAntiCheat.jar">{DOWN}{esc(t['cta_plugin'])}</a>
+    <a class="btn ghost" href="{DL}NoSkillAntiCheat-Velocity.jar">{DOWN}{esc(t['cta_proxy'])}</a>
+  </div>
+  <div class="platforms rise">{esc(t['platforms'])}</div>
 </div></section>
 
 <footer class="site"><div class="wrap">
