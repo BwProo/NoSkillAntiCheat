@@ -7,6 +7,10 @@ Free, lightweight anticheat for Paper, Folia, Spigot and Purpur, based on
 Build: `./gradlew build --no-daemon --configuration-cache` (JDK 25 or newer).
 The plugin jar is written to `bukkit/build/libs/`.
 
+Licenses: GPL-3.0 (see [LICENSE](LICENSE)); bundled libraries are listed in
+[THIRD-PARTY-LICENSES.md](THIRD-PARTY-LICENSES.md).
+Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.
+
 The original GrimAC README follows below.
 
 ---

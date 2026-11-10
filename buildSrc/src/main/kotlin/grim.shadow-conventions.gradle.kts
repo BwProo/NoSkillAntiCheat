@@ -36,6 +36,10 @@ tasks.named<ShadowJar>("shadowJar") {
         relocate("com.zaxxer", "ac.grim.grimac.shaded.zaxxer") // Database history
     }
     mergeServiceFiles()
+    // NoSkillAntiCheat: ship the GPL text and the third-party license list inside the jar
+    from(rootProject.file("LICENSE")) { into("META-INF/noskillanticheat") }
+    from(rootProject.file("THIRD-PARTY-LICENSES.md")) { into("META-INF/noskillanticheat") }
+    from(rootProject.file("NOTICE.md")) { into("META-INF/noskillanticheat") }
 }
 
 tasks.named("assemble") {

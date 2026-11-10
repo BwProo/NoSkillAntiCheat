@@ -236,7 +236,7 @@ h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
   </div>
   <div class="console rise" aria-label="Alerts in staff chat">
     <header><i></i><i></i><i></i><span>Alerts in staff chat</span></header>
-    <ul class="feed" data-lines="[[&quot;Steve&quot;, &quot;Flight&quot;, 3, false], [&quot;x_Nova&quot;, &quot;Reach&quot;, 1, false], [&quot;Steve&quot;, &quot;Flight&quot;, 7, false], [&quot;CrystalKid&quot;, &quot;CrystalAura/FastCrystal&quot;, 2, true], [&quot;mxrv&quot;, &quot;KillAura (aim lock)&quot;, 1, true], [&quot;Builder42&quot;, &quot;Scaffold (rotation)&quot;, 4, false], [&quot;mxrv&quot;, &quot;AutoClicker (too consistent)&quot;, 2, true], [&quot;Digger&quot;, &quot;Nuker/Baritone (no swing)&quot;, 12, false], [&quot;Kai&quot;, &quot;Velocity (anti-knockback)&quot;, 5, false], [&quot;Lumi&quot;, &quot;Hacked client&quot;, 1, false], [&quot;Digger&quot;, &quot;Xray (mining pattern)&quot;, 1, true], [&quot;Kai&quot;, &quot;Timer (game speed)&quot;, 3, false], [&quot;x_Nova&quot;, &quot;TriggerBot&quot;, 1, true]]" aria-live="off"></ul>
+    <ul class="feed" data-lines="[[&quot;Nexo&quot;, &quot;Flight&quot;, 3, false], [&quot;x_Nova&quot;, &quot;Reach&quot;, 1, false], [&quot;Nexo&quot;, &quot;Flight&quot;, 7, false], [&quot;CrystalKid&quot;, &quot;CrystalAura/FastCrystal&quot;, 2, true], [&quot;mxrv&quot;, &quot;KillAura (aim lock)&quot;, 1, true], [&quot;Builder42&quot;, &quot;Scaffold (rotation)&quot;, 4, false], [&quot;mxrv&quot;, &quot;AutoClicker (too consistent)&quot;, 2, true], [&quot;Digger&quot;, &quot;Nuker/Baritone (no swing)&quot;, 12, false], [&quot;Kai&quot;, &quot;Velocity (anti-knockback)&quot;, 5, false], [&quot;Lumi&quot;, &quot;Hacked client&quot;, 1, false], [&quot;Digger&quot;, &quot;Xray (mining pattern)&quot;, 1, true], [&quot;Kai&quot;, &quot;Timer (game speed)&quot;, 3, false], [&quot;x_Nova&quot;, &quot;TriggerBot&quot;, 1, true]]" aria-live="off"></ul>
     <footer>* experimental check – alerts, but only punishes once you enable it</footer>
   </div>
 </div></header>
@@ -272,7 +272,7 @@ h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
   <line class="d-off" x1="340" y1="92" x2="340" y2="220" stroke-dasharray="4 4"/>
   <text class="d-offlbl" x="348" y="160">offset</text>
   <g class="d-chip"><rect x="250" y="16" width="230" height="30" rx="7"/>
-    <text x="262" y="36"><tspan fill="#a78bfa">NSAC</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#ffffff">Steve</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#f1a7c4">Flight</tspan><tspan fill="#8f89a6"> (x1)</tspan></text></g>
+    <text x="262" y="36"><tspan fill="#a78bfa">NSAC</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#ffffff">Nexo</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#f1a7c4">Flight</tspan><tspan fill="#8f89a6"> (x1)</tspan></text></g>
 </svg>
 <figcaption>A fly cheat: physics says fall, the player stays up. The offset is measured and named.</figcaption>
 </figure><div class="how"><div class="rise"><h3>Simulation</h3><p>Every movement is recalculated with real Minecraft physics, including latency compensation. Flying or running too fast gets you set back.</p></div><div class="rise"><h3>Heuristics</h3><p>Combat, clicks, inventory and mining are checked statistically: too regular, too fast or impossibly precise stands out.</p></div><div class="rise"><h3>Local AI</h3><p>Train your own model from recorded sessions. It scores combat behaviour inside the plugin and never sends data anywhere.</p></div></div></div>
@@ -309,6 +309,7 @@ h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
   <span>NoSkillAntiCheat · based on GrimAC · GPL-3.0</span>
   <span><a href="https://github.com/BwProo/NoSkillAntiCheat">GitHub</a> · <a href="https://github.com/BwProo/NoSkillAntiCheat/releases">Releases</a> · <a href="https://github.com/BwProo/NoSkillAntiCheat/issues">Report a bug</a> · <a href="../" hreflang="de">Deutsch</a></span>
   <span class="claude">Fully built with Claude (AI by Anthropic), on top of GrimAC's open-source code.</span>
+  <span class="claude">Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</span>
 </div></footer>
 <script>
 (function(){
@@ -357,7 +358,7 @@ h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
         g.font='500 18px "IBM Plex Sans", system-ui, sans-serif';g.fillStyle='#b8b2cc';g.fillText(sub,CX,124);g.globalAlpha=1;}
       if(t>3200&&t<5600){var ca=Math.min(1,(t-3200)/250)*(t>5200?Math.max(0,1-(t-5200)/400):1);g.globalAlpha=ca;g.fillStyle='rgba(0,0,0,.45)';g.fillRect(14,322,W-28,26);
         g.textAlign='left';g.font='600 14px "JetBrains Mono", monospace';g.fillStyle='#a78bfa';g.fillText('NSAC',24,340);g.fillStyle='#6f6984';g.fillText('»',70,340);
-        g.fillStyle='#ffffff';g.fillText('Steve',88,340);g.fillStyle='#f1a7c4';g.fillText(chat,142,340);g.globalAlpha=1;}
+        g.fillStyle='#ffffff';g.fillText('Player',88,340);g.fillStyle='#f1a7c4';g.fillText(chat,150,340);g.globalAlpha=1;}
     }
     function loop(ms){if(!running)return;if(t0===null)t0=ms;draw(ms-t0);requestAnimationFrame(loop);}
     if(reduce){draw(3400);}

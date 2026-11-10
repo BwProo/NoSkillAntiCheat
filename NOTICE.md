@@ -97,3 +97,7 @@ Changes made in this fork, starting 2026-11-10:
 - Alerts, verbose and brand messages re-check the permission on every message.
 - `tools/ai/botfights.py` + `tools/ai/bots/arena.js`: labelled mineflayer bot fights on a
   local offline test server to bootstrap AI training data.
+- PacketEvents metrics (bStats) are switched off in the plugin and the Velocity add-on.
+- `THIRD-PARTY-LICENSES.md` lists the bundled libraries; it, `LICENSE` and this file ship in
+  the jars under `META-INF/noskillanticheat/`.
+- `tools/ai/sparring.py` + `tools/ai/bots/sparring.js`: local sparring arena with bots.

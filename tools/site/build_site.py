@@ -20,7 +20,7 @@ VERIFY = "jn2XHEruDXjeotBXhscfzFm8PJfJhptaRFJvevp9qVM"
 
 # Alert lines for the hero console: (player, check, count, experimental)
 FEED = [
-    ("Steve", "Flight", 3, False), ("x_Nova", "Reach", 1, False), ("Steve", "Flight", 7, False),
+    ("Nexo", "Flight", 3, False), ("x_Nova", "Reach", 1, False), ("Nexo", "Flight", 7, False),
     ("CrystalKid", "CrystalAura/FastCrystal", 2, True), ("mxrv", "KillAura (aim lock)", 1, True),
     ("Builder42", "Scaffold (rotation)", 4, False), ("mxrv", "AutoClicker (too consistent)", 2, True),
     ("Digger", "Nuker/Baritone (no swing)", 12, False), ("Kai", "Velocity (anti-knockback)", 5, False),
@@ -103,6 +103,7 @@ TEXT = {
         "end_sub": "Ein Jar für Paper, Folia, Purpur und Spigot, eins für Velocity. Keine Lizenz, kein Account, keine Cloud.",
         "foot_left": "NoSkillAntiCheat · basiert auf GrimAC · GPL-3.0",
         "foot_links": [("GitHub", REPO), ("Releases", REPO + "/releases"), ("Fehler melden", REPO + "/issues")],
+        "mojang": "Kein offizielles Minecraft-Produkt. Nicht von Mojang oder Microsoft genehmigt oder mit ihnen verbunden.",
         "claude": "Komplett mit Claude (KI von Anthropic) gebaut, auf Basis des Open-Source-Codes von GrimAC.",
         "currency": "EUR",
     },
@@ -169,6 +170,7 @@ TEXT = {
         "end_sub": "One jar for Paper, Folia, Purpur and Spigot, one for Velocity. No licence, no account, no cloud.",
         "foot_left": "NoSkillAntiCheat · based on GrimAC · GPL-3.0",
         "foot_links": [("GitHub", REPO), ("Releases", REPO + "/releases"), ("Report a bug", REPO + "/issues")],
+        "mojang": "Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.",
         "claude": "Fully built with Claude (AI by Anthropic), on top of GrimAC's open-source code.",
         "currency": "USD",
     },
@@ -393,7 +395,7 @@ JS = """
         g.font='500 18px "IBM Plex Sans", system-ui, sans-serif';g.fillStyle='#b8b2cc';g.fillText(sub,CX,124);g.globalAlpha=1;}
       if(t>3200&&t<5600){var ca=Math.min(1,(t-3200)/250)*(t>5200?Math.max(0,1-(t-5200)/400):1);g.globalAlpha=ca;g.fillStyle='rgba(0,0,0,.45)';g.fillRect(14,322,W-28,26);
         g.textAlign='left';g.font='600 14px "JetBrains Mono", monospace';g.fillStyle='#a78bfa';g.fillText('NSAC',24,340);g.fillStyle='#6f6984';g.fillText('»',70,340);
-        g.fillStyle='#ffffff';g.fillText('Steve',88,340);g.fillStyle='#f1a7c4';g.fillText(chat,142,340);g.globalAlpha=1;}
+        g.fillStyle='#ffffff';g.fillText('Player',88,340);g.fillStyle='#f1a7c4';g.fillText(chat,150,340);g.globalAlpha=1;}
     }
     function loop(ms){if(!running)return;if(t0===null)t0=ms;draw(ms-t0);requestAnimationFrame(loop);}
     if(reduce){draw(3400);}
@@ -433,7 +435,7 @@ def diagram(t: dict) -> str:
   <line class="d-off" x1="340" y1="92" x2="340" y2="220" stroke-dasharray="4 4"/>
   <text class="d-offlbl" x="348" y="160">{esc(d['offset'])}</text>
   <g class="d-chip"><rect x="250" y="16" width="230" height="30" rx="7"/>
-    <text x="262" y="36"><tspan fill="#a78bfa">NSAC</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#ffffff">Steve</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#f1a7c4">Flight</tspan><tspan fill="#8f89a6"> (x1)</tspan></text></g>
+    <text x="262" y="36"><tspan fill="#a78bfa">NSAC</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#ffffff">Nexo</tspan><tspan fill="#6f6984"> » </tspan><tspan fill="#f1a7c4">Flight</tspan><tspan fill="#8f89a6"> (x1)</tspan></text></g>
 </svg>
 <figcaption>{esc(d['caption'])}</figcaption>
 </figure>"""
@@ -592,6 +594,7 @@ if(want!==cur)location.replace((want==="de"?"{SITE}":"{SITE}en/")+location.hash)
   <span>{esc(t['foot_left'])}</span>
   <span>{foot} · <a href="{other_rel}" hreflang="{'en' if t['lang']=='de' else 'de'}">{t['other_label']}</a></span>
   <span class="claude">{esc(t['claude'])}</span>
+  <span class="claude">{esc(t['mojang'])}</span>
 </div></footer>
 <script>{JS}</script>
 </body>

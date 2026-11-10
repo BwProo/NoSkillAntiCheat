@@ -31,6 +31,7 @@ public class PacketEventsInit implements LoadableInitable {
                 .kickOnPacketException(true)
                 .preViaInjection(true)
                 .checkForUpdates(false)
+                .bStats(false) // NoSkillAntiCheat: no metrics
                 .reEncodeByDefault(false)
                 .debug(false);
         PacketEvents.getAPI().load();

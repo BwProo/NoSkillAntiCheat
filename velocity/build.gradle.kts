@@ -30,6 +30,8 @@ tasks.shadowJar {
     relocate("com.github.retrooper.packetevents", "net.noskillanticheat.velocity.shaded.packetevents")
     relocate("io.github.retrooper.packetevents", "net.noskillanticheat.velocity.shaded.packetevents-impl")
     mergeServiceFiles()
+    from(rootProject.file("LICENSE")) { into("META-INF/noskillanticheat") }
+    from(rootProject.file("THIRD-PARTY-LICENSES.md")) { into("META-INF/noskillanticheat") }
 }
 
 tasks.build {

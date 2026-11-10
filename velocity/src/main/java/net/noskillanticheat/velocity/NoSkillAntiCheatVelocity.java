@@ -49,7 +49,7 @@ public final class NoSkillAntiCheatVelocity {
         loadConfig();
         PluginContainer container = server.getPluginManager().fromInstance(this).orElseThrow();
         PacketEvents.setAPI(VelocityPacketEventsBuilder.build(server, container, logger, dataDirectory));
-        PacketEvents.getAPI().getSettings().checkForUpdates(false);
+        PacketEvents.getAPI().getSettings().checkForUpdates(false).bStats(false); // no update checks, no metrics
         PacketEvents.getAPI().load();
         PacketEvents.getAPI().getEventManager().registerListener(new BrandListener(() -> enabled ? brand : null));
         PacketEvents.getAPI().init();
