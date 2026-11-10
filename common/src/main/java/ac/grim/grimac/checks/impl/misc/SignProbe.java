@@ -101,6 +101,9 @@ public final class SignProbe extends GrimProcessor implements PacketReceiveListe
             player.user.sendPacket(new WrapperPlayServerBlockChange(position, sign.getGlobalId()));
             player.user.sendPacket(new WrapperPlayServerBlockEntityData(position, BlockEntityTypes.SIGN, signNbt()));
             player.user.sendPacket(new WrapperPlayServerOpenSignEditor(position, true));
+            // Close right behind the open: the client handles both before it renders a frame, so the
+            // editor never becomes visible, and closing it still sends the (translated) text back.
+            player.user.sendPacket(new WrapperPlayServerCloseWindow(0));
             sent = true;
         } catch (RuntimeException e) {
             done = true;

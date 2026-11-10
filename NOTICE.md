@@ -68,4 +68,7 @@ Changes made in this fork, starting 2026-11-10:
 - Sign translation probe (detects clients that know mod translation keys,
   default: Meteor) feeding BlacklistedClient; alerts name Simulation flags
   Flight or Speed and GroundSpoof-in-air NoFall.
+- Experimental InventoryMove (movement keys or camera turns while clicking
+  in an inventory) and InventorySpeed (clicks in too many consecutive ticks)
+  checks; the sign probe closes the editor in the same batch it opens it.
 - CI workflow runs on the `main` branch.
