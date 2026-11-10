@@ -348,6 +348,7 @@ h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
 
 JS = """
 (function(){
+  document.querySelectorAll('a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('nsac-lang',a.getAttribute('hreflang'))}catch(e){}})});
   var nav=document.querySelector('.nav');
   addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -497,6 +498,15 @@ def page(t: dict) -> str:
 <link rel="manifest" href="{SITE}site.webmanifest">
 <script type="application/ld+json">{site_ld}</script>
 <script type="application/ld+json">{ld}</script>
+<script>
+/* Language: first visit follows the browser language; a click on the language switch is remembered. Crawlers are never redirected. */
+(function(){{try{{var cur="{t['lang']}",ua=navigator.userAgent||"";
+if(navigator.webdriver||/bot|crawl|spider|slurp|google|bing|yandex|duckduck|lighthouse|preview/i.test(ua))return;
+var pref=null;try{{pref=localStorage.getItem("nsac-lang")}}catch(e){{}}
+var l=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();
+var want=pref||(l.indexOf("de")===0?"de":"en");
+if(want!==cur)location.replace((want==="de"?"{SITE}":"{SITE}en/")+location.hash);}}catch(e){{}}}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">

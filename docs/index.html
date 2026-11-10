@@ -30,6 +30,15 @@
 <link rel="manifest" href="https://bwproo.github.io/NoSkillAntiCheat/site.webmanifest">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "NoSkillAntiCheat", "alternateName": ["NSAC", "NoSkillAntiCheat Minecraft Anticheat"], "url": "https://bwproo.github.io/NoSkillAntiCheat/", "inLanguage": "de"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "NoSkillAntiCheat", "applicationCategory": "GameApplication", "operatingSystem": "Paper, Folia, Purpur, Spigot (Minecraft 26.x), Velocity 4.x", "description": "Kostenloses, leichtes Anticheat für Paper, Folia, Spigot und Purpur 26.x – mit Bewegungs-Simulation, Kampf-Checks, lokaler KI und Meteor-Erkennung.", "url": "https://bwproo.github.io/NoSkillAntiCheat/", "downloadUrl": "https://github.com/BwProo/NoSkillAntiCheat/releases/latest/download/NoSkillAntiCheat.jar", "codeRepository": "https://github.com/BwProo/NoSkillAntiCheat", "image": "https://bwproo.github.io/NoSkillAntiCheat/icon-512.png", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+<script>
+/* Language: first visit follows the browser language; a click on the language switch is remembered. Crawlers are never redirected. */
+(function(){try{var cur="de",ua=navigator.userAgent||"";
+if(navigator.webdriver||/bot|crawl|spider|slurp|google|bing|yandex|duckduck|lighthouse|preview/i.test(ua))return;
+var pref=null;try{pref=localStorage.getItem("nsac-lang")}catch(e){}
+var l=((navigator.languages&&navigator.languages[0])||navigator.language||"en").toLowerCase();
+var want=pref||(l.indexOf("de")===0?"de":"en");
+if(want!==cur)location.replace((want==="de"?"https://bwproo.github.io/NoSkillAntiCheat/":"https://bwproo.github.io/NoSkillAntiCheat/en/")+location.hash);}catch(e){}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -303,6 +312,7 @@ h1{font-size:clamp(2.4rem,4.6vw,4rem)!important}
 </div></footer>
 <script>
 (function(){
+  document.querySelectorAll('a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('nsac-lang',a.getAttribute('hreflang'))}catch(e){}})});
   var nav=document.querySelector('.nav');
   addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
