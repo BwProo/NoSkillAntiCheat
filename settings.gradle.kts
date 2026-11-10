@@ -61,5 +61,6 @@ if (gradle.startParameter.isBuildScan) {
 rootProject.name = "noskillanticheat"
 include("common")
 include("bukkit")
+include("velocity")
 
 if (file("workspace.gradle.kts").exists()) apply(from = "workspace.gradle.kts")

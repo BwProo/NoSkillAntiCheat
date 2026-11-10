@@ -127,6 +127,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
       <div class="card"><div class="ico">🛰️</div><h3>Meteor-Erkennung</h3><p>Erkennt Meteor beim Beitritt über die Schild-Übersetzungs-Probe, auch wenn der Client seinen Namen versteckt.</p></div>
       <div class="card"><div class="ico">🧠</div><h3>Lokale KI</h3><p>Sitzungen aufnehmen, Modell auf dem eigenen PC trainieren, im Plugin bewerten. Kostenlos und ohne Cloud.</p></div>
       <div class="card"><div class="ico">🙈</div><h3>Plugin-Schutz</h3><p>Blockt /pl, /plugins, /version, /help und versteckt Plugins aus der Tab-Vervollständigung. Server-Typ wird als „vanilla“ angezeigt.</p></div>
+      <div class="card"><div class="ico">🛡️</div><h3>Velocity-Proxy</h3><p>Optionales Add-on nur für den Proxy: Im F3-Menü steht „vanilla“ statt „… (Velocity)“, und die Serverliste zeigt keine Software. Wird nicht auf die Backend-Server verteilt.</p></div>
       <div class="card"><div class="ico">⛏️</div><h3>Anti-Xray</h3><p>Schaltet den eingebauten Anti-Xray von Paper, Purpur und Folia auf Wunsch automatisch ein.</p></div>
       <div class="card"><div class="ico">🪶</div><h3>Lightweight</h3><p>Checks laufen auf dem Netty-Thread, nichts blockiert Main- oder Region-Threads. Folia wird voll unterstützt.</p></div>
       <div class="card"><div class="ico">💬</div><h3>Klare Alarme</h3><p>Kompakte lila Meldungen mit Cheat-Namen, Hover-Details, Klick zum Zuschauen und Spam-Drosselung.</p></div>
@@ -174,6 +175,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
       <div class="step"><p><strong>Jar herunterladen</strong> – auf der <a href="https://github.com/BwProo/NoSkillAntiCheat/releases/latest">Release-Seite</a> die Datei <code>noskillanticheat-bukkit-….jar</code> laden.</p></div>
       <div class="step"><p><strong>In den Plugin-Ordner legen</strong> – nach <code>plugins/</code> deines Paper-, Folia-, Purpur- oder Spigot-Servers (Minecraft 26.x, Java 25).</p></div>
       <div class="step"><p><strong>Server starten</strong> – die Config wird erzeugt. Für den Anti-Xray den Server einmal neu starten.</p></div>
+      <div class="step"><p><strong>Mit Velocity?</strong> – zusätzlich <code>noskillanticheat-velocity-….jar</code> nur in den <code>plugins/</code>-Ordner des Proxys legen (Velocity 4.x, Java 25).</p></div>
       <div class="step"><p><strong>Testen und messen</strong> – mit <code>/nsac session start legit-pvp</code> Fehlalarme messen, erst danach <code>experimental-checks: true</code> setzen.</p></div>
     </div>
     <p class="note">Bereits vergebene <code>grim.*</code>-Rechte heißen hier <code>nsac.*</code>. ViaVersion und ViaBackwards werden unterstützt.</p>

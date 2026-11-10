@@ -38,5 +38,6 @@ jobs:
                   TAG: ${{ github.ref_name }}
               run: |
                   JAR=$(ls bukkit/build/libs/noskillanticheat-bukkit-*.jar | grep -v -e sources -e javadoc | head -1)
-                  echo "Uploading $JAR"
-                  gh release create "$TAG" "$JAR" --repo "$GITHUB_REPOSITORY" --title "NoSkillAntiCheat $TAG" --generate-notes
+                  PROXY=$(ls velocity/build/libs/noskillanticheat-velocity-*.jar | head -1)
+                  echo "Uploading $JAR and $PROXY"
+                  gh release create "$TAG" "$JAR" "$PROXY" --repo "$GITHUB_REPOSITORY" --title "NoSkillAntiCheat $TAG" --generate-notes

@@ -127,6 +127,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
       <div class="card"><div class="ico">🛰️</div><h3>Meteor detection</h3><p>Detects Meteor on join with the sign translation probe, even when the client hides its name.</p></div>
       <div class="card"><div class="ico">🧠</div><h3>Local AI</h3><p>Record sessions, train a model on your own PC, score players in the plugin. Free and without a cloud.</p></div>
       <div class="card"><div class="ico">🙈</div><h3>Plugin hiding</h3><p>Blocks /pl, /plugins, /version, /help and hides plugins from tab completion. The server type shows as "vanilla".</p></div>
+      <div class="card"><div class="ico">🛡️</div><h3>Velocity proxy</h3><p>Optional add-on for the proxy only: F3 shows "vanilla" instead of "… (Velocity)" and the server list shows no software. It is not pushed to backend servers.</p></div>
       <div class="card"><div class="ico">⛏️</div><h3>Anti-xray</h3><p>Optionally turns on the built-in anti-xray of Paper, Purpur and Folia automatically.</p></div>
       <div class="card"><div class="ico">🪶</div><h3>Lightweight</h3><p>Checks run on the netty thread, nothing blocks the main or region threads. Folia is fully supported.</p></div>
       <div class="card"><div class="ico">💬</div><h3>Clear alerts</h3><p>Compact purple alerts with cheat names, hover details, click to spectate and spam throttling.</p></div>
@@ -174,6 +175,7 @@ footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
       <div class="step"><p><strong>Download the jar</strong> – get <code>noskillanticheat-bukkit-….jar</code> from the <a href="https://github.com/BwProo/NoSkillAntiCheat/releases/latest">release page</a>.</p></div>
       <div class="step"><p><strong>Put it into the plugins folder</strong> – <code>plugins/</code> of your Paper, Folia, Purpur or Spigot server (Minecraft 26.x, Java 25).</p></div>
       <div class="step"><p><strong>Start the server</strong> – the config is created. Restart once to activate the anti-xray.</p></div>
+      <div class="step"><p><strong>Using Velocity?</strong> – also put <code>noskillanticheat-velocity-….jar</code> into the proxy's <code>plugins/</code> folder only (Velocity 4.x, Java 25).</p></div>
       <div class="step"><p><strong>Test and measure</strong> – measure false positives with <code>/nsac session start legit-pvp</code>, then set <code>experimental-checks: true</code>.</p></div>
     </div>
     <p class="note">Existing <code>grim.*</code> permissions are called <code>nsac.*</code> here. ViaVersion and ViaBackwards are supported.</p>
