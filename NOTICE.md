@@ -87,3 +87,5 @@ Changes made in this fork, starting 2026-11-10:
 - Experimental NoJumpDelay check (jumps closer than 10 ticks while jump is
   held); BadPacketsN is shown as "NoRotate / ignored teleport".
 - CI workflow runs on the `main` branch.
+- Experimental BedTiming (BedAura), BowSpam (BowSpam/Quiver), FastUse
+  (ExpThrower/AutoMend) and AutoSign checks.

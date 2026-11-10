@@ -49,6 +49,12 @@ public final class SignProbe extends GrimProcessor implements PacketReceiveListe
         super(player);
     }
 
+    /** True for the client-only sign NSAC uses for its translation probe. */
+    public boolean isProbeSign(Vector3i pos) {
+        Vector3i own = position;
+        return own != null && own.equals(pos) && !done;
+    }
+
     private static ConfigManager config() {
         return GrimAPI.INSTANCE.getConfigManager().getConfig();
     }

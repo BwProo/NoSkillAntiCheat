@@ -32,11 +32,11 @@ CATEGORIES = {
     "movement": ["Flight", "Speed", "Step", "Spider", "WaterWalk / Jesus", "NoFall", "NoSlow", "Strafe",
                  "Timer", "Blink", "Phase", "NoJumpDelay", "ElytraFly", "BoatFly"],
     "combat": ["KillAura", "Reach", "Hitboxes", "AimAssist", "TriggerBot", "AutoClicker", "Velocity",
-               "CrystalAura", "AnchorAura", "AutoBlock", "ShieldBreaker / MaceSwap"],
+               "CrystalAura", "AnchorAura", "BedAura", "BowSpam / Quiver", "AutoBlock", "ShieldBreaker / MaceSwap"],
     "client": ["Meteor (sign probe)", "Brand and mod channels", "Plugin list hidden", "Server type hidden"],
     "world": ["Scaffold", "Tower / FastPlace", "Nuker", "FastBreak", "Baritone #mine", "Xray (mining pattern)",
-              "Paper anti-xray"],
-    "inventory": ["InvMove", "ChestStealer", "AutoArmor", "Inventory macros", "NoRotate"],
+              "Paper anti-xray", "AutoSign"],
+    "inventory": ["InvMove", "ChestStealer", "AutoArmor", "Inventory macros", "FastUse / ExpThrower", "NoRotate"],
 }
 
 TEXT = {

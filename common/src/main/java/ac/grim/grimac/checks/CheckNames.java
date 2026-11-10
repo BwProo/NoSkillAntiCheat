@@ -52,6 +52,10 @@ public final class CheckNames {
         put("AutoClickerC", "AutoClicker (pattern)");
         put("CrystalTiming", "CrystalAura/FastCrystal");
         put("AnchorTiming", "AnchorAura");
+        put("BedTiming", "BedAura");
+        put("BowSpam", "BowSpam/Quiver");
+        put("FastUse", "FastUse/ExpThrower");
+        put("AutoSign", "AutoSign");
         put("AICombat", "AI: combat cheat");
         put("Improbable", "Multiple cheats (Improbable)");
         put("BlacklistedClient", "Hacked client");

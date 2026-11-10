@@ -103,6 +103,8 @@ Punishments:
       - "NoJumpDelay"
       - "Xray"
       - "QuickSwap"
+      - "FastUse"
+      - "AutoSign"
     commands:
       - "10:5 [alert]"
       - "1:1 [log]"
@@ -117,6 +119,8 @@ Punishments:
       - "Crystal"
       - "TriggerBot"
       - "Anchor"
+      - "BedTiming"
+      - "BowSpam"
       - "AICombat"
     commands:
       - "20:40 [alert]"
