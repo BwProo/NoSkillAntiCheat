@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 import threading
@@ -21,6 +22,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+JOIN = re.compile(r"\b(\w{3,16}) joined the game")
 GEAR = ["iron_sword", "iron_helmet", "iron_chestplate", "iron_leggings", "iron_boots"]
 
 
@@ -43,8 +45,9 @@ def main() -> None:
         for line in proc.stdout:
             sys.stdout.write(line); sys.stdout.flush()
             if "Done (" in line: done.set()
-            if " joined the game" in line:
-                joined.add(line.split("]: ", 1)[-1].split(" joined")[0].strip())
+            m = JOIN.search(line)
+            if m:
+                joined.add(m.group(1))
     threading.Thread(target=pump, daemon=True).start()
 
     def cmd(c: str) -> None:
