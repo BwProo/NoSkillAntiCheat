@@ -1,5 +1,7 @@
 package ac.grim.grimac.command.commands;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.api.AbstractCheck;
 import ac.grim.grimac.api.storage.backend.Backend;
@@ -56,13 +58,13 @@ import java.util.regex.PatternSyntaxException;
 
 /**
  * <pre>
- *   /grim history &lt;target&gt;                                 → list, page 1
- *   /grim history &lt;target&gt; page &lt;P&gt;                          → list, page P
- *   /grim history &lt;target&gt; session                          → help menu
- *   /grim history &lt;target&gt; session &lt;N|latest&gt; [-d] [-v]     → detail
- *   /grim history &lt;target&gt; session &lt;N|latest&gt; page &lt;P&gt; [-d] [-v]
- *   /grim history player &lt;target&gt; ...                       → disambiguated form
- *   /grim history repair check-ids                           → in-place repair
+ *   /nsac history &lt;target&gt;                                 → list, page 1
+ *   /nsac history &lt;target&gt; page &lt;P&gt;                          → list, page P
+ *   /nsac history &lt;target&gt; session                          → help menu
+ *   /nsac history &lt;target&gt; session &lt;N|latest&gt; [-d] [-v]     → detail
+ *   /nsac history &lt;target&gt; session &lt;N|latest&gt; page &lt;P&gt; [-d] [-v]
+ *   /nsac history player &lt;target&gt; ...                       → disambiguated form
+ *   /nsac history repair check-ids                           → in-place repair
  * </pre>
  * {@code latest} / {@code last} / {@code l} alias the most-recent session.
  * Flags: {@code -d} raw rows, {@code -v} inline verbose, {@code --name} /
@@ -84,7 +86,7 @@ public class GrimHistory implements BuildableCommand {
         SuggestionProvider<Sender> targetSuggestions = targetSuggestions(arguments);
 
         commandManager.command(
-                commandManager.commandBuilder("grim", "grimac")
+                commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("history", "hist")
                         .literal("repair")
                         .literal("check-ids")
@@ -113,7 +115,7 @@ public class GrimHistory implements BuildableCommand {
             SuggestionProvider<Sender> violationPageSuggestions) {
         // Fresh builder per branch — reusing one cross-pollinates siblings.
         java.util.function.Supplier<Command.Builder<Sender>> base = () -> {
-            Command.Builder<Sender> b = commandManager.commandBuilder("grim", "grimac")
+            Command.Builder<Sender> b = commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                     .literal("history", "hist")
                     .permission("grim.history");
             if (withPlayerLiteral) b = b.literal("player");
@@ -247,7 +249,7 @@ public class GrimHistory implements BuildableCommand {
         });
     }
 
-    /** Prints usage for {@code /grim history <target> session} without an ordinal. */
+    /** Prints usage for {@code /nsac history <target> session} without an ordinal. */
     private void handleSessionHelp(CommandContext<Sender> ctx, boolean viaPlayer) {
         Sender sender = ctx.sender();
         String target = ctx.get("target");
@@ -255,7 +257,7 @@ public class GrimHistory implements BuildableCommand {
         // dispatch on the same branch — a target that needed the 'player'
         // escape hatch (e.g. someone named 'repair') would route through
         // the wrong literal if the help printed the bare form.
-        String addressPrefix = "/grim history " + (viaPlayer ? "player " : "");
+        String addressPrefix = "/nsac history " + (viaPlayer ? "player " : "");
         sender.sendMessage(Component.text()
                 .append(Component.text(addressPrefix, NamedTextColor.GRAY))
                 .append(Component.text(target, NamedTextColor.WHITE))
@@ -531,7 +533,7 @@ public class GrimHistory implements BuildableCommand {
             runOnGlobalThread(() -> reportRepairComplete(sender, prewarmed, plan, result));
         } catch (Exception e) {
             runOnGlobalThread(() -> logBoth(sender, Component.text("Repair failed: " + e.getMessage(), NamedTextColor.RED)));
-            LogUtil.error("v1 check-id repair failed via /grim history repair check-ids", e);
+            LogUtil.error("v1 check-id repair failed via /nsac history repair check-ids", e);
         } finally {
             REPAIR_RUNNING.set(false);
         }

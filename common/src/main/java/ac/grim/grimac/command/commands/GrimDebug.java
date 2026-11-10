@@ -1,5 +1,7 @@
 package ac.grim.grimac.command.commands;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.command.BuildableCommand;
 import ac.grim.grimac.platform.api.command.PlayerSelector;
@@ -21,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 public class GrimDebug implements BuildableCommand {
 
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
-        Command.Builder<Sender> grimCommand = commandManager.commandBuilder("grim", "grimac");
+        Command.Builder<Sender> grimCommand = commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES);
 
         // Register "debug" subcommand
         Command.Builder<Sender> debugCommand = grimCommand

@@ -1,5 +1,7 @@
 package ac.grim.grimac.command.commands;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.command.BuildableCommand;
 import ac.grim.grimac.platform.api.manager.cloud.CloudPlatformCommandArguments;
@@ -15,7 +17,7 @@ public class GrimTestWebhook implements BuildableCommand {
     @Override
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
         commandManager.command(
-                commandManager.commandBuilder("grim", "grimac")
+                commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("testwebhook")
                         .permission("grim.testwebhook")
                         .handler(this::handleTestWebhook)

@@ -8,6 +8,7 @@ import ac.grim.grimac.api.storage.verbose.Verbose;
 import ac.grim.grimac.api.storage.verbose.VerboseBuf;
 import ac.grim.grimac.api.storage.verbose.VerboseRenderContext;
 import ac.grim.grimac.internal.storage.verbose.VerboseRegistry;
+import ac.grim.grimac.manager.stats.FlagStats;
 import ac.grim.grimac.player.GrimPlayer;
 import lombok.Getter;
 import lombok.Setter;
@@ -129,8 +130,12 @@ public class Check extends GrimProcessor implements AbstractCheck {
     }
 
     private boolean recordFlag(@NotNull Supplier<String> verbose) {
-        if (player.disableGrim || (experimental && !player.isExperimentalChecks()) || exemptPermission)
+        if (player.disableGrim || exemptPermission)
             return false; // Avoid calling event if disabled
+        if (experimental && !player.isExperimentalChecks()) {
+            FlagStats.shadow(this); // NoSkillAntiCheat: count what an inactive experimental check would flag
+            return false;
+        }
 
         if (FLAG_CHANNEL.fire(player, this, verbose)) return false;
 
@@ -138,6 +143,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
         player.punishmentManager.handleViolation(this);
         lastViolationTime = System.currentTimeMillis();
         violations++;
+        FlagStats.flag(this);
         return true;
     }
 
@@ -145,8 +151,12 @@ public class Check extends GrimProcessor implements AbstractCheck {
         Supplier<String> rendered = verbose.rendered();
         byte[] verboseData = verbose.data();
 
-        if (player.disableGrim || (experimental && !player.isExperimentalChecks()) || exemptPermission)
+        if (player.disableGrim || exemptPermission)
             return false; // Avoid calling event if disabled
+        if (experimental && !player.isExperimentalChecks()) {
+            FlagStats.shadow(this); // NoSkillAntiCheat: count what an inactive experimental check would flag
+            return false;
+        }
 
         if (FLAG_CHANNEL.fire(player, this, rendered)) return false;
 
@@ -154,6 +164,7 @@ public class Check extends GrimProcessor implements AbstractCheck {
         player.punishmentManager.handleViolation(this);
         lastViolationTime = System.currentTimeMillis();
         violations++;
+        FlagStats.flag(this);
         GrimAPI.INSTANCE.getDataStoreLifecycle().liveWriteHooks()
                 .recordFlagDataFromCheck(player, this, violations, verboseData);
         return true;
@@ -234,7 +245,9 @@ public class Check extends GrimProcessor implements AbstractCheck {
 
     public boolean setbackIfAboveSetbackVL() {
         if (shouldSetback()) {
-            return player.getSetbackTeleportUtil().executeViolationSetback();
+            boolean setback = player.getSetbackTeleportUtil().executeViolationSetback();
+            if (setback) FlagStats.setback(this);
+            return setback;
         }
         return false;
     }
@@ -244,7 +257,9 @@ public class Check extends GrimProcessor implements AbstractCheck {
     }
 
     public boolean executeViolationSetback() {
-        return !noSetbackPermission && player.getSetbackTeleportUtil().executeViolationSetback();
+        boolean setback = !noSetbackPermission && player.getSetbackTeleportUtil().executeViolationSetback();
+        if (setback) FlagStats.setback(this);
+        return setback;
     }
 
     public String formatOffset(double offset) {

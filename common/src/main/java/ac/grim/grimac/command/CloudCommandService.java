@@ -1,5 +1,7 @@
 package ac.grim.grimac.command;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.command.commands.*;
 import ac.grim.grimac.command.handler.GrimCommandFailureHandler;
 import ac.grim.grimac.platform.api.command.CommandService;
@@ -61,6 +63,7 @@ public class CloudCommandService implements CommandService {
         new GrimBrands().register(commandManager, commandArguments);
         new GrimList().register(commandManager, commandArguments);
         new GrimTestWebhook().register(commandManager, commandArguments);
+        new GrimStats().register(commandManager, commandArguments);
 
         final RequirementPostprocessor<Sender, SenderRequirement>
                 senderRequirementPostprocessor = RequirementPostprocessor.of(
@@ -77,10 +80,10 @@ public class CloudCommandService implements CommandService {
             Sender sender = context.context().sender();
             if (isHistoryInput(context.context().rawInput().input())) {
                 sender.sendMessage(Component.text("Invalid history syntax.", NamedTextColor.RED));
-                sender.sendMessage(Component.text("Use: /grim history <player> [page <N>]", NamedTextColor.GRAY));
-                sender.sendMessage(Component.text("Use: /grim history <player> session <N|latest> [page <N>] [-d] [-v]", NamedTextColor.GRAY));
-                sender.sendMessage(Component.text("Tip: /grim history <player> session shows filter and detail options.", NamedTextColor.GRAY));
-                sender.sendMessage(Component.text("Use /grim history player <player> ... for names that collide with history subcommands.", NamedTextColor.GRAY));
+                sender.sendMessage(Component.text("Use: /nsac history <player> [page <N>]", NamedTextColor.GRAY));
+                sender.sendMessage(Component.text("Use: /nsac history <player> session <N|latest> [page <N>] [-d] [-v]", NamedTextColor.GRAY));
+                sender.sendMessage(Component.text("Tip: /nsac history <player> session shows filter and detail options.", NamedTextColor.GRAY));
+                sender.sendMessage(Component.text("Use /nsac history player <player> ... for names that collide with history subcommands.", NamedTextColor.GRAY));
                 return;
             }
             sender.sendMessage(Component.text(context.exception().correctSyntax(), NamedTextColor.RED));
@@ -92,7 +95,7 @@ public class CloudCommandService implements CommandService {
         if (input.startsWith("/")) input = input.substring(1).strip();
         String[] tokens = input.toLowerCase(Locale.ROOT).split("\\s+");
         return tokens.length >= 2
-                && (tokens[0].equals("grim") || tokens[0].equals("grimac"))
+                && (tokens[0].equals(Constants.COMMAND_ROOT) || java.util.Arrays.asList(Constants.COMMAND_ALIASES).contains(tokens[0]))
                 && (tokens[1].equals("history") || tokens[1].equals("hist"));
     }
 

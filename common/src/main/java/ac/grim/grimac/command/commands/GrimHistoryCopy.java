@@ -1,5 +1,7 @@
 package ac.grim.grimac.command.commands;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.api.storage.backend.Backend;
 import ac.grim.grimac.api.storage.backend.BackendException;
@@ -19,7 +21,7 @@ import org.incendo.cloud.parser.standard.StringParser;
 import java.util.Map;
 
 /**
- * {@code /grim history copy <src-backend-id> <dst-backend-id> [--delete]} —
+ * {@code /nsac history copy <src-backend-id> <dst-backend-id> [--delete]} —
  * cross-backend copy of sessions + violations + player identities via
  * {@link BackendToBackendCopier}. The {@code --delete} flag wipes the source
  * after the copy completes.
@@ -41,7 +43,7 @@ public class GrimHistoryCopy implements BuildableCommand {
     @Override
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
         commandManager.command(
-                commandManager.commandBuilder("grim", "grimac")
+                commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("history")
                         .literal("copy")
                         .permission("grim.history.copy")
@@ -115,7 +117,7 @@ public class GrimHistoryCopy implements BuildableCommand {
             }
         } catch (BackendException e) {
             logBoth(sender, Component.text("Copy failed: " + e.getMessage(), NamedTextColor.RED));
-            LogUtil.error("v1 copy failed via /grim history copy", e);
+            LogUtil.error("v1 copy failed via /nsac history copy", e);
         }
     }
 

@@ -19,7 +19,6 @@ verbose:
     # Mostra dettagli su console?
     print-to-console: false
 
-check-for-updates: true
 
 client-brand:
     # Ignora i seguenti client nella trasmissione del marchio agli operatori
@@ -185,7 +184,7 @@ debug-pipeline-on-join: false
 experimental-checks: false
 
 # Condivide le sezioni dei chunk identiche tra i giocatori per risparmiare memoria (copia in scrittura).
-# Sperimentale: abilita solo dopo la verifica con /grim chunkmemory sul tuo server.
+# Sperimentale: abilita solo dopo la verifica con /nsac chunkmemory sul tuo server.
 experimental-chunk-sharing: false
 
 reset-item-usage-on-item-update: true

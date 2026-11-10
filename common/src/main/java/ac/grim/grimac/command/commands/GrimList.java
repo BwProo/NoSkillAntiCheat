@@ -1,5 +1,7 @@
 package ac.grim.grimac.command.commands;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.api.GrimIdentity;
 import ac.grim.grimac.command.BuildableCommand;
@@ -30,7 +32,7 @@ public class GrimList implements BuildableCommand {
 
     @Override
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
-        commandManager.command(commandManager.commandBuilder("grim", "grimac")
+        commandManager.command(commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                 .literal("list")
                 .permission("grim.list")
                 .required("list", StringParser.stringParser(), SUGGESTIONS)

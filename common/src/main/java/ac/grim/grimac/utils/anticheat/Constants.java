@@ -4,5 +4,10 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Constants {
-    public static final int BSTATS_PLUGIN_ID = 12820;
+    /** Display name of this fork (NoSkillAntiCheat, based on GrimAC). */
+    public static final String PLUGIN_NAME = "NoSkillAntiCheat";
+    /** Root command, e.g. {@code /nsac alerts}. */
+    public static final String COMMAND_ROOT = "nsac";
+    /** Additional names for the root command. */
+    public static final String[] COMMAND_ALIASES = {"noskillanticheat"};
 }

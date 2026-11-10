@@ -1,5 +1,7 @@
 package ac.grim.grimac.command.commands;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.platform.api.manager.cloud.CloudPlatformCommandArguments;
 import ac.grim.grimac.platform.api.sender.Sender;
 import ac.grim.grimac.predictionengine.MovementCheckRunner;
@@ -13,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 public class GrimPerf {
 
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
-        Command.Builder<Sender> grimCommand = commandManager.commandBuilder("grim", "grimac");
+        Command.Builder<Sender> grimCommand = commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES);
 
         Command.Builder<Sender> configuredBuilder = grimCommand
                 .literal("perf", "performance")

@@ -251,7 +251,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
         if (config.exists()) {
             try {
                 configString = new String(Files.readAllBytes(config.toPath()));
-                configString = configString.replace("      - \"EntityControl\"\n", "      - \"EntityControl\"\n      - \"Baritone\"\n      - \"FastBreak\"\n");
+                configString = configString.replace("      - \"EntityControl\"\n", "      - \"EntityControl\"\n      - \"FastBreak\"\n"); // NoSkillAntiCheat: Baritone check removed
                 Files.write(config.toPath(), configString.getBytes());
             } catch (IOException ignored) {
             }

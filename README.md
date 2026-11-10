@@ -1,3 +1,16 @@
+# NoSkillAntiCheat
+
+Free, lightweight anticheat for Paper, Folia, Spigot and Purpur, based on
+[GrimAC](https://github.com/GrimAnticheat/Grim) (GPL-3.0). See
+[NOTICE.md](NOTICE.md) for attribution and the list of changes.
+
+Build: `./gradlew build --no-daemon --configuration-cache` (JDK 25 or newer).
+The plugin jar is written to `bukkit/build/libs/`.
+
+The original GrimAC README follows below.
+
+---
+
 <div align="center">
  <h1>GrimAC</h1>
 

@@ -1,5 +1,7 @@
 package ac.grim.grimac.command.commands;
 
+import ac.grim.grimac.utils.anticheat.Constants;
+
 import ac.grim.grimac.GrimAPI;
 import ac.grim.grimac.api.storage.backend.BackendException;
 import ac.grim.grimac.command.BuildableCommand;
@@ -26,7 +28,7 @@ import java.sql.Statement;
 import java.util.logging.Logger;
 
 /**
- * {@code /grim history migrate [--delete]} — on-demand v0 → v1 migration outside
+ * {@code /nsac history migrate [--delete]} — on-demand v0 → v1 migration outside
  * the startup path. Detects the legacy source by reading
  * {@code history.database.type / host / port / database / username / password}
  * from {@code config.yml} (the same keys the pre-cutover plugin wrote), builds
@@ -45,7 +47,7 @@ public class GrimHistoryMigrate implements BuildableCommand {
     @Override
     public void register(CommandManager<Sender> commandManager, CloudPlatformCommandArguments arguments) {
         commandManager.command(
-                commandManager.commandBuilder("grim", "grimac")
+                commandManager.commandBuilder(Constants.COMMAND_ROOT, Constants.COMMAND_ALIASES)
                         .literal("history")
                         .literal("migrate")
                         .permission("grim.history.migrate")
@@ -101,7 +103,7 @@ public class GrimHistoryMigrate implements BuildableCommand {
             }
         } catch (BackendException e) {
             logBoth(sender, Component.text("Migration failed: " + e.getMessage(), NamedTextColor.RED));
-            LogUtil.error("Legacy migration failed via /grim history migrate", e);
+            LogUtil.error("Legacy migration failed via /nsac history migrate", e);
         }
     }
 
@@ -112,13 +114,13 @@ public class GrimHistoryMigrate implements BuildableCommand {
                         source.jdbcUrl(), source.username(), source.password());
         // Legacy migration only targets SQLite today — V0Reader understands
         // the old grim_history_* schema and writes through SqliteBackend's
-        // bulk-import path. /grim history copy is the general-purpose
+        // bulk-import path. /nsac history copy is the general-purpose
         // cross-backend hammer once more targets exist.
         SqliteBackend v1 = lifecycle.sqliteBackendForCommands();
         if (v1 == null) {
             throw new BackendException(
                     "no SQLite backend in routing — legacy migration needs SQLite as its target; "
-                            + "switch a category to sqlite in database.yml or use /grim history copy instead");
+                            + "switch a category to sqlite in database.yml or use /nsac history copy instead");
         }
         CheckRegistry registry = lifecycle.checkRegistryForCommands();
         long gapMs = lifecycle.config().session().gapMs();

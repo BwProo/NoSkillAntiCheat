@@ -7,8 +7,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.UUID;
 
 /**
- * Persistence facade for the per-player toggle state behind {@code /grim alerts},
- * {@code /grim verbose}, {@code /grim brands}. Per-online-player cache; the DB
+ * Persistence facade for the per-player toggle state behind {@code /nsac alerts},
+ * {@code /nsac verbose}, {@code /nsac brands}. Per-online-player cache; the DB
  * is the source of truth across restarts.
  *
  * <p>Datastore-disabled or init-failed paths get {@link #NOOP}, which

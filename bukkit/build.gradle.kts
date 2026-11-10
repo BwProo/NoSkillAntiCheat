@@ -133,10 +133,9 @@ dependencies {
 }
 
 bukkit {
-    name = "GrimAC"
-    author = "GrimAC"
+    name = "NoSkillAntiCheat"
+    authors = listOf("NoSkillAntiCheat contributors", "GrimAC contributors")
     main = "ac.grim.grimac.platform.bukkit.GrimACBukkitLoaderPlugin"
-    website = "https://grim.ac/"
     apiVersion = "1.13"
     foliaSupported = true
 
@@ -193,6 +192,11 @@ bukkit {
 
         register("grim.brand.enable-on-join") {
             description = "Enable showing client brands on join"
+            default = Permission.Default.OP
+        }
+
+        register("grim.stats") {
+            description = "View false-positive stats and run measurement sessions"
             default = Permission.Default.OP
         }
 
