@@ -95,6 +95,7 @@ Punishments:
       - "Chat"
       - "Exploit"
       - "Inventory"
+      - "Xray"
       - "QuickSwap"
     commands:
       - "10:5 [alert]"

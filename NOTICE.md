@@ -77,4 +77,6 @@ Changes made in this fork, starting 2026-11-10:
 - Experimental QuickSwap (switch slot, act, switch back: ShieldBreaker,
   MaceSwap, AutoTool, KeybindPearl) check (AutoTotem is left to the optional
   TotemGuard plugin); flight attempts are labelled Flight.
+- Experimental XrayMining check: rare-ore veins found by tunnelling (no cave
+  next to them) per natural underground block mined, over a time window.
 - CI workflow runs on the `main` branch.

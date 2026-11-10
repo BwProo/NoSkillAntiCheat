@@ -33,7 +33,7 @@ public class Improbable extends Check {
             CATEGORIES.put(name, Category.MOVEMENT);
         }
         for (String name : Set.of("RotationPlace", "FarPlace", "PositionPlace", "AirLiquidPlace", "FabricatedPlace",
-                "DuplicateRotPlace", "MultiPlace", "FastBreak", "MultiBreak", "FarBreak", "RotationBreak")) {
+                "DuplicateRotPlace", "MultiPlace", "FastBreak", "MultiBreak", "FarBreak", "RotationBreak", "XrayMining")) {
             CATEGORIES.put(name, Category.BUILD);
         }
     }

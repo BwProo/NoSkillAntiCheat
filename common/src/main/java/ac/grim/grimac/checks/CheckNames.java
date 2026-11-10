@@ -64,6 +64,7 @@ public final class CheckNames {
         put("MultiActionsF", "Block and entity at once");
         put("MultiActionsG", "Action while rowing");
         put("FastBreak", "FastBreak");
+        put("XrayMining", "Xray (mining pattern)");
         put("FarBreak", "Nuker (too far)");
         put("MultiBreak", "Nuker (multiple blocks)");
         put("RotationBreak", "Nuker (not looking)");
