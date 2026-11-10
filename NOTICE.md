@@ -74,4 +74,7 @@ Changes made in this fork, starting 2026-11-10:
 - Readable German alert names for all checks (CheckNames, ID in hover),
   purple theme, MultiActionsC (InvMove) also sets the player back, and
   optional enabling of Paper's built-in anti-xray.
+- Experimental QuickSwap (switch slot, act, switch back: ShieldBreaker,
+  MaceSwap, AutoTool, KeybindPearl) and AutoTotem (offhand refill within
+  2 ticks of a totem pop) checks; flight attempts are labelled Flight.
 - CI workflow runs on the `main` branch.
