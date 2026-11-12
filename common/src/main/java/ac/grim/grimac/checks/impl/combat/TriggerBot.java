@@ -51,7 +51,7 @@ public class TriggerBot extends Check implements PacketReceiveListener {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedPlayer(player, event);
         if (attacked != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
             attackedThisTick = true;
             if (attacked != target) {

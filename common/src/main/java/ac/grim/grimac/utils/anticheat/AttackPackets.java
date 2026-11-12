@@ -28,6 +28,17 @@ public final class AttackPackets {
         return NONE;
     }
 
+    /**
+     * Like {@link #attackedEntity} but only for attacks on players: KillAura-style checks must not
+     * count end crystals, mobs or other entities (crystal PvP has its own checks).
+     */
+    public static int attackedPlayer(@NotNull ac.grim.grimac.player.GrimPlayer player, @NotNull PacketReceiveEvent event) {
+        int id = attackedEntity(event);
+        if (id == NONE) return NONE;
+        var entity = player.compensatedEntities.getEntity(id);
+        return entity != null && entity.getType() == com.github.retrooper.packetevents.protocol.entity.type.EntityTypes.PLAYER ? id : NONE;
+    }
+
     /** True for an INTERACT_ENTITY that is not an attack (right-click on an entity). */
     public static boolean isNonAttackInteract(@NotNull PacketReceiveEvent event) {
         return event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY

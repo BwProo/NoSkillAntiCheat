@@ -111,7 +111,7 @@ public final class SessionRecorder extends GrimProcessor implements PacketReceiv
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         if (file == null) return; // unsynchronized fast path; start/stop re-check under the lock
-        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedPlayer(player, event);
         if (attacked != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
             attack = true;
             target = attacked;

@@ -40,7 +40,7 @@ public class KillAuraSnap extends Check implements PacketReceiveListener {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        int attacked = AttackPackets.attackedEntity(event);
+        int attacked = AttackPackets.attackedPlayer(player, event);
         if (attacked != AttackPackets.NONE) {
             target = attacked;
             attackedThisTick = true;

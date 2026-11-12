@@ -22,7 +22,7 @@ public abstract class CombatAimCheck extends Check implements RotationListener, 
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        if (ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event) != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
+        if (ac.grim.grimac.utils.anticheat.AttackPackets.attackedPlayer(player, event) != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
             ticksSinceAttack = 0;
         } else if (isTickPacket(event.getPacketType()) && ticksSinceAttack != Integer.MAX_VALUE) {
             ticksSinceAttack++;

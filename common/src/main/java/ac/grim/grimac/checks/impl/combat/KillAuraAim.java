@@ -44,7 +44,7 @@ public class KillAuraAim extends Check implements PacketReceiveListener {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedPlayer(player, event);
         if (attacked == ac.grim.grimac.utils.anticheat.AttackPackets.NONE) return;
         PacketEntity entity = player.compensatedEntities.getEntity(attacked);
         if (entity == null || entity.getType() == EntityTypes.END_CRYSTAL || !entity.isLivingEntity) return;

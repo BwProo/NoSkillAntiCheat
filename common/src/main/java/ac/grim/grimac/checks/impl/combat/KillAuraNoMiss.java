@@ -36,7 +36,12 @@ public class KillAuraNoMiss extends Check implements PacketReceiveListener {
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         var type = event.getPacketType();
-        if (AttackPackets.attackedEntity(event) != AttackPackets.NONE) {
+        int attacked = AttackPackets.attackedEntity(event);
+        if (attacked != AttackPackets.NONE) {
+            if (AttackPackets.attackedPlayer(player, event) == AttackPackets.NONE) {
+                excludedThisTick = true; // crystals, mobs: only fights against players count
+                return;
+            }
             attacksThisTick++;
             ticksSinceAttack = 0;
         } else if (isAnimation(type)) {

@@ -47,7 +47,7 @@ public class AICombat extends Check implements PacketReceiveListener {
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         if (CombatModel.current() == null) return; // no model: zero cost beyond this check
-        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedEntity(event);
+        int attacked = ac.grim.grimac.utils.anticheat.AttackPackets.attackedPlayer(player, event);
         if (attacked != ac.grim.grimac.utils.anticheat.AttackPackets.NONE) {
             attackThisTick = true;
             target = attacked;

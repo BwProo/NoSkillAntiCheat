@@ -106,3 +106,5 @@ Changes made in this fork, starting 2026-11-10:
 - Experimental CrystalReaction (ticks from the client seeing an end crystal to hitting it);
   CrystalTiming/AnchorTiming/BedTiming decide on smaller samples; placement, reach, hitbox and
   QuickSwap alerts are named CrystalAura/AnchorAura/BedAura when those items are involved.
+- KillAura-style checks (aim, snap, no-miss, target switch, TriggerBot, AI) and the recorder only
+  count attacks on players, not end crystals or mobs.
