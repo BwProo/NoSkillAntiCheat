@@ -22,7 +22,8 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-JOIN = re.compile(r"\b(\w{3,16}) joined the game")
+ANSI = re.compile(r"\x1b\[[0-9;?]*[A-Za-z]")
+JOIN = re.compile(r"(?:^|[\s:])(\w{3,16}) joined the game")
 GEAR = ["iron_sword", "iron_helmet", "iron_chestplate", "iron_leggings", "iron_boots"]
 
 
@@ -55,7 +56,7 @@ def main() -> None:
         for line in proc.stdout:
             sys.stdout.write(line); sys.stdout.flush()
             if "Done (" in line: done.set()
-            m = JOIN.search(line)
+            m = JOIN.search(ANSI.sub("", line))  # the console may colour names
             if m:
                 joined.add(m.group(1))
     threading.Thread(target=pump, daemon=True).start()

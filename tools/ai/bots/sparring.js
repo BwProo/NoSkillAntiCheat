@@ -41,7 +41,7 @@ function fighter(name) {
     let tick = 0, nextClick = 0;
     bot.on('physicsTick', () => {
       tick++;
-      const t = nearestPlayer(bot, 300);
+      const t = nearestPlayer(bot, 2000);
       for (const c of ['forward', 'sprint', 'back', 'left', 'right', 'jump']) bot.setControlState(c, false);
       if (!t) return;
       const eye = bot.entity.position.offset(0, 1.62, 0);
@@ -70,7 +70,7 @@ function dummy(name) {
   bot.setup = () => {
     let tick = 0;
     bot.on('physicsTick', () => {
-      const p = nearestPlayer(bot, 300);
+      const p = nearestPlayer(bot, 2000);
       if (p && bot.entity.position.distanceTo(p.position) > 10) { // stay close to the player
         bot.lookAt(p.position.offset(0, 1.6, 0), true);
         bot.setControlState('forward', true); bot.setControlState('left', false); bot.setControlState('right', false);
