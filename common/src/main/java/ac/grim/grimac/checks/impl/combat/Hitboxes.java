@@ -9,4 +9,12 @@ public class Hitboxes extends Check {
     public Hitboxes(GrimPlayer player) {
         super(player);
     }
+
+    /** NoSkillAntiCheat: flag, labelled "CrystalAura (hit without looking)" when the entity is an end crystal. */
+    public void flagHit(String verbose, String entityKey) {
+        String aura = ac.grim.grimac.utils.anticheat.AuraItems.forEntity(entityKey);
+        if (aura != null) flagAs(aura + " (hit without looking)");
+        else clearFlagAs();
+        flag(verbose);
+    }
 }

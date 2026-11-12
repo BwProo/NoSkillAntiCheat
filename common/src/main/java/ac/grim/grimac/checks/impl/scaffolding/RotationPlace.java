@@ -43,6 +43,7 @@ public class RotationPlace extends BlockPlaceCheck implements BlockPlaceListener
         if (flagBuffer > 0 && !didRayTraceHit(place)) {
             ignorePost = true;
             // If the player hit and has flagged this check recently
+            labelPlacement(place, "place without looking");
             if (flag(V.write(verbose()).bool(true)) && shouldModifyPackets() && shouldCancel()) {
                 place.resync();  // Deny the block placement.
             }
@@ -69,6 +70,7 @@ public class RotationPlace extends BlockPlaceCheck implements BlockPlaceListener
         if (!hit) {
             flagBuffer = 1;
             if (!ignorePost) { // Don't flag twice
+                labelPlacement(place, "place without looking");
                 flag(V.write(verbose()).bool(false));
             }
         } else {

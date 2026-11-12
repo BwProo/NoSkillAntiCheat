@@ -36,7 +36,7 @@ public class AnchorTiming extends Check implements PacketReceiveListener {
 
     @Override
     public void onReload(@NotNull ConfigManager config) {
-        int size = Math.max(5, Math.min(100, config.getIntElse(getConfigName() + ".sample-size", 10)));
+        int size = Math.max(5, Math.min(100, config.getIntElse(getConfigName() + ".sample-size", 6)));
         if (gaps == null || gaps.length != size) {
             gaps = new int[size];
             count = 0;

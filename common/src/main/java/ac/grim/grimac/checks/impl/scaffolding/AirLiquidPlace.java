@@ -78,6 +78,7 @@ public class AirLiquidPlace extends BlockPlaceCheck implements BlockPlaceListene
         }
 
         if (placeAgainst.isAir() || Materials.isNoPlaceLiquid(placeAgainst)) { // fail
+            labelPlacement(place, "place against air");
             if (flag() && shouldModifyPackets() && shouldCancel()) {
                 place.resync();
             }

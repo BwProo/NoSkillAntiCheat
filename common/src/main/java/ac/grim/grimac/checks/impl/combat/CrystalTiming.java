@@ -38,7 +38,7 @@ public class CrystalTiming extends Check implements PacketReceiveListener {
 
     @Override
     public void onReload(@NotNull ConfigManager config) {
-        int size = Math.max(10, Math.min(200, config.getIntElse(getConfigName() + ".sample-size", 20)));
+        int size = Math.max(10, Math.min(200, config.getIntElse(getConfigName() + ".sample-size", 10)));
         if (delays == null || delays.length != size) {
             delays = new int[size];
             count = 0;

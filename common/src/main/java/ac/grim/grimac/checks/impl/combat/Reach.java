@@ -233,7 +233,11 @@ public class Reach extends Check implements PacketReceiveListener {
             InteractionData interactionData = attack.getValue();
             CheckResult result = checkReach(reachEntity, interactionData.x, interactionData.y, interactionData.z, interactionData.hasAttackRange, interactionData.maxReach, interactionData.hitboxMargin, interactionData.attackRangeMovement, false);
             switch (result.type()) {
-                case REACH -> flag(
+                case REACH -> {
+                    String aura = ac.grim.grimac.utils.anticheat.AuraItems.forEntity(reachEntity.getType().getName().getKey());
+                    if (aura != null) flagAs(aura + " (reach)");
+                    else clearFlagAs();
+                    flag(
                         V.write(verbose()).f64(result.minDistance()).uint(Math.max(0, reachEntity.getType().getId(PacketEvents.getAPI().getServerManager().getVersion().toClientVersion()))),
                         () -> {
                             String added = ", type=" + reachEntity.getType().getName().getKey();
@@ -242,12 +246,13 @@ public class Reach extends Check implements PacketReceiveListener {
                             }
                             return result.verbose() + added;
                         });
+                }
                 case HITBOX -> {
                     String added = "type=" + reachEntity.getType().getName().getKey();
                     if (reachEntity instanceof PacketEntitySizeable sizeable) {
                         added += ", size=" + sizeable.size;
                     }
-                    player.checkManager.get(Hitboxes.class).flag(result.verbose() + added);
+                    player.checkManager.get(Hitboxes.class).flagHit(result.verbose() + added, reachEntity.getType().getName().getKey());
                 }
             }
         }

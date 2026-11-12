@@ -41,6 +41,7 @@ public class FarPlace extends BlockPlaceCheck implements BlockPlaceListener {
         maxReach += Math.hypot(threshold, threshold);
 
         if (min > maxReach * maxReach) { // fail
+            labelPlacement(place, "place too far");
             if (flag() && shouldModifyPackets() && shouldCancel()) {
                 place.resync();
             }

@@ -57,6 +57,7 @@ public class PositionPlace extends BlockPlaceCheck implements BlockPlaceListener
             default -> false;
         };
 
+        if (flag) labelPlacement(place, "impossible place position");
         if (flag && flag() && shouldModifyPackets() && shouldCancel()) {
             place.resync();
         }

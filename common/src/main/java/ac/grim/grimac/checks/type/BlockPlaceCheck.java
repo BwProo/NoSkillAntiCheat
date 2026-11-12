@@ -102,4 +102,18 @@ public class BlockPlaceCheck extends Check {
 
         return combined;
     }
+
+    /** NoSkillAntiCheat: label the next flag "CrystalAura (what)" etc. when the placement belongs to a PvP aura. */
+    protected final void labelPlacement(ac.grim.grimac.utils.anticheat.update.BlockPlace place, String what) {
+        String clicked = null;
+        try {
+            clicked = player.compensatedWorld.getBlock(place.position).getType().getName();
+        } catch (RuntimeException ignored) {
+            // position outside the tracked world
+        }
+        String aura = ac.grim.grimac.utils.anticheat.AuraItems.forUse(
+                place.itemStack.getType().getName().getKey(), clicked == null ? null : clicked.replace("minecraft:", ""));
+        if (aura != null) flagAs(aura + " (" + what + ")");
+        else clearFlagAs();
+    }
 }

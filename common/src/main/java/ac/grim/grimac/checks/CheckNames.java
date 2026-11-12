@@ -52,9 +52,10 @@ public final class CheckNames {
         put("AutoClickerA", "AutoClicker (CPS)");
         put("AutoClickerB", "AutoClicker (too consistent)");
         put("AutoClickerC", "AutoClicker (pattern)");
-        put("CrystalTiming", "CrystalAura/FastCrystal");
-        put("AnchorTiming", "AnchorAura");
-        put("BedTiming", "BedAura");
+        put("CrystalTiming", "CrystalAura (place and break)");
+        put("AnchorTiming", "AnchorAura (place, charge, explode)");
+        put("CrystalReaction", "CrystalAura (instant break)");
+        put("BedTiming", "BedAura (place and explode)");
         put("BowSpam", "BowSpam/Quiver");
         put("FastUse", "FastUse/ExpThrower");
         put("AutoSign", "AutoSign");
