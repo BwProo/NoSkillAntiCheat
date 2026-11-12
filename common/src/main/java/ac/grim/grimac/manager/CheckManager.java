@@ -252,6 +252,8 @@ public class CheckManager implements BasicReloadable {
                 .put(ac.grim.grimac.checks.impl.world.XrayMining.class, new ac.grim.grimac.checks.impl.world.XrayMining(player))
                 .put(ac.grim.grimac.checks.impl.combat.AnchorTiming.class, new ac.grim.grimac.checks.impl.combat.AnchorTiming(player))
                 .put(ac.grim.grimac.checks.impl.combat.BedTiming.class, new ac.grim.grimac.checks.impl.combat.BedTiming(player))
+                .put(ac.grim.grimac.checks.impl.combat.KillAuraSnap.class, new ac.grim.grimac.checks.impl.combat.KillAuraSnap(player))
+                .put(ac.grim.grimac.checks.impl.combat.KillAuraNoMiss.class, new ac.grim.grimac.checks.impl.combat.KillAuraNoMiss(player))
                 .put(ac.grim.grimac.checks.impl.combat.BowSpam.class, new ac.grim.grimac.checks.impl.combat.BowSpam(player))
                 .put(ac.grim.grimac.checks.impl.misc.FastUse.class, new ac.grim.grimac.checks.impl.misc.FastUse(player))
                 .put(ac.grim.grimac.checks.impl.world.AutoSign.class, new ac.grim.grimac.checks.impl.world.AutoSign(player))

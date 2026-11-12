@@ -101,3 +101,5 @@ Changes made in this fork, starting 2026-11-10:
 - `THIRD-PARTY-LICENSES.md` lists the bundled libraries; it, `LICENSE` and this file ship in
   the jars under `META-INF/noskillanticheat/`.
 - `tools/ai/sparring.py` + `tools/ai/bots/sparring.js`: local sparring arena with bots.
+- Experimental KillAuraSnap (turns onto the target only in the tick of the hit) and
+  KillAuraNoMiss (no missed swing over a long fight), measured on a recorded Meteor fight.

@@ -46,6 +46,8 @@ public final class CheckNames {
         put("AimSmooth", "KillAura/Aimbot (smooth rotation)");
         put("KillAuraSwitch", "KillAura (target switch)");
         put("KillAuraAim", "KillAura (aim lock)");
+        put("KillAuraSnap", "KillAura (snap to target)");
+        put("KillAuraNoMiss", "KillAura (never misses)");
         put("TriggerBot", "TriggerBot");
         put("AutoClickerA", "AutoClicker (CPS)");
         put("AutoClickerB", "AutoClicker (too consistent)");
