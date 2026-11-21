@@ -401,6 +401,10 @@ public class CompensatedWorld implements PacketWorld {
                     modX = Math.max(modX, Math.abs(data.direction.getModX() * 0.51D));
                     modY = Math.max(modY, Math.abs(data.direction.getModY() * 0.51D));
                     modZ = Math.max(modZ, Math.abs(data.direction.getModZ() * 0.51D));
+                    // NoSkillAntiCheat: a block pushed sideways under the player is a moving_piston, which we
+                    // treat as air but the client still stands on; allow vertical movement too, or standing
+                    // on a block that pistons move back and forth flags.
+                    if (ac.grim.grimac.utils.math.PistonSupport.isUnderFeet(box.maxY, player.y)) modY = Math.max(modY, 0.51D);
 
                     playerBox.expandMax(modX, modY, modZ);
                     playerBox.expandMin(modX * -1, modY * -1, modZ * -1);

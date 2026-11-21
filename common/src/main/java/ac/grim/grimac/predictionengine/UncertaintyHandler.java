@@ -60,6 +60,7 @@ public class UncertaintyHandler {
     public boolean isSteppingNearShulker = false;
     public boolean isNearGlitchyBlock = false;
     public boolean isOrWasNearGlitchyBlock = false;
+    public boolean isNearSeaPickle = false; // NoSkillAntiCheat
     // Give horizontal lenience if the previous movement was 0.03 because their velocity is unknown
     public boolean lastMovementWasZeroPointZeroThree = false;
     // Give horizontal lenience if the last movement reset velocity because 0.03 becomes unknown then
@@ -298,6 +299,10 @@ public class UncertaintyHandler {
 
         if (player.uncertaintyHandler.isOrWasNearGlitchyBlock) {
             offset -= 0.25;
+        }
+
+        if (player.uncertaintyHandler.isNearSeaPickle) {
+            offset -= 0.01; // NoSkillAntiCheat: see MovementCheckRunner
         }
 
         // This is a section where I hack around current issues with Grim itself...

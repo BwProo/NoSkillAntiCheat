@@ -451,6 +451,9 @@ public class MovementCheckRunner extends GrimProcessor {
                         || block.getType() == StateTypes.CHEST || block.getType() == StateTypes.TRAPPED_CHEST);
 
         player.uncertaintyHandler.isOrWasNearGlitchyBlock = isGlitchy || player.uncertaintyHandler.isNearGlitchyBlock;
+        // NoSkillAntiCheat: tiny horizontal offsets (~0.003) when swimming along sea pickles' small boxes
+        player.uncertaintyHandler.isNearSeaPickle = Collisions.hasMaterial(player, expandedBB.copy().expand(0.2),
+                (block, x, y, z) -> block.getType() == StateTypes.SEA_PICKLE);
         player.uncertaintyHandler.checkForHardCollision();
 
         if (player.isFlying != player.wasFlying)

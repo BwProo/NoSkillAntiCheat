@@ -110,3 +110,5 @@ Changes made in this fork, starting 2026-11-10:
   count attacks on players, not end crystals or mobs.
 - plugin.yml `provides: [GrimAC]`, so integrations that look for GrimAC (for example
   TotemGuard, which tracks setback teleports and transactions through Grim's API) hook NSAC.
+- Piston pushes that move the block under the player also allow vertical movement; a 0.01
+  block tolerance next to sea pickles (swimming along their small boxes flagged Simulation).
