@@ -71,7 +71,7 @@ Simulation:
     # Medido em blocos do último movimento legítmo.
     # Incluímos o Optifine trocando as tabelas trigonométricas; entretanto, abaixar para 0.001 reduzirá o 'FastMath'
     # de falhar, caso essa compensação não funcionar.
-    threshold: 0.001
+    threshold: 0.003
     # O quão longe o jogador deve estar da área simulada para imediatamente recuá-lo?
     # -1 desabilitará
     immediate-setback-threshold: 0.1

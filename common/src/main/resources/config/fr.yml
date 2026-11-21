@@ -70,7 +70,7 @@ Simulation:
     # Mesuré en blocs par rapport au mouvement possible.
     # Nous prenons en compte Optifine en changeant les tables trigonométriques, mais en réduisant cela à 0.001, cela réduira les signalements de l'anticheat
     # sur FastMath si cette compensation ne fonctionne pas...
-    threshold: 0.001
+    threshold: 0.003
     # Quelle est la distance maximale d'une violation par tick avant que le joueur ne soit immédiatement renvoyé en arrière ?
     # -1 pour désactiver
     immediate-setback-threshold: 0.1

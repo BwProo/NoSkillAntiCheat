@@ -114,3 +114,4 @@ Changes made in this fork, starting 2026-11-10:
   block tolerance next to sea pickles (swimming along their small boxes flagged Simulation).
 - With TotemGuard installed, transaction replies (pongs) are not cancelled, so TotemGuard does not
   count them twice (TickB "invalid acknowledgement order").
+- Simulation threshold default 0.003 (was 0.001): tiny rounding offsets from modded clients no longer flag.

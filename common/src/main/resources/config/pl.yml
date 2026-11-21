@@ -70,7 +70,7 @@ Simulation:
     # Mierzone w blokach od możliwego ruchu.
     # Uwzględniamy Optifine, przełączając tablice trygonometryczne, ale zmniejszenie tej wartości do 0.001 zmniejszy
     # liczbę fałszywych alarmów spowodowanych przez FastMath, jeśli ta kompensacja nie zadziała...
-    threshold: 0.001
+    threshold: 0.003
     # Jak duże naruszenie w jednym ticku spowoduje natychmiastowe cofnięcie gracza?
     # -1 aby wyłączyć
     immediate-setback-threshold: 0.1

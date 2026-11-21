@@ -121,7 +121,7 @@ public class OffsetHandler extends Check implements PostPredictionListener {
     @Override
     public void onReload(@NotNull ConfigManager config) {
         setbackDecayMultiplier = config.getDoubleElse("Simulation.setback-decay-multiplier", 0.999);
-        threshold = config.getDoubleElse("Simulation.threshold", 0.001);
+        threshold = config.getDoubleElse("Simulation.threshold", 0.003);
         immediateSetbackThreshold = config.getDoubleElse("Simulation.immediate-setback-threshold", 0.1);
         maxAdvantage = config.getDoubleElse("Simulation.max-advantage", 1);
         maxCeiling = config.getDoubleElse("Simulation.max-ceiling", 4);

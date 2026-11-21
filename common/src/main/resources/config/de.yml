@@ -80,7 +80,7 @@ Simulation:
     # Gemessen in Blöcken von der möglichen Bewegung.
     # Wir berücksichtigen Optifine, indem wir die Triggertabellen wechseln, aber wenn wir dies auf 0,001 senken, wird FastMath reduziert.
     # Markierung des Anticheats, wenn diese Kompensation nicht funktioniert...
-    threshold: 0.001
+    threshold: 0.003
     # Wie groß ist der Verstoß in einem Tick, bevor der Spieler sofort zurückgesetzt wird?
     # -1 zum Deaktivieren
     immediate-setback-threshold: 0.1

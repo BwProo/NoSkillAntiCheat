@@ -67,7 +67,7 @@ Simulation:
     # Riduce gradualmente l'avanzamento totale del giocatore quando è legittimo
     setback-decay-multiplier: 0.999
     # Limite per creare una violazione rispetto al movimento del giocatore
-    threshold: 0.001
+    threshold: 0.003
     # Soglia per arretrare immediatamente il giocatore dopo una violazione significativa
     immediate-setback-threshold: 0.1
     # Massimo vantaggio ammesso prima di arretrare il giocatore

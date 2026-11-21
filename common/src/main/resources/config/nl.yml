@@ -70,7 +70,7 @@ Simulation:
     # Gemeten in blokken van de mogelijke beweging
     # We houden rekening met Optifine door trig-tabellen te verwisselen, maar door dit te verlagen naar 0,001 zal FastMath
     # zal ervoor zorgen dat Grim wordt gemarkeerd als deze compensatie niet werkt...
-    threshold: 0.001
+    threshold: 0.003
     # Hoe groot is de overtreding in een tick voordat de speler onmiddellijk een terugslag krijgt?
     # -1 om uit te schakelen
     immediate-setback-threshold: 0.1
