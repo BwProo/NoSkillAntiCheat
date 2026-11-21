@@ -60,6 +60,26 @@ public class PacketPingListener extends PacketListenerAbstract {
         }
     }
 
+    // NoSkillAntiCheat: TotemGuard counts a pong itself when it sees the packet first and again through
+    // GrimTransactionReceivedEvent when we cancel it, which it flags as TickB ("invalid acknowledgement
+    // order"). With TotemGuard installed we let pongs through: it sees each one exactly once, and it
+    // ignores the event for pongs that were not cancelled. Vanilla ignores pongs anyway.
+    private static volatile Boolean totemGuard;
+
+    private static boolean totemGuardInstalled() {
+        Boolean cached = totemGuard;
+        if (cached == null) {
+            try {
+                cached = GrimAPI.INSTANCE.getPluginManager().isPluginEnabled("TotemGuard");
+            } catch (RuntimeException e) {
+                cached = false;
+            }
+            totemGuard = cached;
+            if (cached) ac.grim.grimac.utils.anticheat.LogUtil.info("TotemGuard detected: not cancelling transaction replies, so it sees each one once.");
+        }
+        return cached;
+    }
+
     private static void onReceiveTransaction(@NotNull GrimPlayer player, @NotNull PacketReceiveEvent event, int id) {
         player.packetStateData.lastTransactionPacketWasValid = false;
 
@@ -69,7 +89,7 @@ public class PacketPingListener extends PacketListenerAbstract {
                 || !player.addTransactionResponse(shortId)) return;
 
         player.packetStateData.lastTransactionPacketWasValid = true;
-        boolean shouldCancel = !GrimAPI.INSTANCE.getConfigManager().isDisablePongCancelling();
+        boolean shouldCancel = !GrimAPI.INSTANCE.getConfigManager().isDisablePongCancelling() && !totemGuardInstalled();
         if (shouldCancel) {
             // Not needed for vanilla as vanilla ignores this packet, needed for packet limiters
             event.setCancelled(true);

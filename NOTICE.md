@@ -112,3 +112,5 @@ Changes made in this fork, starting 2026-11-10:
   TotemGuard, which tracks setback teleports and transactions through Grim's API) hook NSAC.
 - Piston pushes that move the block under the player also allow vertical movement; a 0.01
   block tolerance next to sea pickles (swimming along their small boxes flagged Simulation).
+- With TotemGuard installed, transaction replies (pongs) are not cancelled, so TotemGuard does not
+  count them twice (TickB "invalid acknowledgement order").
