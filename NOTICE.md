@@ -108,3 +108,5 @@ Changes made in this fork, starting 2026-11-10:
   QuickSwap alerts are named CrystalAura/AnchorAura/BedAura when those items are involved.
 - KillAura-style checks (aim, snap, no-miss, target switch, TriggerBot, AI) and the recorder only
   count attacks on players, not end crystals or mobs.
+- plugin.yml `provides: [GrimAC]`, so integrations that look for GrimAC (for example
+  TotemGuard, which tracks setback teleports and transactions through Grim's API) hook NSAC.

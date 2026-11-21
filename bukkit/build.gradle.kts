@@ -134,6 +134,9 @@ dependencies {
 
 bukkit {
     name = "NoSkillAntiCheat"
+    // NoSkillAntiCheat keeps GrimAC's API, so plugins that hook "GrimAC" (TotemGuard tracks our
+    // setback teleports and transactions through it) find and load after us.
+    provides = listOf("GrimAC")
     authors = listOf("NoSkillAntiCheat contributors", "GrimAC contributors")
     main = "ac.grim.grimac.platform.bukkit.GrimACBukkitLoaderPlugin"
     apiVersion = "1.13"
